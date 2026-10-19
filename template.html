@@ -75,6 +75,8 @@ canvas{display:block;width:100%;height:100%}
 .log td,.log th{padding:5px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
 .log th{position:sticky;top:0;background:var(--panel);font-weight:500;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
 .log td.r,.log th.r{text-align:right}
+.log td{vertical-align:top;line-height:1.35}
+.log .lbl{font-size:10.5px;letter-spacing:.02em;text-transform:none}
 .rules{margin:0;padding-left:18px;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:4px}
 .warn{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 .empty{color:var(--muted);font-size:14px}
@@ -129,6 +131,8 @@ canvas{display:block;width:100%;height:100%}
       <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><div class="lbl">Posizioni aperte adesso</div><div class="pos" id="lvPos"></div></div>
       <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><div class="lbl">Operazioni del robot</div><div class="feed" id="lvFeed"></div></div>
     </div>
+    <div class="lbl">Dettaglio di ogni trade</div>
+    <div class="log"><table><thead><tr><th>Materia prima</th><th>Tipo</th><th>Inizio</th><th>Fine</th><th class="r">Investito €</th><th class="r">Durata</th><th class="r">Netto €</th></tr></thead><tbody id="lvLog"></tbody></table></div>
     <p class="sub" style="font-size:13px">Il robot parte con 500 € il primo giorno e ogni sera, dopo la chiusura dei mercati USA, legge i prezzi veri e decide da solo. Nessun soldo reale viene investito.</p>
   </section>
 
@@ -217,8 +221,8 @@ canvas{display:block;width:100%;height:100%}
       <div class="pos" id="pos"><div class="empty">Nessuna posizione aperta.</div></div>
       <h2>Le regole del robot</h2>
       <ul class="rules">
-        <li>Entra <b>long</b> se il prezzo chiude sopra il massimo degli ultimi 20 giorni, <b>short</b> se chiude sotto il minimo.</li>
-        <li>Esce quando il prezzo rompe il minimo (o massimo) degli ultimi 10 giorni.</li>
+        <li>Entra <b>long</b> appena il prezzo supera il massimo degli ultimi 20 giorni, <b>short</b> appena scende sotto il minimo, con un ordine automatico come facevano i Turtles.</li>
+        <li>Esce appena il prezzo rompe il minimo (o massimo) degli ultimi 10 giorni. Se il mercato apre già oltre il livello, esegue all'apertura.</li>
         <li>Stop di protezione a 2N dall'entrata (N = volatilità media a 20 giorni).</li>
         <li>Quantità calcolata per perdere al massimo la % di rischio scelta se scatta lo stop. Esposizione totale massima 3× il capitale, divisa tra le materie prime.</li>
         <li>Costi inclusi: 0,15% di spread e commissioni per ogni entrata e uscita.</li>
@@ -228,7 +232,7 @@ canvas{display:block;width:100%;height:100%}
 
   <section class="panel" aria-labelledby="lt">
     <h2 id="lt">Registro operazioni del backtest</h2>
-    <div class="log"><table><thead><tr><th>Data</th><th>Materia prima</th><th>Azione</th><th class="r">Prezzo</th><th class="r">Risultato €</th></tr></thead><tbody id="logb"><tr><td colspan="5" class="empty">Premi «Riproduci il passato» per vedere cosa avrebbe fatto il robot giorno per giorno.</td></tr></tbody></table></div>
+    <div class="log"><table><thead><tr><th>Materia prima</th><th>Tipo</th><th>Inizio</th><th>Fine</th><th class="r">Investito €</th><th class="r">Durata</th><th class="r">Netto €</th></tr></thead><tbody id="logb"><tr><td colspan="7" class="empty">Premi «Riproduci il passato» per vedere cosa avrebbe fatto il robot giorno per giorno.</td></tr></tbody></table></div>
     <p class="warn"><span id="srcNote">__SOURCE__</span> È una simulazione su dati passati: i risultati storici non garantiscono quelli futuri e il trading con leva può far perdere tutto il capitale. Non è una consulenza finanziaria.</p>
   </section>
 </div>
@@ -243,36 +247,36 @@ const COST = 0.0015, ENTRY = 20, EXIT = 10;
 const CAPX = Math.min(1, 3 / Object.keys(RAW).length); // esposizione totale massima 3x il capitale
 
 /* ---------- indicatori per serie ---------- */
+// RAW[k] = [date, chiusure, nome, unità, massimi?, minimi?, aperture?]; senza OHLC si usa la chiusura
 const S = {};
 for (const k of KEYS) {
-  const [d, p] = RAW[k];
-  const n = p.length, N = new Array(n).fill(null), hi = new Array(n).fill(null), lo = new Array(n).fill(null),
-        hi10 = new Array(n).fill(null), lo10 = new Array(n).fill(null), ma55 = new Array(n).fill(null);
+  const [d, p] = RAW[k], H = RAW[k][4] || p, L = RAW[k][5] || p, O = RAW[k][6] || p;
+  const n = p.length, N = new Array(n).fill(null), ma55 = new Array(n).fill(null);
   let atr = null;
   for (let i = 1; i < n; i++) {
-    const tr = Math.abs(p[i] - p[i-1]);
+    const tr = Math.max(H[i], p[i-1]) - Math.min(L[i], p[i-1]);
     if (i < 20) { atr = (atr ?? 0) + tr / 19; } else { atr = (atr * 19 + tr) / 20; }
     if (i >= 20) N[i] = atr;
   }
-  for (let i = 0; i < n; i++) {
-    if (i >= ENTRY) { let a=-Infinity,b=Infinity; for (let j=i-ENTRY;j<i;j++){a=Math.max(a,p[j]);b=Math.min(b,p[j]);} hi[i]=a; lo[i]=b; }
-    if (i >= EXIT) { let a=-Infinity,b=Infinity; for (let j=i-EXIT;j<i;j++){a=Math.max(a,p[j]);b=Math.min(b,p[j]);} hi10[i]=a; lo10[i]=b; }
-    if (i >= 54) { let s=0; for (let j=i-54;j<=i;j++) s+=p[j]; ma55[i]=s/55; }
-  }
+  for (let i = 54; i < n; i++) { let s=0; for (let j=i-54;j<=i;j++) s+=p[j]; ma55[i]=s/55; }
   const idx = new Map(d.map((x,i)=>[x,i]));
-  S[k] = {d,p,N,hi,lo,hi10,lo10,ma55,idx};
+  S[k] = {d,p,H,L,O,N,ma55,idx};
 }
-const ALLD = [...new Set(KEYS.flatMap(k=>S[k].d))].sort();
-const LAST = ALLD[ALLD.length-1];
-
-/* ---------- motore di simulazione ---------- */
 const CH = {};
 function chan(k, len) {
   const key = k + ":" + len; if (CH[key]) return CH[key];
-  const p = S[k].p, n = p.length, hi = new Array(n).fill(null), lo = new Array(n).fill(null);
-  for (let i = len; i < n; i++) { let a=-Infinity,b=Infinity; for (let j=i-len;j<i;j++){a=Math.max(a,p[j]);b=Math.min(b,p[j]);} hi[i]=a; lo[i]=b; }
+  const {H, L} = S[k], n = H.length, hi = new Array(n).fill(null), lo = new Array(n).fill(null);
+  for (let i = len; i < n; i++) { let a=-Infinity,b=Infinity; for (let j=i-len;j<i;j++){a=Math.max(a,H[j]);b=Math.min(b,L[j]);} hi[i]=a; lo[i]=b; }
   return CH[key] = {hi, lo};
 }
+for (const k of KEYS) { const c = chan(k, ENTRY); S[k].hi = c.hi; S[k].lo = c.lo; }
+const ALLD = [...new Set(KEYS.flatMap(k=>S[k].d))].sort();
+const LAST = ALLD[ALLD.length-1];
+
+/* ---------- motore di simulazione ----------
+   Ordini automatici come i Turtles: entra appena il prezzo tocca il massimo/minimo
+   a 20 giorni, esce appena tocca lo stop 2N o il minimo/massimo a 10 giorni.
+   Se il mercato apre già oltre il livello, l'ordine si esegue all'apertura. */
 function simulate(capital, years, risk, entry = ENTRY, exit = EXIT) {
   const CE = Object.fromEntries(KEYS.map(k=>[k, chan(k, entry)])), CX = Object.fromEntries(KEYS.map(k=>[k, chan(k, exit)]));
   const startStr = (() => { const t = new Date(LAST); t.setFullYear(t.getFullYear()-years); return t.toISOString().slice(0,10); })();
@@ -282,50 +286,54 @@ function simulate(capital, years, risk, entry = ENTRY, exit = EXIT) {
   const bhStart = {};
   let peak = capital, maxDD = 0;
   for (const day of days) {
-    const events = [];
     for (const k of KEYS) {
       const s = S[k], i = s.idx.get(day);
       if (i === undefined) continue;
-      const px = s.p[i]; lastPx[k] = px;
-      if (bhStart[k] === undefined) bhStart[k] = px;
+      const o = s.O[i], h = s.H[i], l = s.L[i], c = s.p[i];
+      if (bhStart[k] === undefined) bhStart[k] = c;
       const P = pos[k];
       // uscite
-      if (P) {
-        let why = null;
-        if (P.dir > 0 && (px < P.stop)) why = "Stop 2N";
-        else if (P.dir < 0 && (px > P.stop)) why = "Stop 2N";
-        else if (P.dir > 0 && CX[k].lo[i] !== null && px < CX[k].lo[i]) why = `Minimo ${exit} gg`;
-        else if (P.dir < 0 && CX[k].hi[i] !== null && px > CX[k].hi[i]) why = `Massimo ${exit} gg`;
+      if (P && P.day !== day) {
+        let trig = null, why = null, fill = null;
+        if (P.dir > 0) {
+          const lx = CX[k].lo[i]; trig = lx !== null ? Math.max(P.stop, lx) : P.stop;
+          if (l <= trig) { fill = Math.min(o, trig); why = trig === P.stop ? "Stop 2N" : `Minimo ${exit} gg`; }
+        } else {
+          const hx = CX[k].hi[i]; trig = hx !== null ? Math.min(P.stop, hx) : P.stop;
+          if (h >= trig) { fill = Math.max(o, trig); why = trig === P.stop ? "Stop 2N" : `Massimo ${exit} gg`; }
+        }
         if (why) {
-          const pnl = P.dir * P.units * (px - P.entry) - Math.abs(P.units * px) * COST;
-          cash += pnl + P.margin;
-          const tot = pnl - P.cost;
-          trades.push({day,k,act:"Chiude "+(P.dir>0?"long":"short")+" · "+why,px,pnl:tot});
-          events.push(trades[trades.length-1]);
-          marks[k].push({day,px,type:"x"});
+          const gross = P.dir * P.units * (fill - P.entry), exitCost = Math.abs(P.units * fill) * COST;
+          cash += gross - exitCost;
+          const net = gross - exitCost - P.cost;
+          trades.push({day, k, kind:"close", dir:P.dir, act:"Chiude "+(P.dir>0?"long":"short")+" · "+why, why,
+            px:fill, pnl:net, units:P.units, notional:P.notional, entryDay:P.day, entryPx:P.entry, ret: net / P.notional});
+          marks[k].push({day, px:fill, type:"x"});
           delete pos[k];
         }
       }
       // entrate
-      if (!pos[k] && s.N[i] && CE[k].hi[i] !== null) {
+      const Nk = s.N[i-1];
+      if (!pos[k] && Nk && CE[k].hi[i] !== null) {
+        const up = CE[k].hi[i], dn = CE[k].lo[i];
         let dir = 0;
-        if (px > CE[k].hi[i]) dir = 1; else if (px < CE[k].lo[i]) dir = -1;
+        const lh = h > up, sh = l < dn;
+        if (lh && sh) dir = c >= (up + dn) / 2 ? 1 : -1; else if (lh) dir = 1; else if (sh) dir = -1;
         if (dir) {
+          const fill = dir > 0 ? Math.max(o, up) : Math.min(o, dn);
+          lastPx[k] = lastPx[k] ?? fill;
           const eq = equityNow();
-          let units = (eq * risk) / (2 * s.N[i]);
-          const capN = eq * CAPX / Math.max(Math.abs(px), 0.01);
-          units = Math.min(units, capN);
+          const units = Math.min((eq * risk) / (2 * Nk), eq * CAPX / Math.max(Math.abs(fill), 0.01));
           if (units > 0 && eq > 0) {
-            const cost = Math.abs(units * px) * COST;
-            const margin = 0; // CFD: nessun capitale bloccato, solo costi
-            cash -= cost + margin;
-            pos[k] = {dir,units,entry:px,stop:px - dir*2*s.N[i],cost,margin,day};
-            const t = {day,k,act:dir>0?"Compra (long)":"Vende allo scoperto (short)",px,pnl:null,units};
-            trades.push(t); events.push(t);
-            marks[k].push({day,px,type:dir>0?"L":"S"});
+            const notional = Math.abs(units * fill), cost = notional * COST;
+            cash -= cost;
+            pos[k] = {dir, units, entry:fill, stop:fill - dir*2*Nk, cost, notional, day};
+            trades.push({day, k, kind:"open", dir, act:dir>0?"Compra (long)":"Vende allo scoperto (short)", px:fill, pnl:null, units, notional});
+            marks[k].push({day, px:fill, type:dir>0?"L":"S"});
           }
         }
       }
+      lastPx[k] = c;
     }
     const eq = equityNow();
     peak = Math.max(peak, eq); maxDD = Math.max(maxDD, (peak - eq) / peak);
@@ -366,14 +374,14 @@ function todaySignals(simPos) {
     const strength = s.ma55[i] && s.N[i] ? (px - s.ma55[i]) / s.N[i] : 0;
     let state = "wait", label = "Attendi", detail;
     const P = simPos[k];
-    if (px > s.hi[i]) { state="long"; label="Compra"; detail = `Nuovo massimo a 20 giorni (sopra ${fmt(s.hi[i])}).`; }
-    else if (px < s.lo[i]) { state="short"; label="Vendi"; detail = `Nuovo minimo a 20 giorni (sotto ${fmt(s.lo[i])}).`; }
+    if (s.H[i] > s.hi[i]) { state="long"; label="Compra"; detail = `Ha superato il massimo a 20 giorni (${fmt(s.hi[i])}).`; }
+    else if (s.L[i] < s.lo[i]) { state="short"; label="Vendi"; detail = `È sceso sotto il minimo a 20 giorni (${fmt(s.lo[i])}).`; }
     else if (P) { state = P.dir>0?"long":"short"; label = P.dir>0?"Tieni long":"Tieni short"; detail = `Posizione aperta dal ${it(P.day)}, stop a ${fmt(P.stop)}.`; }
     else {
       const up = (s.hi[i]/px - 1)*100, dn = (1 - s.lo[i]/px)*100;
       detail = up < dn ? `Compra sopra ${fmt(s.hi[i])} (+${up.toFixed(1)}%).` : `Vendi sotto ${fmt(s.lo[i])} (−${dn.toFixed(1)}%).`;
     }
-    const fresh = px > s.hi[i] || px < s.lo[i];
+    const fresh = s.H[i] > s.hi[i] || s.L[i] < s.lo[i];
     out.push({k,px,state,label,detail,strength,fresh,date:s.d[i]});
   }
   // migliore: segnale nuovo > posizione aperta; a parità, trend più forte nella direzione
@@ -470,17 +478,36 @@ function renderKPIs() {
   // posizioni
   const P = f.pos, keys = Object.keys(P);
   $("pos").innerHTML = keys.length ? keys.map(k=>{ const p=P[k], px=f.px[k], u=p.dir*p.units*(px-p.entry);
-    return `<div class="row"><span><b>${META[k].name}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · entrata ${fmt(p.entry)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
+    return `<div class="row"><span><b>${META[k].name}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · investito ${eur(p.notional ?? Math.abs(p.units*p.entry))} · entrata ${fmt(p.entry)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
     : `<div class="empty">Nessuna posizione aperta: il robot aspetta una rottura del canale a 20 giorni.</div>`;
   // feed in evidenza
   const last5 = sim.trades.filter(t=>t.day<=f.day).slice(-5).reverse();
   $("feed").innerHTML = last5.length ? last5.map(t=>{ const open=t.pnl===null, cl=open?(t.act.startsWith("Compra")?"c-long":"c-short"):(t.pnl>=0?"c-long":"c-short");
     return `<div class="it"><span class="d">${it(t.day)}</span><span><b>${open?"APRE":"CHIUDE"}</b> ${META[t.k].name} · ${t.act.replace(/^Chiude /,"")} a ${fmt(t.px)}</span><span class="num ${cl}">${open?(t.act.startsWith("Compra")?"▲":"▼"):eur(t.pnl)}</span></div>`; }).join("")
     : `<div class="empty">Ancora nessuna operazione.</div>`;
-  // registro (più recenti in alto)
+  $("logb").innerHTML = tradeRows(sim.trades.filter(t=>t.day<=f.day), f.pos, f.px, f.day, 80);
+  /* registro precedente disattivato */ if (false) {
   const rows = sim.trades.filter(t=>t.day<=f.day).slice(-80).reverse();
   $("logb").innerHTML = rows.length ? rows.map(t=>`<tr><td>${it(t.day)}</td><td>${META[t.k].name}</td><td class="${t.pnl===null?(t.act.startsWith("Compra")?"c-long":"c-short"):""}">${t.act}</td><td class="r">${fmt(t.px)}</td><td class="r ${t.pnl===null?"":t.pnl>=0?"c-long":"c-short"}">${t.pnl===null?"":eur(t.pnl)}</td></tr>`).join("")
     : `<tr><td colspan="5" class="empty">Ancora nessuna operazione in questo periodo.</td></tr>`;
+  }
+}
+function daysBetween(a, b){ return Math.round((new Date(b) - new Date(a)) / 864e5); }
+function tradeRows(trades, openPos, px, today, limit) {
+  const rows = [];
+  for (const k in openPos) { const p = openPos[k], u = p.dir*p.units*((px[k] ?? p.entry) - p.entry) - p.cost;
+    rows.push({k, dir:p.dir, entryDay:p.day, entryPx:p.entry, exitDay:null, exitPx:px[k], notional:p.notional ?? Math.abs(p.units*p.entry), pnl:u, open:true, sort:"9"+p.day}); }
+  for (const t of trades) if (t.kind === "close") rows.push({k:t.k, dir:t.dir, entryDay:t.entryDay, entryPx:t.entryPx, exitDay:t.day, exitPx:t.px, why:t.why, notional:t.notional, pnl:t.pnl, sort:t.day});
+  rows.sort((a,b) => a.sort < b.sort ? 1 : -1);
+  const out = rows.slice(0, limit);
+  if (!out.length) return `<tr><td colspan="7" class="empty">Ancora nessun trade.</td></tr>`;
+  return out.map(r => {
+    const dur = daysBetween(r.entryDay, r.exitDay || today), cl = r.pnl >= 0 ? "c-long" : "c-short", ret = r.notional ? r.pnl / r.notional : 0;
+    return `<tr><td>${META[r.k]?.name || r.k}</td><td class="${r.dir>0?"c-long":"c-short"}">${r.dir>0?"Long":"Short"}</td>
+      <td>${it(r.entryDay)}<br><span class="lbl">a ${fmt(r.entryPx)}</span></td>
+      <td>${r.open ? `<span class="pill c-acc">IN CORSO</span>` : `${it(r.exitDay)}<br><span class="lbl">a ${fmt(r.exitPx)} · ${r.why}</span>`}</td>
+      <td class="r">${eur(r.notional)}</td><td class="r">${dur} gg</td>
+      <td class="r ${cl}">${eur(r.pnl)}<br><span class="lbl ${cl}">${pct(ret)}</span></td></tr>`; }).join("");
 }
 function draw(){ drawEquity(sim,cur); drawPrice(sim,cur,tab); }
 function render(){ renderKPIs(); draw(); }
@@ -552,12 +579,13 @@ function renderLive(){
   $("lvDays").textContent = eqs.length;
   const P = LIVE.positions, ks = Object.keys(P);
   $("lvPos").innerHTML = ks.length ? ks.map(k=>{ const p=P[k], px=LIVE.lastpx[k], u=p.dir*p.units*(px-p.entry);
-    return `<div class="row"><span><b>${META[k]?.name||k}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · entrata ${fmt(p.entry)} · ora ${fmt(px)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
+    return `<div class="row"><span><b>${META[k]?.name||k}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · investito ${eur(p.notional ?? Math.abs(p.units*p.entry))} · entrata ${fmt(p.entry)} · ora ${fmt(px)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
     : `<div class="empty">Nessuna posizione aperta: il robot aspetta una rottura del canale a 20 giorni.</div>`;
   const tr = LIVE.trades.slice(-12).reverse();
   $("lvFeed").innerHTML = tr.length ? tr.map(t=>{ const open=t.pnl===null, cl=open?(t.act.startsWith("Compra")?"c-long":"c-short"):(t.pnl>=0?"c-long":"c-short");
     return `<div class="it"><span class="d">${it(t.day)}</span><span><b>${open?"APRE":"CHIUDE"}</b> ${META[t.k]?.name||t.k} · ${t.act.replace(/^Chiude /,"")} a ${fmt(t.px)}</span><span class="num ${cl}">${open?(t.act.startsWith("Compra")?"▲":"▼"):eur(t.pnl)}</span></div>`; }).join("")
     : `<div class="empty">Ancora nessuna operazione.</div>`;
+  $("lvLog").innerHTML = tradeRows(LIVE.trades, LIVE.positions, LIVE.lastpx, LIVE.last || LIVE.start, 200);
   drawLive();
 }
 function drawLive(){
