@@ -1,0 +1,587 @@
+<title>Turtle Pit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: terminale da trading a colonna unica su mobile, due colonne su desktop; un solo accento ottone per l'azione, verde/rosso solo per long/short */
+:root{
+  --bg:#e9edf2; --panel:#f7f9fb; --ink:#14202e; --muted:#5b6878; --line:#cfd7e1;
+  --accent:#b57a12; --accent-ink:#ffffff; --long:#16794a; --short:#c0392b; --grid:#dde3ea;
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1520; --panel:#142030; --ink:#e6ecf3; --muted:#8c9bb0; --line:#24344a;
+  --accent:#e2a63b; --accent-ink:#1a1206; --long:#3fbf7f; --short:#ef6b5b; --grid:#1c2a3c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1520; --panel:#142030; --ink:#e6ecf3; --muted:#8c9bb0; --line:#24344a;
+  --accent:#e2a63b; --accent-ink:#1a1206; --long:#3fbf7f; --short:#ef6b5b; --grid:#1c2a3c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,9vw,64px);line-height:.9;letter-spacing:.01em;margin:0;text-transform:uppercase}
+h1 span{color:var(--accent)}
+.sub{color:var(--muted);margin:6px 0 0;max-width:60ch}
+h2{font-family:var(--f-display);font-weight:600;font-size:22px;letter-spacing:.04em;text-transform:uppercase;margin:0}
+.lbl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.mono,.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.grid2{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:860px){.grid2{grid-template-columns:1.6fr 1fr}}
+
+/* Hero: verdetto di oggi */
+.verdict{display:grid;grid-template-columns:1fr;gap:14px;border-left:4px solid var(--accent)}
+.verdict .big{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,8vw,52px);line-height:1;text-transform:uppercase}
+.sigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.sig{border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;background:var(--bg)}
+.sig.best{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.sig .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sig .name{font-weight:600}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:12px;font-weight:500;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.c-long{color:var(--long)} .c-short{color:var(--short)} .c-wait{color:var(--muted)} .c-acc{color:var(--accent)}
+
+/* Controlli */
+.controls{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:flex-end}
+.field{display:flex;flex-direction:column;gap:4px}
+.field input,.field select{font:inherit;font-family:var(--f-mono);background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:7px 9px;width:120px}
+button{font:inherit;font-weight:600;border-radius:4px;padding:8px 14px;cursor:pointer;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.kpi{display:flex;flex-direction:column;gap:2px}
+.kpi .v{font-family:var(--f-mono);font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.chartbox{position:relative;width:100%;height:240px}
+.chartbox.tall{height:280px}
+canvas{display:block;width:100%;height:100%}
+.progress{height:4px;background:var(--grid);border-radius:2px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--accent)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{padding:5px 12px;font-size:13px}
+.tabs button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:5px}
+
+/* Posizioni e registro */
+.pos{display:flex;flex-direction:column;gap:6px}
+.pos .row{display:flex;justify-content:space-between;gap:8px;font-size:14px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.log{max-height:320px;overflow:auto;font-family:var(--f-mono);font-size:12.5px;font-variant-numeric:tabular-nums}
+.log table{width:100%;border-collapse:collapse}
+.log td,.log th{padding:5px 6px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.log th{position:sticky;top:0;background:var(--panel);font-weight:500;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.log td.r,.log th.r{text-align:right}
+.rules{margin:0;padding-left:18px;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:4px}
+.warn{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.empty{color:var(--muted);font-size:14px}
+.years{display:flex;flex-direction:column;gap:6px}
+.yr{display:grid;grid-template-columns:44px 1fr 70px;gap:10px;align-items:center;font-size:13px}
+.yr .num{text-align:right}
+.bars{display:flex;flex-direction:column;gap:3px}
+.bar{position:relative;height:9px;background:var(--grid);border-radius:2px}
+.bar.bh{height:5px}
+.bar::after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--muted)}
+.bar i{position:absolute;top:0;bottom:0;width:var(--w);border-radius:2px}
+.bar i.pos{left:50%;background:var(--long)} .bar i.neg{right:50%;background:var(--short)}
+.bar.bh i{opacity:.45}
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:3px}
+.mcell{aspect-ratio:1;border-radius:2px;max-width:100%}
+.gridp{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.gcell{border:1px solid var(--line);border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;background:var(--bg)}
+.gcell.cur{border-color:var(--accent)}
+.feed{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:4px;padding:10px 12px;background:var(--bg)}
+.feed .it{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:baseline;font-size:13.5px}
+.feed .it .d{font-family:var(--f-mono);color:var(--muted);font-size:12px}
+.feed .it b{font-weight:600}
+.feed .it:first-of-type{animation:pop .5s ease}
+@keyframes pop{from{background:color-mix(in srgb,var(--accent) 25%,transparent)}to{background:transparent}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Turtle <span>Pit</span></h1>
+      <p class="sub">Trading automatico sulle materie prime con il metodo Turtle, su prezzi reali di mercato. Il programma decide tutto: entrate, uscite, stop e quantità.</p>
+    </div>
+    <div class="lbl mono" id="dataDate"></div>
+  </header>
+
+  <!-- Portafoglio dal vivo (solo versione GitHub) -->
+  <section class="panel live" id="live" hidden aria-labelledby="lvt">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline">
+      <h2 id="lvt">Portafoglio dal vivo</h2>
+      <span class="pill c-acc" id="lvBadge">PAPER TRADING</span>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><span class="lbl">Capitale oggi</span><span class="v" id="lvEq">—</span></div>
+      <div class="kpi"><span class="lbl">Dall'inizio</span><span class="v" id="lvRet">—</span></div>
+      <div class="kpi"><span class="lbl">Partito il</span><span class="v" id="lvStart">—</span></div>
+      <div class="kpi"><span class="lbl">Sedute elaborate</span><span class="v" id="lvDays">—</span></div>
+    </div>
+    <div class="chartbox" style="height:180px"><canvas id="lvc" aria-label="Capitale del portafoglio dal vivo"></canvas></div>
+    <p class="empty" id="lvNote" hidden></p>
+    <div class="grid2" style="gap:18px">
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><div class="lbl">Posizioni aperte adesso</div><div class="pos" id="lvPos"></div></div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><div class="lbl">Operazioni del robot</div><div class="feed" id="lvFeed"></div></div>
+    </div>
+    <p class="sub" style="font-size:13px">Il robot parte con 500 € il primo giorno e ogni sera, dopo la chiusura dei mercati USA, legge i prezzi veri e decide da solo. Nessun soldo reale viene investito.</p>
+  </section>
+
+  <!-- Verdetto di oggi -->
+  <section class="panel verdict" aria-labelledby="vt">
+    <div>
+      <div class="lbl" id="vt">Segnale dell'ultima seduta</div>
+      <div class="big" id="bigVerdict">—</div>
+      <div class="sub" id="bigReason"></div>
+    </div>
+    <div class="sigs" id="sigs"></div>
+  </section>
+
+  <!-- Simulatore -->
+  <section class="panel" aria-labelledby="st">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline">
+      <h2 id="st">Simulatore</h2>
+      <div class="lbl mono" id="simDay">—</div>
+    </div>
+    <div class="controls">
+      <div class="field"><label class="lbl" for="cap">Capitale €</label><input id="cap" type="number" min="50" step="50" value="500"></div>
+      <div class="field"><label class="lbl" for="per">Periodo</label>
+        <select id="per"><option value="1">Ultimo anno</option><option value="2" selected>Ultimi 2 anni</option><option value="3">Ultimi 3 anni</option><option value="5">Ultimi 5 anni</option><option value="7">Dal 2019</option></select></div>
+      <div class="field"><label class="lbl" for="risk">Rischio per trade</label>
+        <select id="risk"><option value="0.01">1%</option><option value="0.02" selected>2%</option><option value="0.03">3%</option></select></div>
+      <div class="field"><label class="lbl" for="spd">Velocità</label>
+        <select id="spd"><option value="1">Lenta</option><option value="4" selected>Normale</option><option value="15">Veloce</option></select></div>
+      <div class="btns">
+        <button class="primary" id="play">▶ Avvia trading</button>
+        <button id="end">Vai alla fine</button>
+      </div>
+    </div>
+    <div class="progress"><i id="prog"></i></div>
+    <div class="kpis">
+      <div class="kpi"><span class="lbl">Capitale attuale</span><span class="v" id="kEq">—</span></div>
+      <div class="kpi"><span class="lbl">Rendimento</span><span class="v" id="kRet">—</span></div>
+      <div class="kpi"><span class="lbl">Calo massimo</span><span class="v" id="kDD">—</span></div>
+      <div class="kpi"><span class="lbl">Trade chiusi</span><span class="v" id="kTr">—</span></div>
+      <div class="kpi"><span class="lbl">Trade vincenti</span><span class="v" id="kWin">—</span></div>
+      <div class="kpi"><span class="lbl">Compra e tieni</span><span class="v" id="kBH">—</span></div>
+    </div>
+    <div class="feed" aria-live="polite"><div class="lbl">Ultime operazioni fatte dal robot</div><div id="feed"></div></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>Capitale Turtle</span><span><i style="background:var(--muted)"></i>Compra e tieni (stessa quota su ognuna)</span></div>
+    <div class="chartbox"><canvas id="eqc" aria-label="Andamento del capitale"></canvas></div>
+  </section>
+
+  <section class="panel" aria-labelledby="stt">
+    <h2 id="stt">Stabilità</h2>
+    <div>
+      <div class="big" id="stVerdict" style="font-family:var(--f-display);font-weight:800;font-size:clamp(30px,7vw,44px);line-height:1;text-transform:uppercase">—</div>
+      <p class="sub" id="stReason"></p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><span class="lbl">Mesi positivi</span><span class="v" id="sM">—</span></div>
+      <div class="kpi"><span class="lbl">Mese migliore</span><span class="v c-long" id="sB">—</span></div>
+      <div class="kpi"><span class="lbl">Mese peggiore</span><span class="v c-short" id="sW">—</span></div>
+      <div class="kpi"><span class="lbl">Indice di Sharpe</span><span class="v" id="sS">—</span></div>
+    </div>
+    <div class="grid2" style="gap:18px">
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+        <div class="lbl">Rendimento per anno · barra superiore Turtle, inferiore compra e tieni</div>
+        <div id="years" class="years"></div>
+        <div class="lbl" style="margin-top:6px">Ogni mese · verde in guadagno, rosso in perdita</div>
+        <div id="months" class="months"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+        <div class="lbl">Robustezza · stesso periodo con altri parametri</div>
+        <div id="grid" class="gridp"></div>
+        <p class="sub" style="font-size:13px">Se il sistema guadagna solo con una combinazione precisa è un caso fortunato. Un metodo solido resta positivo anche variando i giorni di entrata e uscita.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid2">
+    <section class="panel" aria-labelledby="pt">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center">
+        <h2 id="pt">Prezzi e operazioni</h2>
+        <div class="tabs" id="tabs"></div>
+      </div>
+      <div class="legend"><span><i style="background:var(--ink)"></i>Prezzo</span><span><i style="background:var(--accent);opacity:.6"></i>Canale 20 giorni</span><span class="c-long">▲ acquisto</span><span class="c-short">▼ vendita allo scoperto</span><span>● uscita</span></div>
+      <div class="chartbox tall"><canvas id="pxc" aria-label="Prezzo con canale Donchian e operazioni"></canvas></div>
+    </section>
+    <section class="panel" aria-labelledby="ot">
+      <h2 id="ot">Posizioni aperte</h2>
+      <div class="pos" id="pos"><div class="empty">Nessuna posizione aperta.</div></div>
+      <h2>Le regole del robot</h2>
+      <ul class="rules">
+        <li>Entra <b>long</b> se il prezzo chiude sopra il massimo degli ultimi 20 giorni, <b>short</b> se chiude sotto il minimo.</li>
+        <li>Esce quando il prezzo rompe il minimo (o massimo) degli ultimi 10 giorni.</li>
+        <li>Stop di protezione a 2N dall'entrata (N = volatilità media a 20 giorni).</li>
+        <li>Quantità calcolata per perdere al massimo la % di rischio scelta se scatta lo stop. Esposizione totale massima 3× il capitale, divisa tra le materie prime.</li>
+        <li>Costi inclusi: 0,15% di spread e commissioni per ogni entrata e uscita.</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="lt">
+    <h2 id="lt">Registro operazioni</h2>
+    <div class="log"><table><thead><tr><th>Data</th><th>Materia prima</th><th>Azione</th><th class="r">Prezzo</th><th class="r">Risultato €</th></tr></thead><tbody id="logb"><tr><td colspan="5" class="empty">Premi «Avvia trading» per vedere il robot operare giorno per giorno.</td></tr></tbody></table></div>
+    <p class="warn"><span id="srcNote">__SOURCE__</span> È una simulazione su dati passati: i risultati storici non garantiscono quelli futuri e il trading con leva può far perdere tutto il capitale. Non è una consulenza finanziaria.</p>
+  </section>
+</div>
+
+<script>
+const RAW = __DATA__;
+const LIVE = __LIVE__;
+const META = {};
+for (const k in RAW) META[k] = {name: RAW[k][2] || k, unit: RAW[k][3] || ""};
+const KEYS = Object.keys(META);
+const COST = 0.0015, ENTRY = 20, EXIT = 10;
+const CAPX = Math.min(1, 3 / Object.keys(RAW).length); // esposizione totale massima 3x il capitale
+
+/* ---------- indicatori per serie ---------- */
+const S = {};
+for (const k of KEYS) {
+  const [d, p] = RAW[k];
+  const n = p.length, N = new Array(n).fill(null), hi = new Array(n).fill(null), lo = new Array(n).fill(null),
+        hi10 = new Array(n).fill(null), lo10 = new Array(n).fill(null), ma55 = new Array(n).fill(null);
+  let atr = null;
+  for (let i = 1; i < n; i++) {
+    const tr = Math.abs(p[i] - p[i-1]);
+    if (i < 20) { atr = (atr ?? 0) + tr / 19; } else { atr = (atr * 19 + tr) / 20; }
+    if (i >= 20) N[i] = atr;
+  }
+  for (let i = 0; i < n; i++) {
+    if (i >= ENTRY) { let a=-Infinity,b=Infinity; for (let j=i-ENTRY;j<i;j++){a=Math.max(a,p[j]);b=Math.min(b,p[j]);} hi[i]=a; lo[i]=b; }
+    if (i >= EXIT) { let a=-Infinity,b=Infinity; for (let j=i-EXIT;j<i;j++){a=Math.max(a,p[j]);b=Math.min(b,p[j]);} hi10[i]=a; lo10[i]=b; }
+    if (i >= 54) { let s=0; for (let j=i-54;j<=i;j++) s+=p[j]; ma55[i]=s/55; }
+  }
+  const idx = new Map(d.map((x,i)=>[x,i]));
+  S[k] = {d,p,N,hi,lo,hi10,lo10,ma55,idx};
+}
+const ALLD = [...new Set(KEYS.flatMap(k=>S[k].d))].sort();
+const LAST = ALLD[ALLD.length-1];
+
+/* ---------- motore di simulazione ---------- */
+const CH = {};
+function chan(k, len) {
+  const key = k + ":" + len; if (CH[key]) return CH[key];
+  const p = S[k].p, n = p.length, hi = new Array(n).fill(null), lo = new Array(n).fill(null);
+  for (let i = len; i < n; i++) { let a=-Infinity,b=Infinity; for (let j=i-len;j<i;j++){a=Math.max(a,p[j]);b=Math.min(b,p[j]);} hi[i]=a; lo[i]=b; }
+  return CH[key] = {hi, lo};
+}
+function simulate(capital, years, risk, entry = ENTRY, exit = EXIT) {
+  const CE = Object.fromEntries(KEYS.map(k=>[k, chan(k, entry)])), CX = Object.fromEntries(KEYS.map(k=>[k, chan(k, exit)]));
+  const startStr = (() => { const t = new Date(LAST); t.setFullYear(t.getFullYear()-years); return t.toISOString().slice(0,10); })();
+  const days = ALLD.filter(x => x >= startStr);
+  let cash = capital;
+  const pos = {}, lastPx = {}, frames = [], trades = [], marks = Object.fromEntries(KEYS.map(k=>[k,[]]));
+  const bhStart = {};
+  let peak = capital, maxDD = 0;
+  for (const day of days) {
+    const events = [];
+    for (const k of KEYS) {
+      const s = S[k], i = s.idx.get(day);
+      if (i === undefined) continue;
+      const px = s.p[i]; lastPx[k] = px;
+      if (bhStart[k] === undefined) bhStart[k] = px;
+      const P = pos[k];
+      // uscite
+      if (P) {
+        let why = null;
+        if (P.dir > 0 && (px < P.stop)) why = "Stop 2N";
+        else if (P.dir < 0 && (px > P.stop)) why = "Stop 2N";
+        else if (P.dir > 0 && CX[k].lo[i] !== null && px < CX[k].lo[i]) why = `Minimo ${exit} gg`;
+        else if (P.dir < 0 && CX[k].hi[i] !== null && px > CX[k].hi[i]) why = `Massimo ${exit} gg`;
+        if (why) {
+          const pnl = P.dir * P.units * (px - P.entry) - Math.abs(P.units * px) * COST;
+          cash += pnl + P.margin;
+          const tot = pnl - P.cost;
+          trades.push({day,k,act:"Chiude "+(P.dir>0?"long":"short")+" · "+why,px,pnl:tot});
+          events.push(trades[trades.length-1]);
+          marks[k].push({day,px,type:"x"});
+          delete pos[k];
+        }
+      }
+      // entrate
+      if (!pos[k] && s.N[i] && CE[k].hi[i] !== null) {
+        let dir = 0;
+        if (px > CE[k].hi[i]) dir = 1; else if (px < CE[k].lo[i]) dir = -1;
+        if (dir) {
+          const eq = equityNow();
+          let units = (eq * risk) / (2 * s.N[i]);
+          const capN = eq * CAPX / Math.max(Math.abs(px), 0.01);
+          units = Math.min(units, capN);
+          if (units > 0 && eq > 0) {
+            const cost = Math.abs(units * px) * COST;
+            const margin = 0; // CFD: nessun capitale bloccato, solo costi
+            cash -= cost + margin;
+            pos[k] = {dir,units,entry:px,stop:px - dir*2*s.N[i],cost,margin,day};
+            const t = {day,k,act:dir>0?"Compra (long)":"Vende allo scoperto (short)",px,pnl:null,units};
+            trades.push(t); events.push(t);
+            marks[k].push({day,px,type:dir>0?"L":"S"});
+          }
+        }
+      }
+    }
+    const eq = equityNow();
+    peak = Math.max(peak, eq); maxDD = Math.max(maxDD, (peak - eq) / peak);
+    let bh = 0; for (const k of KEYS) if (bhStart[k] !== undefined) bh += (capital/KEYS.length) * (lastPx[k] / bhStart[k]); else bh += capital/KEYS.length;
+    frames.push({day, eq, bh, dd:maxDD, pos: JSON.parse(JSON.stringify(pos)), px:{...lastPx}, nTrades: trades.length});
+  }
+  function equityNow(){ let e = cash; for (const k in pos){ const P=pos[k]; e += P.dir*P.units*(lastPx[k]-P.entry); } return e; }
+  return {frames, trades, marks, capital, startStr};
+}
+
+/* ---------- analisi di stabilità ---------- */
+function stats(frames, capital) {
+  const byM = {}, byY = {};
+  let prev = capital, prevBH = capital;
+  for (const f of frames) {
+    const m = f.day.slice(0,7), y = f.day.slice(0,4);
+    byM[m] = byM[m] || {start: prev, end: f.eq};
+    byM[m].end = f.eq;
+    byY[y] = byY[y] || {start: prev, end: f.eq, bs: prevBH, be: f.bh};
+    byY[y].end = f.eq; byY[y].be = f.bh;
+    prev = f.eq; prevBH = f.bh;
+  }
+  const mr = Object.entries(byM).map(([m,o]) => [m, o.start > 0 ? o.end/o.start - 1 : 0]);
+  const yr = Object.entries(byY).map(([y,o]) => ({y, r: o.start > 0 ? o.end/o.start - 1 : 0, bh: o.be/o.bs - 1, partial: false}));
+  const mean = mr.reduce((a,b)=>a+b[1],0)/Math.max(1,mr.length);
+  const sd = Math.sqrt(mr.reduce((a,b)=>a+(b[1]-mean)**2,0)/Math.max(1,mr.length-1));
+  return {mr, yr, posM: mr.filter(x=>x[1]>0).length/Math.max(1,mr.length),
+          best: Math.max(...mr.map(x=>x[1])), worst: Math.min(...mr.map(x=>x[1])),
+          sharpe: sd ? mean/sd*Math.sqrt(12) : 0};
+}
+const GRID = [[20,10],[20,20],[40,15],[55,20],[55,10],[80,30]];
+
+/* ---------- segnali di oggi ---------- */
+function todaySignals(simPos) {
+  const out = [];
+  for (const k of KEYS) {
+    const s = S[k], i = s.p.length - 1, px = s.p[i];
+    const strength = s.ma55[i] && s.N[i] ? (px - s.ma55[i]) / s.N[i] : 0;
+    let state = "wait", label = "Attendi", detail;
+    const P = simPos[k];
+    if (px > s.hi[i]) { state="long"; label="Compra"; detail = `Nuovo massimo a 20 giorni (sopra ${fmt(s.hi[i])}).`; }
+    else if (px < s.lo[i]) { state="short"; label="Vendi"; detail = `Nuovo minimo a 20 giorni (sotto ${fmt(s.lo[i])}).`; }
+    else if (P) { state = P.dir>0?"long":"short"; label = P.dir>0?"Tieni long":"Tieni short"; detail = `Posizione aperta dal ${it(P.day)}, stop a ${fmt(P.stop)}.`; }
+    else {
+      const up = (s.hi[i]/px - 1)*100, dn = (1 - s.lo[i]/px)*100;
+      detail = up < dn ? `Compra sopra ${fmt(s.hi[i])} (+${up.toFixed(1)}%).` : `Vendi sotto ${fmt(s.lo[i])} (−${dn.toFixed(1)}%).`;
+    }
+    const fresh = px > s.hi[i] || px < s.lo[i];
+    out.push({k,px,state,label,detail,strength,fresh,date:s.d[i]});
+  }
+  // migliore: segnale nuovo > posizione aperta; a parità, trend più forte nella direzione
+  const score = o => o.state==="wait" ? -1 : (o.fresh?100:0) + Math.abs(o.strength);
+  let best = out.reduce((a,b)=> score(b)>score(a)?b:a);
+  return {out, best: best.state==="wait" ? null : best};
+}
+
+/* ---------- formattazione ---------- */
+const eur = v => (v<0?"−":"") + "€" + Math.abs(v).toLocaleString("it-IT",{minimumFractionDigits:2,maximumFractionDigits:2});
+const pct = v => (v>=0?"+":"−") + Math.abs(v*100).toLocaleString("it-IT",{maximumFractionDigits:1}) + "%";
+const fmt = v => v.toLocaleString("it-IT",{minimumFractionDigits:2,maximumFractionDigits:2});
+const it = d => { const [y,m,g] = d.split("-"); return `${g}/${m}/${y}`; };
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------- grafici canvas ---------- */
+function setup(cv){ const r = cv.getBoundingClientRect(), dpr = window.devicePixelRatio||1;
+  cv.width = Math.max(1, r.width*dpr); cv.height = Math.max(1, r.height*dpr);
+  const c = cv.getContext("2d"); c.setTransform(dpr,0,0,dpr,0,0); return {c,w:r.width,h:r.height}; }
+function niceTicks(min,max,n=4){ const span=max-min||1, step0=span/n, mag=10**Math.floor(Math.log10(step0)), err=step0/mag;
+  const step = (err>=5?10:err>=2?5:err>=1.5?2:1)*mag; const t=[]; for(let v=Math.ceil(min/step)*step; v<=max+1e-9; v+=step) t.push(+v.toFixed(10)); return t; }
+
+function drawEquity(sim, upto) {
+  const cv = document.getElementById("eqc"), {c,w,h} = setup(cv);
+  const F = sim.frames, n = F.length; if (!n) return;
+  const L=54,R=12,T=10,B=24;
+  let mn=Infinity,mx=-Infinity; for (const f of F){ mn=Math.min(mn,f.eq,f.bh); mx=Math.max(mx,f.eq,f.bh); }
+  const pad=(mx-mn)*.08||10; mn-=pad; mx+=pad;
+  const X=i=>L+(w-L-R)*i/Math.max(1,n-1), Y=v=>T+(h-T-B)*(1-(v-mn)/(mx-mn));
+  c.font = "11px " + css("--f-mono"); c.fillStyle = css("--muted"); c.strokeStyle = css("--grid"); c.lineWidth=1;
+  for (const t of niceTicks(mn,mx)){ const y=Y(t); c.beginPath(); c.moveTo(L,y); c.lineTo(w-R,y); c.stroke(); c.textAlign="right"; c.fillText("€"+Math.round(t).toLocaleString("it-IT"), L-6, y+4); }
+  // base capitale
+  c.setLineDash([4,4]); c.strokeStyle=css("--muted"); c.beginPath(); c.moveTo(L,Y(sim.capital)); c.lineTo(w-R,Y(sim.capital)); c.stroke(); c.setLineDash([]);
+  // etichette anni
+  c.textAlign="center"; let lastY=null;
+  for (let i=0;i<n;i++){ const y=F[i].day.slice(0,4); if (y!==lastY && i>0){ c.fillText(y, X(i), h-6); c.strokeStyle=css("--grid"); c.beginPath(); c.moveTo(X(i),T); c.lineTo(X(i),h-B); c.stroke(); } lastY=y; }
+  // compra e tieni
+  c.strokeStyle=css("--muted"); c.lineWidth=1.2; c.beginPath(); for (let i=0;i<=upto;i++){ const x=X(i),y=Y(F[i].bh); i?c.lineTo(x,y):c.moveTo(x,y);} c.stroke();
+  // area + linea capitale
+  const acc = css("--accent");
+  c.beginPath(); for (let i=0;i<=upto;i++){ const x=X(i),y=Y(F[i].eq); i?c.lineTo(x,y):c.moveTo(x,y);}
+  c.lineTo(X(upto),h-B); c.lineTo(X(0),h-B); c.closePath(); c.globalAlpha=.14; c.fillStyle=acc; c.fill(); c.globalAlpha=1;
+  c.strokeStyle=acc; c.lineWidth=2; c.beginPath(); for (let i=0;i<=upto;i++){ const x=X(i),y=Y(F[i].eq); i?c.lineTo(x,y):c.moveTo(x,y);} c.stroke();
+  c.fillStyle=acc; c.beginPath(); c.arc(X(upto),Y(F[upto].eq),4,0,7); c.fill();
+}
+
+function drawPrice(sim, upto, k) {
+  const cv = document.getElementById("pxc"), {c,w,h} = setup(cv);
+  const s = S[k], F = sim.frames, dayUpto = F[upto].day;
+  const i0 = s.d.findIndex(x=>x>=sim.startStr), i1 = s.d.length-1;
+  if (i0 < 0) return;
+  const L=50,R=12,T=10,B=24, n=i1-i0+1;
+  let mn=Infinity,mx=-Infinity; for (let i=i0;i<=i1;i++){ mn=Math.min(mn,s.p[i],s.lo[i]??Infinity); mx=Math.max(mx,s.p[i],s.hi[i]??-Infinity); }
+  const pad=(mx-mn)*.06; mn-=pad; mx+=pad;
+  const X=i=>L+(w-L-R)*(i-i0)/Math.max(1,n-1), Y=v=>T+(h-T-B)*(1-(v-mn)/(mx-mn));
+  c.font="11px "+css("--f-mono"); c.fillStyle=css("--muted"); c.strokeStyle=css("--grid"); c.lineWidth=1;
+  for (const t of niceTicks(mn,mx)){ const y=Y(t); c.beginPath(); c.moveTo(L,y); c.lineTo(w-R,y); c.stroke(); c.textAlign="right"; c.fillText(t.toLocaleString("it-IT"), L-6, y+4); }
+  c.textAlign="center"; let ly=null; for (let i=i0;i<=i1;i++){ const y=s.d[i].slice(0,4); if (y!==ly && i>i0) c.fillText(y,X(i),h-6); ly=y; }
+  // canale
+  const acc=css("--accent");
+  c.globalAlpha=.12; c.fillStyle=acc; c.beginPath();
+  for (let i=i0;i<=i1;i++) i===i0?c.moveTo(X(i),Y(s.hi[i])):c.lineTo(X(i),Y(s.hi[i]));
+  for (let i=i1;i>=i0;i--) c.lineTo(X(i),Y(s.lo[i]));
+  c.closePath(); c.fill(); c.globalAlpha=.6; c.strokeStyle=acc; c.lineWidth=1;
+  for (const arr of [s.hi,s.lo]){ c.beginPath(); for (let i=i0;i<=i1;i++) i===i0?c.moveTo(X(i),Y(arr[i])):c.lineTo(X(i),Y(arr[i])); c.stroke(); }
+  c.globalAlpha=1;
+  // prezzo: pieno fino al giorno simulato, tenue dopo
+  const ink=css("--ink"); c.lineWidth=1.4;
+  let cut = s.d.findIndex(x=>x>dayUpto); if (cut<0) cut=i1+1;
+  c.strokeStyle=ink; c.beginPath(); for (let i=i0;i<cut;i++) i===i0?c.moveTo(X(i),Y(s.p[i])):c.lineTo(X(i),Y(s.p[i])); c.stroke();
+  if (cut<=i1){ c.globalAlpha=.25; c.beginPath(); for (let i=Math.max(i0,cut-1);i<=i1;i++) i===Math.max(i0,cut-1)?c.moveTo(X(i),Y(s.p[i])):c.lineTo(X(i),Y(s.p[i])); c.stroke(); c.globalAlpha=1; }
+  // operazioni
+  for (const m of sim.marks[k]) { if (m.day>dayUpto) continue; const i=s.idx.get(m.day), x=X(i), y=Y(m.px);
+    if (m.type==="x"){ c.fillStyle=css("--panel"); c.strokeStyle=ink; c.lineWidth=1.5; c.beginPath(); c.arc(x,y,3.5,0,7); c.fill(); c.stroke(); }
+    else { const up=m.type==="L"; c.fillStyle=css(up?"--long":"--short"); c.beginPath();
+      if (up){ c.moveTo(x,y+3); c.lineTo(x-6,y+13); c.lineTo(x+6,y+13);} else { c.moveTo(x,y-3); c.lineTo(x-6,y-13); c.lineTo(x+6,y-13);} c.closePath(); c.fill(); } }
+}
+
+/* ---------- interfaccia ---------- */
+let sim, cur = 0, playing = false, raf = null, tab = KEYS[0], acc = 0;
+const $ = id => document.getElementById(id);
+
+function renderKPIs() {
+  const f = sim.frames[cur], tr = sim.trades.filter(t=>t.pnl!==null && t.day<=f.day);
+  const wins = tr.filter(t=>t.pnl>0).length;
+  $("kEq").textContent = eur(f.eq);
+  const r = f.eq/sim.capital-1; $("kRet").textContent = pct(r); $("kRet").className = "v " + (r>=0?"c-long":"c-short");
+  $("kDD").textContent = f.dd ? "−"+(f.dd*100).toLocaleString("it-IT",{maximumFractionDigits:1})+"%" : "0%";
+  $("kTr").textContent = tr.length;
+  $("kWin").textContent = tr.length ? Math.round(wins/tr.length*100)+"%" : "—";
+  const b = f.bh/sim.capital-1; $("kBH").textContent = pct(b); $("kBH").className = "v " + (b>=0?"c-long":"c-short");
+  $("simDay").textContent = "Giorno " + (cur+1) + " di " + sim.frames.length + " · " + it(f.day);
+  $("prog").style.width = ((cur+1)/sim.frames.length*100)+"%";
+  // posizioni
+  const P = f.pos, keys = Object.keys(P);
+  $("pos").innerHTML = keys.length ? keys.map(k=>{ const p=P[k], px=f.px[k], u=p.dir*p.units*(px-p.entry);
+    return `<div class="row"><span><b>${META[k].name}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · entrata ${fmt(p.entry)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
+    : `<div class="empty">Nessuna posizione aperta: il robot aspetta una rottura del canale a 20 giorni.</div>`;
+  // feed in evidenza
+  const last5 = sim.trades.filter(t=>t.day<=f.day).slice(-5).reverse();
+  $("feed").innerHTML = last5.length ? last5.map(t=>{ const open=t.pnl===null, cl=open?(t.act.startsWith("Compra")?"c-long":"c-short"):(t.pnl>=0?"c-long":"c-short");
+    return `<div class="it"><span class="d">${it(t.day)}</span><span><b>${open?"APRE":"CHIUDE"}</b> ${META[t.k].name} · ${t.act.replace(/^Chiude /,"")} a ${fmt(t.px)}</span><span class="num ${cl}">${open?(t.act.startsWith("Compra")?"▲":"▼"):eur(t.pnl)}</span></div>`; }).join("")
+    : `<div class="empty">Ancora nessuna operazione.</div>`;
+  // registro (più recenti in alto)
+  const rows = sim.trades.filter(t=>t.day<=f.day).slice(-80).reverse();
+  $("logb").innerHTML = rows.length ? rows.map(t=>`<tr><td>${it(t.day)}</td><td>${META[t.k].name}</td><td class="${t.pnl===null?(t.act.startsWith("Compra")?"c-long":"c-short"):""}">${t.act}</td><td class="r">${fmt(t.px)}</td><td class="r ${t.pnl===null?"":t.pnl>=0?"c-long":"c-short"}">${t.pnl===null?"":eur(t.pnl)}</td></tr>`).join("")
+    : `<tr><td colspan="5" class="empty">Ancora nessuna operazione in questo periodo.</td></tr>`;
+}
+function draw(){ drawEquity(sim,cur); drawPrice(sim,cur,tab); }
+function render(){ renderKPIs(); draw(); }
+
+function run() {
+  sim = simulate(Math.max(50, +$("cap").value || 500), +$("per").value, +$("risk").value);
+  cur = sim.frames.length - 1; stop(); render(); renderSignals(); renderStability();
+}
+function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent = "▶ Avvia trading"; }
+function step(){ acc += +$("spd").value / 4 * 1.0; while (acc >= 1 && cur < sim.frames.length-1){ cur++; acc--; }
+  render(); if (cur >= sim.frames.length-1) { stop(); return; } raf = requestAnimationFrame(step); }
+$("play").onclick = () => {
+  if (playing) { stop(); return; }
+  if (cur >= sim.frames.length-1) cur = 0;
+  playing = true; acc = 0; $("play").textContent = "❚❚ Pausa"; raf = requestAnimationFrame(step);
+};
+$("end").onclick = () => { stop(); cur = sim.frames.length-1; render(); };
+for (const id of ["cap","per","risk"]) $(id).addEventListener("change", run);
+
+function renderStability() {
+  const capital = sim.capital, years = +$("per").value, risk = +$("risk").value;
+  const st = stats(sim.frames, capital);
+  // griglia di robustezza
+  const grid = GRID.map(([e,x]) => { const r = simulate(capital, years, risk, e, x), f = r.frames.at(-1); return {e, x, r: f.eq/capital - 1, dd: f.dd}; });
+  const posGrid = grid.filter(g=>g.r>0).length, posYears = st.yr.filter(y=>y.r>0).length;
+  const stable = posGrid >= GRID.length - 1 && posYears >= Math.ceil(st.yr.length*0.7) && st.posM >= 0.5;
+  const half = posGrid >= GRID.length/2 && posYears >= st.yr.length/2;
+  $("stVerdict").innerHTML = stable ? `<span class="c-long">Stabile</span>` : half ? `<span class="c-acc">Instabile</span>` : `<span class="c-short">Non stabile</span>`;
+  $("stReason").textContent = `In guadagno ${posYears} anni su ${st.yr.length}, ${Math.round(st.posM*100)}% dei mesi positivi, ${posGrid} varianti su ${GRID.length} in guadagno. ` +
+    (stable ? "Il risultato regge anche cambiando i parametri." : "Un sistema stabile dovrebbe guadagnare nella maggior parte degli anni e con quasi tutte le varianti.");
+  $("sM").textContent = Math.round(st.posM*100) + "%";
+  $("sB").textContent = pct(st.best); $("sW").textContent = pct(st.worst);
+  $("sS").textContent = st.sharpe.toLocaleString("it-IT",{maximumFractionDigits:2});
+  // anni
+  const ymax = Math.max(0.05, ...st.yr.flatMap(y=>[Math.abs(y.r), Math.abs(y.bh)]));
+  $("years").innerHTML = st.yr.map(y=>`<div class="yr"><span class="mono">${y.y}</span>
+    <div class="bars"><div class="bar"><i class="${y.r>=0?"pos":"neg"}" style="--w:${Math.abs(y.r)/ymax*50}%"></i></div><div class="bar bh"><i class="${y.bh>=0?"pos":"neg"}" style="--w:${Math.abs(y.bh)/ymax*50}%"></i></div></div>
+    <span class="num ${y.r>=0?"c-long":"c-short"}">${pct(y.r)}</span></div>`).join("");
+  // mesi
+  $("months").innerHTML = st.mr.map(([m,r])=>{ const a = Math.min(1, Math.abs(r)/0.15);
+    return `<span class="mcell" title="${m}: ${pct(r)}" style="background:color-mix(in srgb, var(${r>=0?"--long":"--short"}) ${Math.round(15+a*85)}%, var(--bg))"></span>`; }).join("");
+  $("grid").innerHTML = grid.map(g=>`<div class="gcell ${g.e===ENTRY&&g.x===EXIT?"cur":""}"><span class="lbl">Entrata ${g.e} · uscita ${g.x}</span><span class="num ${g.r>=0?"c-long":"c-short"}" style="font-size:18px">${pct(g.r)}</span><span class="lbl" style="text-transform:none;letter-spacing:0">calo max −${Math.round(g.dd*100)}%</span></div>`).join("");
+}
+
+function renderTabs(){ $("tabs").innerHTML = KEYS.map(k=>`<button type="button" aria-pressed="${k===tab}" data-k="${k}">${META[k].name}</button>`).join("");
+  $("tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{ tab=b.dataset.k; renderTabs(); drawPrice(sim,cur,tab); }); }
+
+function renderSignals(){
+  const lastFrame = sim.frames[sim.frames.length-1];
+  const {out,best} = todaySignals(lastFrame.pos);
+  $("dataDate").textContent = "Ultimi prezzi: " + it(LAST);
+  if (best) {
+    $("bigVerdict").innerHTML = `<span class="${best.state==="long"?"c-long":"c-short"}">${best.label}</span> ${META[best.k].name}`;
+    $("bigReason").textContent = best.detail + " È la materia prima con il segnale Turtle più forte in questo momento.";
+  } else {
+    $("bigVerdict").innerHTML = `<span class="c-wait">Nessun trade</span> oggi`;
+    $("bigReason").textContent = "Nessuna materia prima ha rotto il suo canale a 20 giorni. Il metodo Turtle in questi casi non fa nulla.";
+  }
+  $("sigs").innerHTML = out.map(o=>`<div class="sig ${best&&o.k===best.k?"best":""}"><div class="row"><span class="name">${META[o.k].name}</span><span class="pill ${o.state==="long"?"c-long":o.state==="short"?"c-short":"c-wait"}">${o.label.toUpperCase()}</span></div><div class="row"><span class="num" style="font-size:20px">${fmt(o.px)}</span><span class="lbl">${META[o.k].unit}</span></div><div class="lbl" style="text-transform:none;letter-spacing:0;font-size:12.5px">${o.detail}</div></div>`).join("");
+}
+
+function renderLive(){
+  if (!LIVE) return;
+  $("live").hidden = false;
+  const eqs = LIVE.equity, last = eqs.length ? eqs[eqs.length-1][1] : LIVE.capital, r = last/LIVE.capital - 1;
+  $("lvEq").textContent = eur(last);
+  $("lvRet").textContent = pct(r); $("lvRet").className = "v " + (r>=0?"c-long":"c-short");
+  $("lvStart").textContent = it(LIVE.start);
+  $("lvDays").textContent = eqs.length;
+  const P = LIVE.positions, ks = Object.keys(P);
+  $("lvPos").innerHTML = ks.length ? ks.map(k=>{ const p=P[k], px=LIVE.lastpx[k], u=p.dir*p.units*(px-p.entry);
+    return `<div class="row"><span><b>${META[k]?.name||k}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · entrata ${fmt(p.entry)} · ora ${fmt(px)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
+    : `<div class="empty">Nessuna posizione aperta: il robot aspetta una rottura del canale a 20 giorni.</div>`;
+  const tr = LIVE.trades.slice(-12).reverse();
+  $("lvFeed").innerHTML = tr.length ? tr.map(t=>{ const open=t.pnl===null, cl=open?(t.act.startsWith("Compra")?"c-long":"c-short"):(t.pnl>=0?"c-long":"c-short");
+    return `<div class="it"><span class="d">${it(t.day)}</span><span><b>${open?"APRE":"CHIUDE"}</b> ${META[t.k]?.name||t.k} · ${t.act.replace(/^Chiude /,"")} a ${fmt(t.px)}</span><span class="num ${cl}">${open?(t.act.startsWith("Compra")?"▲":"▼"):eur(t.pnl)}</span></div>`; }).join("")
+    : `<div class="empty">Ancora nessuna operazione.</div>`;
+  drawLive();
+}
+function drawLive(){
+  if (!LIVE) return;
+  const eqs = LIVE.equity;
+  $("lvNote").hidden = eqs.length >= 2;
+  $("lvNote").textContent = "Il grafico si riempie seduta dopo seduta: il robot ha appena iniziato.";
+  const cv = $("lvc"), {c,w,h} = setup(cv);
+  if (eqs.length < 1) return;
+  const L=54,R=12,T=10,B=22, n=eqs.length;
+  let mn=Math.min(LIVE.capital,...eqs.map(e=>e[1])), mx=Math.max(LIVE.capital,...eqs.map(e=>e[1]));
+  const pad=(mx-mn)*.1||LIVE.capital*.02; mn-=pad; mx+=pad;
+  const X=i=>n<2?(L+w-R)/2:L+(w-L-R)*i/(n-1), Y=v=>T+(h-T-B)*(1-(v-mn)/(mx-mn));
+  c.font="11px "+css("--f-mono"); c.fillStyle=css("--muted"); c.strokeStyle=css("--grid"); c.lineWidth=1;
+  for (const t of niceTicks(mn,mx)){ const y=Y(t); c.beginPath(); c.moveTo(L,y); c.lineTo(w-R,y); c.stroke(); c.textAlign="right"; c.fillText("€"+Math.round(t).toLocaleString("it-IT"),L-6,y+4); }
+  c.setLineDash([4,4]); c.strokeStyle=css("--muted"); c.beginPath(); c.moveTo(L,Y(LIVE.capital)); c.lineTo(w-R,Y(LIVE.capital)); c.stroke(); c.setLineDash([]);
+  c.textAlign="left"; c.fillText(it(eqs[0][0]), L, h-6); if (n>1){ c.textAlign="right"; c.fillText(it(eqs[n-1][0]), w-R, h-6); }
+  const acc=css("--accent"); c.strokeStyle=acc; c.lineWidth=2; c.beginPath();
+  eqs.forEach((e,i)=> i?c.lineTo(X(i),Y(e[1])):c.moveTo(X(i),Y(e[1]))); c.stroke();
+  c.fillStyle=acc; c.beginPath(); c.arc(X(n-1),Y(eqs[n-1][1]),4,0,7); c.fill();
+}
+
+renderTabs(); run(); renderLive();
+let rt; addEventListener("resize", ()=>{ clearTimeout(rt); rt=setTimeout(()=>{draw();drawLive();},120); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+document.fonts && document.fonts.ready.then(()=>{draw();drawLive();});
+</script>

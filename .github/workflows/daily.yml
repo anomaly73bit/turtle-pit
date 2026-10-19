@@ -1,0 +1,31 @@
+name: Robot Turtle giornaliero
+
+on:
+  schedule:
+    - cron: "30 22 * * 1-5"   # ogni sera feriale dopo la chiusura dei mercati USA
+  workflow_dispatch:           # avvio manuale dal tab Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: turtle
+  cancel-in-progress: false
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install yfinance pandas
+      - run: python turtle_live.py
+      - name: Salva portafoglio e dashboard
+        run: |
+          git config user.name "turtle-robot"
+          git config user.email "turtle-robot@users.noreply.github.com"
+          git add state.json docs/index.html
+          git diff --cached --quiet || git commit -m "Robot: seduta $(date -u +%Y-%m-%d)"
+          git push
