@@ -144,13 +144,17 @@ def step_day(st, day, raw, ind):
 
 def run_robot(raw):
     ind = {k: indicators(v[0], v[1]) for k, v in raw.items()}
-    days = sorted({x for v in raw.values() for x in v[0]})
+    # Usa solo sedute chiuse: prima delle 21:00 UTC la candela di oggi e' ancora parziale.
+    now = datetime.datetime.now(datetime.timezone.utc)
+    today = now.strftime("%Y-%m-%d")
+    cutoff = today if now.hour >= 21 else (now - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    days = sorted({x for v in raw.values() for x in v[0] if x <= cutoff})
     if STATE.exists():
         st = json.loads(STATE.read_text())
     else:
-        # primo avvio: il robot parte dall'ultima seduta disponibile, cioe' "oggi"
-        st = new_state(days[-1])
-        print(f"Nuovo portafoglio da {CAPITAL:.0f} € a partire dal {days[-1]}")
+        # primo avvio: il robot parte dalla seduta di oggi (elaborata alla chiusura)
+        st = new_state(today)
+        print(f"Nuovo portafoglio da {CAPITAL:.0f} € a partire dalla seduta del {today}")
     todo = [x for x in days if x >= st["start"] and (st["last"] is None or x > st["last"])]
     for day in todo:
         step_day(st, day, raw, ind)

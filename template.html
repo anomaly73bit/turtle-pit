@@ -563,7 +563,8 @@ function drawLive(){
   if (!LIVE) return;
   const eqs = LIVE.equity;
   $("lvNote").hidden = eqs.length >= 2;
-  $("lvNote").textContent = "Il grafico si riempie seduta dopo seduta: il robot ha appena iniziato.";
+  $("lvNote").textContent = eqs.length ? "Il grafico si riempie seduta dopo seduta: il robot ha appena iniziato."
+    : `Il robot fa le prime operazioni alla chiusura della seduta del ${it(LIVE.start)}, stanotte verso le 00:30 ora di Praga.`;
   const cv = $("lvc"), {c,w,h} = setup(cv);
   if (eqs.length < 1) return;
   const L=54,R=12,T=10,B=22, n=eqs.length;
