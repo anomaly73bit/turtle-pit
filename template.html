@@ -145,9 +145,10 @@ canvas{display:block;width:100%;height:100%}
   <!-- Simulatore -->
   <section class="panel" aria-labelledby="st">
     <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline">
-      <h2 id="st">Simulatore</h2>
+      <h2 id="st">Prova sul passato (backtest)</h2>
       <div class="lbl mono" id="simDay">—</div>
     </div>
+    <p class="sub" style="margin:0">Qui il robot rigioca gli anni passati sui prezzi veri di allora, per vedere come si sarebbe comportato. Sono operazioni ipotetiche, separate dal portafoglio dal vivo qui sopra, che invece opera da solo ogni sera.</p>
     <div class="controls">
       <div class="field"><label class="lbl" for="cap">Capitale €</label><input id="cap" type="number" min="50" step="50" value="500"></div>
       <div class="field"><label class="lbl" for="per">Periodo</label>
@@ -157,7 +158,7 @@ canvas{display:block;width:100%;height:100%}
       <div class="field"><label class="lbl" for="spd">Velocità</label>
         <select id="spd"><option value="1">Lenta</option><option value="4" selected>Normale</option><option value="15">Veloce</option></select></div>
       <div class="btns">
-        <button class="primary" id="play">▶ Avvia trading</button>
+        <button class="primary" id="play">▶ Riproduci il passato</button>
         <button id="end">Vai alla fine</button>
       </div>
     </div>
@@ -170,7 +171,7 @@ canvas{display:block;width:100%;height:100%}
       <div class="kpi"><span class="lbl">Trade vincenti</span><span class="v" id="kWin">—</span></div>
       <div class="kpi"><span class="lbl">Compra e tieni</span><span class="v" id="kBH">—</span></div>
     </div>
-    <div class="feed" aria-live="polite"><div class="lbl">Ultime operazioni fatte dal robot</div><div id="feed"></div></div>
+    <div class="feed" aria-live="polite"><div class="lbl">Operazioni che il robot avrebbe fatto nel passato</div><div id="feed"></div></div>
     <div class="legend"><span><i style="background:var(--accent)"></i>Capitale Turtle</span><span><i style="background:var(--muted)"></i>Compra e tieni (stessa quota su ognuna)</span></div>
     <div class="chartbox"><canvas id="eqc" aria-label="Andamento del capitale"></canvas></div>
   </section>
@@ -212,7 +213,7 @@ canvas{display:block;width:100%;height:100%}
       <div class="chartbox tall"><canvas id="pxc" aria-label="Prezzo con canale Donchian e operazioni"></canvas></div>
     </section>
     <section class="panel" aria-labelledby="ot">
-      <h2 id="ot">Posizioni aperte</h2>
+      <h2 id="ot">Posizioni aperte nel backtest</h2>
       <div class="pos" id="pos"><div class="empty">Nessuna posizione aperta.</div></div>
       <h2>Le regole del robot</h2>
       <ul class="rules">
@@ -226,8 +227,8 @@ canvas{display:block;width:100%;height:100%}
   </div>
 
   <section class="panel" aria-labelledby="lt">
-    <h2 id="lt">Registro operazioni</h2>
-    <div class="log"><table><thead><tr><th>Data</th><th>Materia prima</th><th>Azione</th><th class="r">Prezzo</th><th class="r">Risultato €</th></tr></thead><tbody id="logb"><tr><td colspan="5" class="empty">Premi «Avvia trading» per vedere il robot operare giorno per giorno.</td></tr></tbody></table></div>
+    <h2 id="lt">Registro operazioni del backtest</h2>
+    <div class="log"><table><thead><tr><th>Data</th><th>Materia prima</th><th>Azione</th><th class="r">Prezzo</th><th class="r">Risultato €</th></tr></thead><tbody id="logb"><tr><td colspan="5" class="empty">Premi «Riproduci il passato» per vedere cosa avrebbe fatto il robot giorno per giorno.</td></tr></tbody></table></div>
     <p class="warn"><span id="srcNote">__SOURCE__</span> È una simulazione su dati passati: i risultati storici non garantiscono quelli futuri e il trading con leva può far perdere tutto il capitale. Non è una consulenza finanziaria.</p>
   </section>
 </div>
@@ -488,7 +489,7 @@ function run() {
   sim = simulate(Math.max(50, +$("cap").value || 500), +$("per").value, +$("risk").value);
   cur = sim.frames.length - 1; stop(); render(); renderSignals(); renderStability();
 }
-function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent = "▶ Avvia trading"; }
+function stop(){ playing=false; cancelAnimationFrame(raf); $("play").textContent = "▶ Riproduci il passato"; }
 function step(){ acc += +$("spd").value / 4 * 1.0; while (acc >= 1 && cur < sim.frames.length-1){ cur++; acc--; }
   render(); if (cur >= sim.frames.length-1) { stop(); return; } raf = requestAnimationFrame(step); }
 $("play").onclick = () => {
