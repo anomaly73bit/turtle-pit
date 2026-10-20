@@ -10,7 +10,8 @@
    "stop": 689.6407,
    "cost": 0.11842105263157894,
    "notional": 78.95,
-   "day": "2026-10-19"
+   "day": "2026-10-19",
+   "time": "2026-10-19 15:55"
   },
   "zc": {
    "dir": -1,
@@ -19,7 +20,8 @@
    "stop": 488.0502,
    "cost": 0.11842870248736327,
    "notional": 78.95,
-   "day": "2026-10-19"
+   "day": "2026-10-19",
+   "time": "2026-10-19 19:10"
   },
   "zs": {
    "dir": -1,
@@ -28,7 +30,8 @@
    "stop": 1291.9793,
    "cost": 0.11846081208970975,
    "notional": 78.97,
-   "day": "2026-10-19"
+   "day": "2026-10-19",
+   "time": "2026-10-19 15:55"
   },
   "kc": {
    "dir": 1,
@@ -37,7 +40,8 @@
    "stop": 290.9324,
    "cost": 0.11846261682884089,
    "notional": 78.98,
-   "day": "2026-10-19"
+   "day": "2026-10-19",
+   "time": "2026-10-19 12:40"
   },
   "le": {
    "dir": 1,
@@ -46,7 +50,8 @@
    "stop": 222.7689,
    "cost": 0.11858176942777361,
    "notional": 79.05,
-   "day": "2026-10-19"
+   "day": "2026-10-19",
+   "time": "2026-10-19 15:30"
   }
  },
  "trades": [
@@ -59,7 +64,8 @@
    "pnl": null,
    "units": 0.12057635497678905,
    "notional": 78.95,
-   "act": "Vende allo scoperto (short)"
+   "act": "Vende allo scoperto (short)",
+   "time": "2026-10-19 15:55"
   },
   {
    "day": "2026-10-19",
@@ -70,7 +76,8 @@
    "pnl": null,
    "units": 0.16933505270757931,
    "notional": 78.95,
-   "act": "Vende allo scoperto (short)"
+   "act": "Vende allo scoperto (short)",
+   "time": "2026-10-19 19:10"
   },
   {
    "day": "2026-10-19",
@@ -81,7 +88,8 @@
    "pnl": null,
    "units": 0.06304041087724858,
    "notional": 78.97,
-   "act": "Vende allo scoperto (short)"
+   "act": "Vende allo scoperto (short)",
+   "time": "2026-10-19 15:55"
   },
   {
    "day": "2026-10-19",
@@ -92,7 +100,8 @@
    "pnl": null,
    "units": 0.25369443586859597,
    "notional": 78.98,
-   "act": "Compra (long)"
+   "act": "Compra (long)",
+   "time": "2026-10-19 12:40"
   },
   {
    "day": "2026-10-19",
@@ -103,7 +112,8 @@
    "pnl": null,
    "units": 0.34608520499879203,
    "notional": 79.05,
-   "act": "Compra (long)"
+   "act": "Compra (long)",
+   "time": "2026-10-19 15:30"
   }
  ],
  "equity": [
