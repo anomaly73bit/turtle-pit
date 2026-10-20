@@ -9,13 +9,16 @@ Robot tennis Unibet: ogni 30 minuti (GitHub Actions)
   5. rigenera la pagina docs/tennis/index.html.
 Nessuna scommessa vera viene piazzata.
 """
-import datetime, html, json, pathlib, sys, urllib.request, zoneinfo
-from tennis_model import State, Names, predict_b, as_date
+import datetime, html, json, os, pathlib, sys, unicodedata, urllib.request, zoneinfo
+from tennis_model import State, Names, predict_b, as_date, norm
+import sharp
 
 HERE = pathlib.Path(__file__).resolve().parent
 OUT = HERE.parent / "docs" / "tennis" / "index.html"
 STATE, MODEL, BETS, BT = HERE / "state.json", HERE / "model.json", HERE / "bets.json", HERE / "backtest.json"
-SOGLIA = 0.05          # valore minimo per la scommessa finta: (prob. modello x quota) - 1
+SHARP_FILE = HERE / "sharp.json"
+SOGLIA = 0.03          # valore minimo: (probabilita' giusta dalle quote sharp x quota Unibet) - 1
+SHARP_MAX_AGE_H = 8    # oltre questa eta' le quote sharp non si usano
 MIN_MATCHES = 10       # partite minime nei dati per entrambi i giocatori
 ODDS_RANGE = (1.20, 6.0)
 PRAGUE = zoneinfo.ZoneInfo("Europe/Prague")
@@ -153,21 +156,90 @@ def form_str(st, T, k):
     return "".join("V" if w else "S" for _, w in h)
 
 
+# ---------- quote sharp ----------
+def pkey(full):
+    t = norm(full)
+    return f"{t[-1]}|{t[0][0]}" if len(t) > 1 else (t[0] if t else "")
+
+
+def sharp_update():
+    """Scarica le quote sharp quando serve, rispettando le 500 richieste gratuite al mese."""
+    snap = json.loads(SHARP_FILE.read_text()) if SHARP_FILE.exists() else {}
+    if not os.environ.get("ODDS_API_KEY"):
+        print("Quote sharp: chiave ODDS_API_KEY assente")
+        return snap
+    now = datetime.datetime.now(datetime.timezone.utc)
+    try:
+        keys = sharp.tennis_keys()
+    except Exception as e:
+        print("Quote sharp: elenco tornei non disponibile:", e)
+        return snap
+    last = datetime.datetime.fromisoformat(snap["time"]) if snap.get("time") else None
+    same_month = snap.get("month") == now.strftime("%Y-%m")
+    remaining = int(snap.get("remaining") or 500) if same_month else 500
+    days_left = (datetime.date(now.year + now.month // 12, now.month % 12 + 1, 1) - now.date()).days or 1
+    per_snap = max(1, len(keys))
+    interval_h = max(3.0, 24 * per_snap * days_left / max(remaining - 10, 1))
+    due = last is None or (now - last).total_seconds() / 3600 >= interval_h or os.environ.get("FORCE_SHARP") == "1"
+    print(f"Quote sharp: {len(keys)} tornei attivi, richieste rimaste {remaining}, intervallo {interval_h:.1f} h, "
+          f"{'scarico adesso' if due else 'uso le quote delle ' + last.astimezone(PRAGUE).strftime('%H:%M')}")
+    if not due or remaining - per_snap < 5:
+        return snap
+    events, rem = sharp.fetch(keys, budget_left_min=5)
+    out = []
+    for ev in events:
+        p, used = sharp.fair(ev)
+        if p is None:
+            continue
+        out.append({"home": ev["home_team"], "away": ev["away_team"], "start": ev["commence_time"],
+                    "key": ev["sport_key"], "p_home": round(p, 4), "src": used})
+    snap = {"time": now.isoformat(timespec="minutes"), "month": now.strftime("%Y-%m"),
+            "remaining": int(rem) if rem is not None else remaining, "events": out}
+    SHARP_FILE.write_text(json.dumps(snap, ensure_ascii=False, indent=1))
+    print(f"Quote sharp salvate: {len(out)} partite con Pinnacle/Betfair")
+    return snap
+
+
+def attach_sharp(matches, snap):
+    if not snap.get("time"):
+        return
+    age = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(snap["time"])).total_seconds() / 3600
+    if age > SHARP_MAX_AGE_H:
+        return
+    idx = {}
+    for e in snap.get("events", []):
+        idx.setdefault(frozenset((pkey(e["home"]), pkey(e["away"]))), []).append(e)
+    n = 0
+    for m in matches:
+        cands = idx.get(frozenset((pkey(m["p1"]), pkey(m["p2"]))), [])
+        t0 = datetime.datetime.fromisoformat(m["start"].replace("Z", "+00:00"))
+        for e in cands:
+            if abs((datetime.datetime.fromisoformat(e["start"].replace("Z", "+00:00")) - t0).total_seconds()) > 6 * 3600:
+                continue
+            p1 = e["p_home"] if pkey(e["home"]) == pkey(m["p1"]) else 1 - e["p_home"]
+            m.update(fair1=p1, src=e["src"], sv1=p1 * m["q1"] - 1, sv2=(1 - p1) * m["q2"] - 1, sharp_age=age)
+            n += 1
+            break
+    print(f"Partite Unibet abbinate alle quote sharp: {n}")
+
+
 # ---------- 4. scommesse finte ----------
 def paper(bets, matches, results):
     known = {b["id"] for b in bets}
     now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="minutes")
     for m in matches:
-        if "pm1" not in m or m["id"] in known:
+        if "fair1" not in m or m["id"] in known:
             continue
         for side in (1, 2):
-            v, q = m[f"v{side}"], m[f"q{side}"]
+            v, q = m[f"sv{side}"], m[f"q{side}"]
             if v >= SOGLIA and ODDS_RANGE[0] <= q <= ODDS_RANGE[1]:
-                pick, opp = (m["k1"], m["k2"]) if side == 1 else (m["k2"], m["k1"])
+                k1 = m["k1"] or short_key(m["p1"], "")
+                k2 = m["k2"] or short_key(m["p2"], "")
+                pick, opp = (k1, k2) if side == 1 else (k2, k1)
                 bets.append({"id": m["id"], "placed": now, "start": m["start"], "tour": m["tour"],
                              "tournament": m["tournament"], "pick": m[f"p{side}"], "opp": m[f"p{3 - side}"],
                              "kpick": pick, "kopp": opp, "odds": q, "value": round(v, 4),
-                             "pmodel": round(m["pm1"] if side == 1 else 1 - m["pm1"], 4),
+                             "pmodel": round(m["fair1"] if side == 1 else 1 - m["fair1"], 4), "src": m["src"],
                              "pbook": round(m["imp1"] if side == 1 else 1 - m["imp1"], 4), "status": "aperta"})
                 print(f"  SCOMMESSA FINTA: {m[f'p{side}']} a {q} (valore {v:+.1%})")
                 break
@@ -251,12 +323,12 @@ def build_page(matches, bets, bt, model):
     # --- da giocare ---
     picks = []
     for m in matches:
-        if "pm1" not in m:
+        if "fair1" not in m:
             continue
-        side = 1 if m["v1"] >= m["v2"] else 2
-        v, q = m[f"v{side}"], m[f"q{side}"]
+        side = 1 if m["sv1"] >= m["sv2"] else 2
+        v, q = m[f"sv{side}"], m[f"q{side}"]
         if v >= SOGLIA and ODDS_RANGE[0] <= q <= ODDS_RANGE[1]:
-            picks.append((v, m, side, q, m["pm1"] if side == 1 else 1 - m["pm1"]))
+            picks.append((v, m, side, q, m["fair1"] if side == 1 else 1 - m["fair1"]))
     picks.sort(key=lambda x: -x[0])
     tips = "".join(
         f'<li class="tip"><span class="no">{i}</span>'
@@ -270,10 +342,11 @@ def build_page(matches, bets, bt, model):
         tips = '<li class="nothing">Nessuna partita da giocare adesso. Si aggiorna ogni 30 minuti.</li>'
 
     # --- tutte le partite ---
+    prob = lambda m: m.get("fair1", m.get("pm1"))
     allrows = "".join(
         f'<tr><td class="mono">{t(m["start"])}</td><td>{esc(m["p1"])}<br>{esc(m["p2"])}</td>'
         f'<td class="r mono">{num(m["q1"])}<br>{num(m["q2"])}</td>'
-        f'<td class="r mono">{pct(m["pm1"]) if "pm1" in m else "—"}<br>{pct(1 - m["pm1"]) if "pm1" in m else "—"}</td></tr>'
+        f'<td class="r mono">{pct(prob(m)) if prob(m) is not None else "—"}<br>{pct(1 - prob(m)) if prob(m) is not None else "—"}</td></tr>'
         for m in sorted(matches, key=lambda m: m["start"]))
 
     # --- simulazione dal vivo ---
@@ -294,7 +367,7 @@ def build_page(matches, bets, bt, model):
     lwon = sum(b["status"] == "vinta" for b in lclosed)
 
     # --- simulazione sul passato ---
-    pb = bt.get("bets", [])
+    pb = bt.get("bets_sharp", bt.get("bets", []))
     pcurve, pstakes, pbank = bankroll([(r[0], r[5], r[7]) for r in pb])
     prows = "".join(
         f'<tr><td class="mono">{r[0][8:10]}/{r[0][5:7]}/{r[0][2:4]}</td><td><b>{esc(r[3])}</b> <span class="dim">vs {esc(r[4])}</span></td>'
@@ -343,6 +416,7 @@ def main():
     results = update_results(st, names)
     names = Names(list(st.elo.keys()))
     matches = scan(st, names, model)
+    attach_sharp(matches, sharp_update())
     bets = paper(bets, matches, results)
     out = st.to_json()
     out.update(surfaces=st.surfaces, espn_done=st.espn_done, base_date=st.base_date)

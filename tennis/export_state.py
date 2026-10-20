@@ -44,8 +44,9 @@ def main(folder):
         ra, rb = (r.LRank, r.WRank) if swap else (r.WRank, r.LRank)
         pa, pb = (r.LPts, r.WPts) if swap else (r.WPts, r.LPts)
         oa, ob = (r.B365L, r.B365W) if swap else (r.B365W, r.B365L)
+        sa, sb = (r.PSL, r.PSW) if swap else (r.PSW, r.PSL)
         f = st.features(r.tour, a, b, r.Surface, r.Date, getattr(r, '_6') == 5, ra, rb, pa, pb)
-        f.update(date=r.Date, tour=r.tour, y=0 if swap else 1, completed='Completed' in comment, oa=oa, ob=ob,
+        f.update(date=r.Date, tour=r.tour, y=0 if swap else 1, completed='Completed' in comment, oa=oa, ob=ob, sa=sa, sb=sb,
                  pa_name=a, pb_name=b, tourn=r.Tournament)
         rows.append(f)
         if 'Completed' in comment or 'Retired' in comment:
@@ -85,6 +86,18 @@ def main(folder):
             bt["bets"].append([str(d.date()), tour, tn, na if side == 1 else nb, nb if side == 1 else na,
                                float(oa if side == 1 else ob), round(float(p if side == 1 else 1 - p), 4),
                                int((y == 1) == (side == 1))])
+    # metodo delle quote sharp: probabilita' giusta da Pinnacle (senza margine), si gioca Bet365 se paga di piu'
+    bt["bets_sharp"] = []
+    for oa, ob, sa, sb, y, d, tour, tn, na, nb in zip(te.oa, te.ob, te.sa, te.sb, te.y, te.date, te.tour, te.tourn, te.pa_name, te.pb_name):
+        if not (sa > 1 and sb > 1):
+            continue
+        p = (1 / sa) / (1 / sa + 1 / sb)
+        ea, eb = p * oa - 1, (1 - p) * ob - 1
+        side = 1 if (ea >= 0.03 and ea >= eb and 1.2 <= oa <= 6) else 2 if (eb >= 0.03 and 1.2 <= ob <= 6) else None
+        if side:
+            bt["bets_sharp"].append([str(d.date()), tour, tn, na if side == 1 else nb, nb if side == 1 else na,
+                                     float(oa if side == 1 else ob), round(p if side == 1 else 1 - p, 4),
+                                     int((y == 1) == (side == 1))])
     ll = lambda y, p: float(-np.mean(y * np.log(p) + (1 - y) * np.log(1 - p)))
     bt["logloss_model"], bt["logloss_bookmaker"] = ll(te.y, pt), ll(te.y, te.imp)
     print(json.dumps(bt, indent=1))
