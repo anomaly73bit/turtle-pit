@@ -1,0 +1,985 @@
+{
+ "n": 252,
+ "paths": {
+  "Tennis / WTA / Ningbo": 4,
+  "Tennis / ITF Women / Wrexham": 12,
+  "Tennis / Challenger / Florence": 9,
+  "Tennis / ITF Men / Bol": 4,
+  "Tennis / ITF Women / Monastir": 3,
+  "Tennis / ATP / Brussels": 8,
+  "Tennis / Challenger / Guangzhou": 1,
+  "Tennis / ITF Women / Karlovy Vary": 4,
+  "Tennis / ITF Women Doubles / Sharm El Sheikh": 2,
+  "Tennis / ITF Men Doubles / Heraklion": 3,
+  "Tennis / ITF Women / Santa Margherita Di Pula": 3,
+  "Tennis / ITF Women / Bol": 5,
+  "Tennis / ATP / Lyon": 9,
+  "Tennis / ITF Men / Sarreguemines": 2,
+  "Tennis / Challenger / Lisbon": 6,
+  "Tennis / ITF Women / Villena": 4,
+  "Tennis / ITF Men / Santa Margherita Di Pula": 4,
+  "Tennis / ITF Women Doubles / Wrexham": 1,
+  "Tennis / ITF Men Doubles / Sarreguemines": 1,
+  "Tennis / ITF Women Doubles / Cherbourg En Cotentin": 2,
+  "Tennis / ITF Women / Cherbourg En Cotentin": 3,
+  "Tennis / ITF Men / Monastir": 4,
+  "Tennis / ITF Men / Redbridge": 7,
+  "Tennis / ITF Women / Campina Grande": 6,
+  "Tennis / ITF Women / Loule": 1,
+  "Tennis / ITF Women Doubles / Santa Margherita Di Pula": 1,
+  "Tennis / UTR Pro Tennis Series Women / Portugal": 6,
+  "Tennis / ITF Men / Maceio": 2,
+  "Tennis / ATP Doubles / Brussels": 3,
+  "Tennis / ITF Men Qual. / Ithaca": 8,
+  "Tennis / ITF Women / Saguenay": 10,
+  "Tennis / ATP / Almaty": 6,
+  "Tennis / ITF Women / Austin": 12,
+  "Tennis / Challenger / Cali": 12,
+  "Tennis / Challenger / Fort Worth": 11,
+  "Tennis / UTR Pro Tennis Series Women / USA - Lubbock": 6,
+  "Tennis / ITF Women Qual. / Bakersfield": 7,
+  "Tennis / UTR Pro Tennis Series / USA - Newport Beach": 3,
+  "Tennis / ITF Men / Ithaca": 3,
+  "Tennis / UTR Pro Tennis Series Women / USA - Newport Beach": 1,
+  "Tennis / ITF Women / Bakersfield": 4,
+  "Tennis / ITF Men / Tamworth": 10,
+  "Tennis / ITF Women / Sydney": 5,
+  "Tennis / ITF Men / Tanagura": 2,
+  "Tennis / ITF Men / Shenzhen": 6,
+  "Tennis / ITF Women / Singapore": 1,
+  "Tennis / ITF Women / Qian Daohu": 6,
+  "Tennis / WTA / Osaka": 4,
+  "Tennis / ITF Men / Mumbai": 3,
+  "Tennis / ITF Men / Singapore": 1,
+  "Tennis / WTA Doubles / Ningbo": 4,
+  "Tennis / ATP Doubles / Almaty": 3,
+  "Tennis / ATP Doubles / Lyon": 4
+ },
+ "sample": [
+  {
+   "event": {
+    "id": 1029550241,
+    "name": "Katarzyna Kawa - Daria Snigur",
+    "nameDelimiter": "-",
+    "englishName": "Katarzyna Kawa - Daria Snigur",
+    "homeName": "Katarzyna Kawa",
+    "awayName": "Daria Snigur",
+    "start": "2026-10-20T10:45:00Z",
+    "group": "Ningbo",
+    "groupId": 2000081188,
+    "path": [
+     {
+      "id": 1000093193,
+      "name": "Tennis",
+      "englishName": "Tennis",
+      "termKey": "tennis"
+     },
+     {
+      "id": 1000093904,
+      "name": "WTA",
+      "englishName": "WTA",
+      "termKey": "wta"
+     },
+     {
+      "id": 2000081188,
+      "name": "Ningbo",
+      "englishName": "Ningbo",
+      "termKey": "ningbo"
+     }
+    ],
+    "nonLiveBoCount": 24,
+    "liveBoCount": 43,
+    "sport": "TENNIS",
+    "tags": [
+     "OPEN_FOR_LIVE",
+     "BET_BUILDER",
+     "MATCH"
+    ],
+    "state": "STARTED"
+   },
+   "betOffers": [
+    {
+     "id": 2705800061,
+     "criterion": {
+      "id": 1001159551,
+      "label": "Match Odds",
+      "englishLabel": "Match Odds",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 2,
+      "name": "Match",
+      "englishName": "Match"
+     },
+     "eventId": 1029550241,
+     "outcomes": [
+      {
+       "id": 4381005961,
+       "label": "Katarzyna Kawa",
+       "englishLabel": "Katarzyna Kawa",
+       "odds": 4700,
+       "participant": "Katarzyna Kawa",
+       "type": "OT_ONE",
+       "betOfferId": 2705800061,
+       "changedDate": "2026-10-20T11:59:20Z",
+       "participantId": 1000903860,
+       "oddsFractional": "18/5",
+       "oddsAmerican": "370",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4381005962,
+       "label": "Daria Snigur",
+       "englishLabel": "Daria Snigur",
+       "odds": 1190,
+       "participant": "Daria Snigur",
+       "type": "OT_TWO",
+       "betOfferId": 2705800061,
+       "changedDate": "2026-10-20T11:59:20Z",
+       "participantId": 1004241202,
+       "oddsFractional": "2/11",
+       "oddsAmerican": "-530",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "BET_BUILDER",
+      "MAIN"
+     ],
+     "sortOrder": 1,
+     "cashOutStatus": "ENABLED"
+    },
+    {
+     "id": 2705800066,
+     "criterion": {
+      "id": 1001427539,
+      "label": "Game Handicap",
+      "englishLabel": "Game Handicap",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 1,
+      "name": "Handicap",
+      "englishName": "Handicap"
+     },
+     "eventId": 1029550241,
+     "outcomes": [
+      {
+       "id": 4381005972,
+       "label": "Katarzyna Kawa",
+       "englishLabel": "Katarzyna Kawa",
+       "odds": 2880,
+       "line": 5500,
+       "participant": "Katarzyna Kawa",
+       "type": "OT_ONE",
+       "betOfferId": 2705800066,
+       "changedDate": "2026-10-20T11:59:21Z",
+       "participantId": 1000903860,
+       "oddsFractional": "15/8",
+       "oddsAmerican": "188",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4381005971,
+       "label": "Daria Snigur",
+       "englishLabel": "Daria Snigur",
+       "odds": 1380,
+       "line": -5500,
+       "participant": "Daria Snigur",
+       "type": "OT_TWO",
+       "betOfferId": 2705800066,
+       "changedDate": "2026-10-20T11:59:21Z",
+       "participantId": 1004241202,
+       "oddsFractional": "4/11",
+       "oddsAmerican": "-265",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "MAIN_LINE",
+      "BET_BUILDER"
+     ],
+     "sortOrder": 2,
+     "cashOutStatus": "ENABLED"
+    },
+    {
+     "id": 2705782789,
+     "criterion": {
+      "id": 1001159891,
+      "label": "Total Games",
+      "englishLabel": "Total Games",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 6,
+      "name": "Over/Under",
+      "englishName": "Over/Under"
+     },
+     "eventId": 1029550241,
+     "outcomes": [
+      {
+       "id": 4380994876,
+       "label": "Over",
+       "englishLabel": "Over",
+       "odds": 2020,
+       "line": 20500,
+       "type": "OT_OVER",
+       "betOfferId": 2705782789,
+       "changedDate": "2026-10-20T11:59:21Z",
+       "oddsFractional": "Evens",
+       "oddsAmerican": "102",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4380994877,
+       "label": "Under",
+       "englishLabel": "Under",
+       "odds": 1740,
+       "line": 20500,
+       "type": "OT_UNDER",
+       "betOfferId": 2705782789,
+       "changedDate": "2026-10-20T11:59:21Z",
+       "oddsFractional": "8/11",
+       "oddsAmerican": "-136",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "MAIN_LINE",
+      "BET_BUILDER"
+     ],
+     "sortOrder": 3,
+     "cashOutStatus": "ENABLED"
+    }
+   ],
+   "liveData": {
+    "eventId": 1029550241,
+    "score": {
+     "home": "0",
+     "away": "0",
+     "who": "UNKNOWN",
+     "version": 1792497558557
+    },
+    "statistics": {
+     "sets": {
+      "home": [
+       1,
+       3,
+       -1
+      ],
+      "away": [
+       6,
+       2,
+       -1
+      ],
+      "homeServe": true
+     },
+     "version": 1792497558557
+    },
+    "liveStatistics": []
+   }
+  },
+  {
+   "event": {
+    "id": 1029534188,
+    "name": "Hanyu Guo - Ekaterina Alexandrova",
+    "nameDelimiter": "-",
+    "englishName": "Hanyu Guo - Ekaterina Alexandrova",
+    "homeName": "Hanyu Guo",
+    "awayName": "Ekaterina Alexandrova",
+    "start": "2026-10-20T11:23:00Z",
+    "group": "Ningbo",
+    "groupId": 2000081188,
+    "path": [
+     {
+      "id": 1000093193,
+      "name": "Tennis",
+      "englishName": "Tennis",
+      "termKey": "tennis"
+     },
+     {
+      "id": 1000093904,
+      "name": "WTA",
+      "englishName": "WTA",
+      "termKey": "wta"
+     },
+     {
+      "id": 2000081188,
+      "name": "Ningbo",
+      "englishName": "Ningbo",
+      "termKey": "ningbo"
+     }
+    ],
+    "nonLiveBoCount": 19,
+    "liveBoCount": 37,
+    "sport": "TENNIS",
+    "tags": [
+     "OPEN_FOR_LIVE",
+     "BET_BUILDER",
+     "MATCH"
+    ],
+    "state": "STARTED"
+   },
+   "betOffers": [
+    {
+     "id": 2705198057,
+     "criterion": {
+      "id": 1001159551,
+      "label": "Match Odds",
+      "englishLabel": "Match Odds",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 2,
+      "name": "Match",
+      "englishName": "Match"
+     },
+     "eventId": 1029534188,
+     "outcomes": [
+      {
+       "id": 4379014283,
+       "label": "Hanyu Guo",
+       "englishLabel": "Hanyu Guo",
+       "odds": 17000,
+       "participant": "Hanyu Guo",
+       "type": "OT_ONE",
+       "betOfferId": 2705198057,
+       "changedDate": "2026-10-20T12:53:30Z",
+       "participantId": 1002689550,
+       "oddsFractional": "16/1",
+       "oddsAmerican": "1600",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4379014284,
+       "label": "Ekaterina Alexandrova",
+       "englishLabel": "Ekaterina Alexandrova",
+       "participant": "Ekaterina Alexandrova",
+       "type": "OT_TWO",
+       "betOfferId": 2705198057,
+       "changedDate": "2026-10-20T12:53:30Z",
+       "participantId": 1001355127,
+       "status": "SUSPENDED",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "BET_BUILDER",
+      "MAIN"
+     ],
+     "sortOrder": 1,
+     "cashOutStatus": "ENABLED"
+    },
+    {
+     "id": 2706289494,
+     "criterion": {
+      "id": 1001427539,
+      "label": "Game Handicap",
+      "englishLabel": "Game Handicap",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 1,
+      "name": "Handicap",
+      "englishName": "Handicap"
+     },
+     "eventId": 1029534188,
+     "outcomes": [
+      {
+       "id": 4382493173,
+       "label": "Hanyu Guo",
+       "englishLabel": "Hanyu Guo",
+       "odds": 1580,
+       "line": 7500,
+       "participant": "Hanyu Guo",
+       "type": "OT_ONE",
+       "betOfferId": 2706289494,
+       "changedDate": "2026-10-20T12:53:30Z",
+       "participantId": 1002689550,
+       "oddsFractional": "4/7",
+       "oddsAmerican": "-175",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4382493174,
+       "label": "Ekaterina Alexandrova",
+       "englishLabel": "Ekaterina Alexandrova",
+       "odds": 2300,
+       "line": -7500,
+       "participant": "Ekaterina Alexandrova",
+       "type": "OT_TWO",
+       "betOfferId": 2706289494,
+       "changedDate": "2026-10-20T12:53:30Z",
+       "participantId": 1001355127,
+       "oddsFractional": "13/10",
+       "oddsAmerican": "130",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "MAIN_LINE",
+      "BET_BUILDER"
+     ],
+     "sortOrder": 2,
+     "cashOutStatus": "ENABLED"
+    },
+    {
+     "id": 2705174607,
+     "criterion": {
+      "id": 1001159891,
+      "label": "Total Games",
+      "englishLabel": "Total Games",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 6,
+      "name": "Over/Under",
+      "englishName": "Over/Under"
+     },
+     "eventId": 1029534188,
+     "outcomes": [
+      {
+       "id": 4379028798,
+       "label": "Over",
+       "englishLabel": "Over",
+       "odds": 1570,
+       "line": 16500,
+       "type": "OT_OVER",
+       "betOfferId": 2705174607,
+       "changedDate": "2026-10-20T12:53:30Z",
+       "oddsFractional": "11/20",
+       "oddsAmerican": "-177",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4379028799,
+       "label": "Under",
+       "englishLabel": "Under",
+       "odds": 2320,
+       "line": 16500,
+       "type": "OT_UNDER",
+       "betOfferId": 2705174607,
+       "changedDate": "2026-10-20T12:53:30Z",
+       "oddsFractional": "13/10",
+       "oddsAmerican": "132",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "MAIN_LINE",
+      "BET_BUILDER"
+     ],
+     "sortOrder": 3,
+     "cashOutStatus": "ENABLED"
+    }
+   ],
+   "liveData": {
+    "eventId": 1029534188,
+    "score": {
+     "home": "AD",
+     "away": "40",
+     "who": "HOME",
+     "version": 1792500810489
+    },
+    "statistics": {
+     "sets": {
+      "home": [
+       2,
+       1,
+       -1
+      ],
+      "away": [
+       6,
+       3,
+       -1
+      ],
+      "homeServe": true
+     },
+     "version": 1792500810489
+    },
+    "liveStatistics": []
+   }
+  },
+  {
+   "event": {
+    "id": 1029557353,
+    "name": "Anna-Lena Friedsam - Noemi Basiletti",
+    "nameDelimiter": "-",
+    "englishName": "Anna-Lena Friedsam - Noemi Basiletti",
+    "homeName": "Anna-Lena Friedsam",
+    "awayName": "Noemi Basiletti",
+    "start": "2026-10-20T11:23:00Z",
+    "group": "Wrexham",
+    "groupId": 2010205671,
+    "path": [
+     {
+      "id": 1000093193,
+      "name": "Tennis",
+      "englishName": "Tennis",
+      "termKey": "tennis"
+     },
+     {
+      "id": 1000462066,
+      "name": "ITF Women",
+      "englishName": "ITF Women",
+      "termKey": "itf_women"
+     },
+     {
+      "id": 2010205671,
+      "name": "Wrexham",
+      "englishName": "Wrexham",
+      "termKey": "wrexham"
+     }
+    ],
+    "nonLiveBoCount": 1,
+    "liveBoCount": 15,
+    "sport": "TENNIS",
+    "tags": [
+     "OPEN_FOR_LIVE",
+     "BET_BUILDER",
+     "MATCH"
+    ],
+    "state": "STARTED"
+   },
+   "betOffers": [
+    {
+     "id": 2705996296,
+     "criterion": {
+      "id": 1001159551,
+      "label": "Match Odds",
+      "englishLabel": "Match Odds",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 2,
+      "name": "Match",
+      "englishName": "Match"
+     },
+     "eventId": 1029557353,
+     "outcomes": [
+      {
+       "id": 4381588058,
+       "label": "Noemi Basiletti",
+       "englishLabel": "Noemi Basiletti",
+       "odds": 4000,
+       "participant": "Noemi Basiletti",
+       "type": "OT_TWO",
+       "betOfferId": 2705996296,
+       "changedDate": "2026-10-20T12:53:40Z",
+       "participantId": 1007259421,
+       "oddsFractional": "3/1",
+       "oddsAmerican": "300",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      },
+      {
+       "id": 4381588059,
+       "label": "Anna-Lena Friedsam",
+       "englishLabel": "Anna-Lena Friedsam",
+       "odds": 1210,
+       "participant": "Anna-Lena Friedsam",
+       "type": "OT_ONE",
+       "betOfferId": 2705996296,
+       "changedDate": "2026-10-20T12:53:40Z",
+       "participantId": 1001073935,
+       "oddsFractional": "1/5",
+       "oddsAmerican": "-480",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "BET_BUILDER",
+      "MAIN"
+     ],
+     "sortOrder": 1,
+     "cashOutStatus": "ENABLED"
+    },
+    {
+     "id": 2705996298,
+     "criterion": {
+      "id": 1001159891,
+      "label": "Total Games",
+      "englishLabel": "Total Games",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 6,
+      "name": "Over/Under",
+      "englishName": "Over/Under"
+     },
+     "eventId": 1029557353,
+     "outcomes": [
+      {
+       "id": 4381588064,
+       "label": "Over",
+       "englishLabel": "Over",
+       "odds": 1600,
+       "line": 20500,
+       "type": "OT_OVER",
+       "betOfferId": 2705996298,
+       "changedDate": "2026-10-20T12:53:40Z",
+       "oddsFractional": "3/5",
+       "oddsAmerican": "-167",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4381588065,
+       "label": "Under",
+       "englishLabel": "Under",
+       "odds": 2180,
+       "line": 20500,
+       "type": "OT_UNDER",
+       "betOfferId": 2705996298,
+       "changedDate": "2026-10-20T12:53:40Z",
+       "oddsFractional": "59/50",
+       "oddsAmerican": "118",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_LIVE",
+      "MAIN_LINE",
+      "BET_BUILDER"
+     ],
+     "sortOrder": 3,
+     "cashOutStatus": "ENABLED"
+    }
+   ],
+   "liveData": {
+    "eventId": 1029557353,
+    "score": {
+     "home": "4",
+     "away": "5",
+     "who": "AWAY",
+     "version": 1792500820581
+    },
+    "statistics": {
+     "sets": {
+      "home": [
+       6,
+       6,
+       -1
+      ],
+      "away": [
+       1,
+       6,
+       -1
+      ],
+      "homeServe": false
+     },
+     "version": 1792500820581
+    },
+    "liveStatistics": []
+   }
+  },
+  {
+   "event": {
+    "id": 1029534217,
+    "name": "Henry Searle - Massimo Giunta",
+    "nameDelimiter": "-",
+    "englishName": "Henry Searle - Massimo Giunta",
+    "homeName": "Henry Searle",
+    "awayName": "Massimo Giunta",
+    "start": "2026-10-20T11:33:00Z",
+    "group": "Florence",
+    "groupId": 2010207610,
+    "path": [
+     {
+      "id": 1000093193,
+      "name": "Tennis",
+      "englishName": "Tennis",
+      "termKey": "tennis"
+     },
+     {
+      "id": 1000093377,
+      "name": "Challenger",
+      "englishName": "Challenger",
+      "termKey": "challenger"
+     },
+     {
+      "id": 2010207610,
+      "name": "Florence",
+      "englishName": "Florence",
+      "termKey": "florence"
+     }
+    ],
+    "nonLiveBoCount": 17,
+    "liveBoCount": 39,
+    "sport": "TENNIS",
+    "tags": [
+     "OPEN_FOR_LIVE",
+     "STREAMED_WEB",
+     "BET_BUILDER",
+     "STREAMED_MOBILE",
+     "MATCH"
+    ],
+    "state": "STARTED"
+   },
+   "betOffers": [
+    {
+     "id": 2705378398,
+     "criterion": {
+      "id": 1001159551,
+      "label": "Match Odds",
+      "englishLabel": "Match Odds",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 2,
+      "name": "Match",
+      "englishName": "Match"
+     },
+     "eventId": 1029534217,
+     "outcomes": [
+      {
+       "id": 4379723769,
+       "label": "Massimo Giunta",
+       "englishLabel": "Massimo Giunta",
+       "odds": 2880,
+       "participant": "Massimo Giunta",
+       "type": "OT_TWO",
+       "betOfferId": 2705378398,
+       "changedDate": "2026-10-20T12:53:27Z",
+       "participantId": 1028271730,
+       "oddsFractional": "15/8",
+       "oddsAmerican": "188",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      },
+      {
+       "id": 4379723770,
+       "label": "Henry Searle",
+       "englishLabel": "Henry Searle",
+       "odds": 1380,
+       "participant": "Henry Searle",
+       "type": "OT_ONE",
+       "betOfferId": 2705378398,
+       "changedDate": "2026-10-20T12:53:27Z",
+       "participantId": 1028230891,
+       "oddsFractional": "4/11",
+       "oddsAmerican": "-265",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "BET_BUILDER",
+      "MAIN"
+     ],
+     "sortOrder": 1,
+     "cashOutStatus": "ENABLED"
+    },
+    {
+     "id": 2706278587,
+     "criterion": {
+      "id": 1001427539,
+      "label": "Game Handicap",
+      "englishLabel": "Game Handicap",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 1,
+      "name": "Handicap",
+      "englishName": "Handicap"
+     },
+     "eventId": 1029534217,
+     "outcomes": [
+      {
+       "id": 4382555235,
+       "label": "Henry Searle",
+       "englishLabel": "Henry Searle",
+       "odds": 1710,
+       "line": -4500,
+       "participant": "Henry Searle",
+       "type": "OT_ONE",
+       "betOfferId": 2706278587,
+       "changedDate": "2026-10-20T12:53:27Z",
+       "participantId": 1028230891,
+       "oddsFractional": "7/10",
+       "oddsAmerican": "-141",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4382555236,
+       "label": "Massimo Giunta",
+       "englishLabel": "Massimo Giunta",
+       "odds": 2070,
+       "line": 4500,
+       "participant": "Massimo Giunta",
+       "type": "OT_TWO",
+       "betOfferId": 2706278587,
+       "changedDate": "2026-10-20T12:53:27Z",
+       "participantId": 1028271730,
+       "oddsFractional": "21/20",
+       "oddsAmerican": "107",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "MAIN_LINE",
+      "BET_BUILDER"
+     ],
+     "sortOrder": 2,
+     "cashOutStatus": "ENABLED"
+    },
+    {
+     "id": 2706293010,
+     "criterion": {
+      "id": 1001159891,
+      "label": "Total Games",
+      "englishLabel": "Total Games",
+      "order": [
+       1
+      ]
+     },
+     "betOfferType": {
+      "id": 6,
+      "name": "Over/Under",
+      "englishName": "Over/Under"
+     },
+     "eventId": 1029534217,
+     "outcomes": [
+      {
+       "id": 4382529558,
+       "label": "Over",
+       "englishLabel": "Over",
+       "odds": 1820,
+       "line": 25500,
+       "type": "OT_OVER",
+       "betOfferId": 2706293010,
+       "changedDate": "2026-10-20T12:53:27Z",
+       "oddsFractional": "4/5",
+       "oddsAmerican": "-122",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 0
+      },
+      {
+       "id": 4382529559,
+       "label": "Under",
+       "englishLabel": "Under",
+       "odds": 1900,
+       "line": 25500,
+       "type": "OT_UNDER",
+       "betOfferId": 2706293010,
+       "changedDate": "2026-10-20T12:53:27Z",
+       "oddsFractional": "9/10",
+       "oddsAmerican": "-112",
+       "status": "OPEN",
+       "cashOutStatus": "ENABLED",
+       "displayOrder": 1
+      }
+     ],
+     "tags": [
+      "OFFERED_PREMATCH",
+      "OFFERED_LIVE",
+      "MAIN_LINE",
+      "BET_BUILDER"
+     ],
+     "sortOrder": 3,
+     "cashOutStatus": "ENABLED"
+    }
+   ],
+   "liveData": {
+    "eventId": 1029534217,
+    "score": {
+     "home": "0",
+     "away": "40",
+     "who": "AWAY",
+     "version": 1792500807045
+    },
+    "statistics": {
+     "sets": {
+      "home": [
+       6,
+       3,
+       -1
+      ],
+      "away": [
+       2,
+       3,
+       -1
+      ],
+      "homeServe": false
+     },
+     "version": 1792500807045
+    },
+    "liveStatistics": []
+   }
+  }
+ ]
+}
