@@ -4,16 +4,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v4
       - name: Quote Unibet (Kambi) e fonti storiche
         run: |
-          python3 - <<'PY'
+          python3 - <<'PY' | tee test_fonti.txt
           import json, urllib.request
           UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36", "Accept": "application/json"}
           def get(u):
@@ -46,3 +47,8 @@ jobs:
                     "https://raw.githubusercontent.com/JeffSackmann/tennis_wta/master/wta_matches_2025.csv"]:
               s, b = get(u); print(u, s, len(b))
           PY
+      - name: Salva risultato
+        run: |
+          git config user.name "turtle-robot"
+          git config user.email "turtle-robot@users.noreply.github.com"
+          git add test_fonti.txt && git commit -m "Risultato test fonti tennis" && git push
