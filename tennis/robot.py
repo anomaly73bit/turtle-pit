@@ -235,6 +235,22 @@ def build_page(matches, bets, bt, model):
             rows.append(f'<article class="match off"><header><span class="when">{t(m["start"])}</span>'
                         f'<span class="tn">{esc(m["tour"])} · {esc(m["tournament"])}</span><span class="chip neg">{esc(m.get("note", ""))}</span></header>'
                         f'<p class="offline">{esc(m["p1"])} {odds(m["q1"])} — {esc(m["p2"])} {odds(m["q2"])}</p></article>')
+    picks = []
+    for m in matches:
+        if "pm1" not in m:
+            continue
+        side = 1 if m["v1"] >= m["v2"] else 2
+        v, q = m[f"v{side}"], m[f"q{side}"]
+        if v >= SOGLIA and ODDS_RANGE[0] <= q <= ODDS_RANGE[1]:
+            p = m["pm1"] if side == 1 else 1 - m["pm1"]
+            picks.append((v, m, side, q, p))
+    picks.sort(key=lambda x: -x[0])
+    prows = "".join(
+        f'<li class="tip"><div class="rank">{i}</div><div class="what"><div class="bet">Punta su <b>{esc(m[f"p{side}"])}</b></div>'
+        f'<div class="meta">contro {esc(m[f"p{3 - side}"])} · {esc(m["tour"])} {esc(m["tournament"])} · {t(m["start"])}</div></div>'
+        f'<div class="nums"><div><span class="l">Quota</span><b>{odds(q)}</b></div><div><span class="l">Prob.</span>{pct(p)}</div>'
+        f'<div><span class="l">Valore</span><span class="pos">{pct(v, True)}</span></div></div></li>'
+        for i, (v, m, side, q, p) in enumerate(picks, 1))
     closed = [b for b in bets if b["status"] in ("vinta", "persa")]
     n, pnl = len(closed), sum(b["pnl"] for b in closed)
     won = sum(1 for b in closed if b["status"] == "vinta")
@@ -252,6 +268,8 @@ def build_page(matches, bets, bt, model):
     nval = sum(1 for m in matches if "pm1" in m and max(m["v1"], m["v2"]) >= SOGLIA)
     nmod = sum(1 for m in matches if "pm1" in m)
     vals = dict(
+        picks=prows or '<li class="none">Nessuna partita da puntare in questo momento: nessuna quota supera il valore minimo. Il robot ricontrolla ogni 30 minuti.</li>',
+        npicks=len(picks),
         updated=now.strftime("%d/%m/%Y alle %H:%M"), nmatch=len(matches), nmod=nmod, nval=nval,
         rows="".join(rows) or '<p class="empty">Nessuna partita ATP o WTA non iniziata su Unibet in questo momento.</p>',
         n=n, won=won, open=len(open_b), pnl=f"{pnl:+.2f}".replace(".", ","), roi=pct(roi, True) if n else "—",

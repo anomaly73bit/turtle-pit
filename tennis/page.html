@@ -53,6 +53,16 @@ td,th{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertic
 th{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
 td.r,th.r{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 .empty{color:var(--muted)}
+.top{border-color:var(--pos)}
+ol.tips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.tip{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+.tip .rank{font:700 28px/1 var(--f-display);color:var(--pos);min-width:24px;text-align:center}
+.tip .bet{font-size:17px}
+.tip .nums{display:flex;gap:16px;font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.tip .nums .l{display:block;font:11px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tip .nums b{font-size:18px}
+.none{color:var(--muted);padding:6px 0}
+@media (max-width:620px){.tip{grid-template-columns:auto minmax(0,1fr)}.tip .nums{grid-column:2;justify-content:flex-start}}
 ul.how{margin:0;padding-left:18px;color:var(--muted);display:flex;flex-direction:column;gap:4px;font-size:14px}
 @media (max-width:620px){.grid{grid-template-columns:minmax(0,1fr) repeat(3,auto)}.grid>:nth-child(6n+3),.grid>:nth-child(6n+5){display:none}.h2h{margin-left:0}}
 </style></head><body><div class="wrap">
@@ -61,7 +71,13 @@ ul.how{margin:0;padding-left:18px;color:var(--muted);display:flex;flex-direction
   <p class="sub">Partite ATP e WTA di singolare in programma su Unibet, confrontate con il modello. Aggiornato il %%updated%% (ora di Praga), si aggiorna da solo ogni 30 minuti.</p>
 </header>
 
-<div class="warn"><b>Da sapere:</b> nella prova sulle partite vere del %%bttest%% il modello non ha battuto i bookmaker (vedi «Prova sul passato» in fondo). «Valore» vuol dire che il modello stima la quota più alta del giusto, non che la partita si vincerà. Le scommesse qui sotto sono finte: servono a misurare il robot nel tempo.</div>
+<section class="panel top" aria-labelledby="tp">
+  <h2 id="tp">Da puntare adesso · %%npicks%%</h2>
+  <p class="sub" style="margin:0">In ordine, dalla più interessante. Giocatore, quota Unibet e probabilità di vittoria secondo il modello.</p>
+  <ol class="tips">%%picks%%</ol>
+</section>
+
+<div class="warn"><b>Da sapere:</b> nella prova sulle partite vere del %%bttest%% il modello non ha battuto i bookmaker (vedi «Prova sul passato» in fondo). «Valore» vuol dire che il modello stima la quota più alta del giusto, non che la partita si vincerà. Il robot registra ogni consiglio come scommessa finta, così vedi nel tempo se i consigli avrebbero fatto guadagnare.</div>
 
 <section class="panel" aria-labelledby="sb">
   <h2 id="sb">Scommesse finte del robot</h2>
