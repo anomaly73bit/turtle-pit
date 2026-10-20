@@ -16,36 +16,23 @@ jobs:
         run: |
           python3 - <<'PY' | tee test_fonti.txt
           import json, urllib.request
-          UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36", "Accept": "application/json"}
-          def get(u):
+          H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+               "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-GB,en;q=0.9",
+               "Referer": "http://www.tennis-data.co.uk/alldata.php"}
+          def get(u, h=H):
               try:
-                  r = urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30)
-                  b = r.read(); return r.status, b
+                  r = urllib.request.urlopen(urllib.request.Request(u, headers=h), timeout=30); b = r.read(); return r.status, b
               except Exception as e:
                   return getattr(e, "code", "ERR"), str(e).encode()
-          for op in ["ub", "ubit", "ubuk", "ubnl"]:
-              for host in ["eu-offering-api.kambicdn.com", "eu-offering.kambicdn.org"]:
-                  u = f"https://{host}/offering/v2018/{op}/listView/tennis/all/all/all/matches.json?lang=en_GB&market=GB&useCombined=true"
-                  s, b = get(u)
-                  info = ""
-                  if s == 200:
-                      try:
-                          d = json.loads(b); ev = d.get("events", [])
-                          info = f"eventi={len(ev)}"
-                          for e in ev[:3]:
-                              E = e["event"]; bo = e.get("betOffers", [])
-                              odds = [(o.get("participant") or o.get("label"), o.get("odds")) for o in (bo[0]["outcomes"] if bo else [])]
-                              info += f" | {E.get('name')} [{E.get('group')}] {E.get('start')} {E.get('state')} {odds}"
-                      except Exception as x:
-                          info = f"json? {x} {b[:120]!r}"
-                  else:
-                      info = b[:150].decode(errors='replace')
-                  print(op, host, s, info[:900])
-          for u in ["http://www.tennis-data.co.uk/2025/2025.xlsx", "http://www.tennis-data.co.uk/2025w/2025.xlsx",
-                    "https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2024.csv",
-                    "https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2025.csv",
-                    "https://raw.githubusercontent.com/JeffSackmann/tennis_wta/master/wta_matches_2025.csv"]:
-              s, b = get(u); print(u, s, len(b))
+          for u in ["http://www.tennis-data.co.uk/alldata.php", "http://www.tennis-data.co.uk/2026/2026.xlsx", "http://www.tennis-data.co.uk/2026w/2026.xlsx",
+                    "http://www.tennis-data.co.uk/2025/2025.xlsx", "https://www.tennis-data.co.uk/2026/2026.xlsx",
+                    "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard",
+                    "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard",
+                    "https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/2026-10-19",
+                    "https://huggingface.co/datasets/Aneeshers/tennis-sackmann-archive/tree/main",
+                    "https://stats.tennismylife.org/tennis-match-database",
+                    "https://raw.githubusercontent.com/Tennismylife/TML-Database/master/ongoing_tourneys.csv"]:
+              s, b = get(u); print(u, s, len(b), b[:160])
           PY
       - name: Salva risultato
         run: |
