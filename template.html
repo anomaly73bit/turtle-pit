@@ -314,7 +314,7 @@ function simulate(capital, years, risk, entry = ENTRY, exit = EXIT) {
       // costo notturno (swap)
       if (P && P.day !== day) {
         const nights = daysBetween(P.swapDay, day), pxPrev = lastPx[k] ?? P.entry;
-        const sw = P.lots * cu * pxPrev * (P.dir > 0 ? CFG.swapL : CFG.swapS) * nights / rate;
+        const sw = P.lots * cu * pxPrev * (P.dir > 0 ? (sp.swapL ?? CFG.swapL) : (sp.swapS ?? CFG.swapS)) * nights / rate;
         cash -= sw; P.swap += sw; P.swapDay = day;
       }
       // uscite

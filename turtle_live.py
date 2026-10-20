@@ -34,7 +34,8 @@ HIST_START = "2019-06-01"
 # xtb: nome dello strumento XTB; mult: valore nominale di 1 lotto per 1 unita' di prezzo XTB;
 # f: fattore da prezzo Yahoo a prezzo XTB; minlot/step: lotto minimo e passo; spread in unita'
 # XTB; lev: leva massima ESMA per clienti privati (oro 20:1, altre materie prime 10:1).
-# Fonte: Specification Table XTB (CFD commodities), valori indicativi.
+# Fonte: Specification Table XTB (CFD commodities), valori indicativi; "ok" = verificato sul conto XTB.
+# swapL/swapS: swap giornaliero dello strumento, se verificato (altrimenti SWAP_LONG/SWAP_SHORT).
 COMMODITIES = {
     "GC=F": ("Oro", "$/oncia", dict(xtb="GOLD", mult=100, f=1, minlot=0.003, step=0.001, spread=0.35, lev=20)),
     "SI=F": ("Argento", "$/oncia", dict(xtb="SILVER", mult=5000, f=1, minlot=0.003, step=0.001, spread=0.035, lev=10)),
@@ -45,7 +46,8 @@ COMMODITIES = {
     "BZ=F": ("Petrolio Brent", "$/barile", dict(xtb="OIL", mult=1000, f=1, minlot=0.005, step=0.005, spread=0.04, lev=10)),
     "NG=F": ("Gas naturale", "$/MMBtu", dict(xtb="NATGAS", mult=30000, f=1, minlot=0.005, step=0.005, spread=0.005, lev=10)),
     "RB=F": ("Benzina", "$/gallone", dict(xtb="GASOLINE", mult=420, f=100, minlot=0.005, step=0.005, spread=0.5, lev=10)),
-    "ZW=F": ("Grano", "¢/bushel", dict(xtb="WHEAT", mult=400, f=1, minlot=0.005, step=0.001, spread=1.1, lev=10)),
+    "ZW=F": ("Grano", "¢/bushel", dict(xtb="WHEAT", mult=400, f=1, minlot=0.005, step=0.001, spread=1.26, lev=10,
+                                         swapL=0.00023278, swapS=0.00001722, ok="20/10/2026")),
     "ZC=F": ("Mais", "¢/bushel", dict(xtb="CORN", mult=500, f=1, minlot=0.005, step=0.001, spread=0.6, lev=10)),
     "ZS=F": ("Soia", "¢/bushel", dict(xtb="SOYBEAN", mult=300, f=1, minlot=0.005, step=0.001, spread=1.0, lev=10)),
     "KC=F": ("Caffè", "¢/libbra", dict(xtb="COFFEE", mult=2000, f=1, minlot=0.001, step=0.001, spread=0.3, lev=10)),
@@ -168,7 +170,7 @@ def step_day(st, day, raw, ind, fx):
         if P and P["day"] != day:
             nights = (datetime.date.fromisoformat(day) - datetime.date.fromisoformat(P["swapDay"])).days
             px_prev = st["lastpx"].get(k, P["entry"])
-            sw = P["lots"] * cu * px_prev * (SWAP_LONG if P["dir"] > 0 else SWAP_SHORT) * nights / rate
+            sw = P["lots"] * cu * px_prev * (spec.get("swapL", SWAP_LONG) if P["dir"] > 0 else spec.get("swapS", SWAP_SHORT)) * nights / rate
             st["cash"] -= sw
             P["swap"] = P.get("swap", 0.0) + sw
             P["swapDay"] = day
