@@ -1,0 +1,88 @@
+{
+ "time": "2026-10-20T13:44+00:00",
+ "month": "2026-10",
+ "remaining": 499,
+ "events": [
+  {
+   "home": "Katarzyna Kawa",
+   "away": "Daria Snigur",
+   "start": "2026-10-20T10:45:00Z",
+   "key": "tennis_wta_ningbo_open",
+   "p_home": 0.3534,
+   "src": [
+    "betfair_ex_eu",
+    "matchbook"
+   ]
+  },
+  {
+   "home": "Marie Bouzkova",
+   "away": "Anastasia Zakharova",
+   "start": "2026-10-21T05:00:00Z",
+   "key": "tennis_wta_ningbo_open",
+   "p_home": 0.767,
+   "src": [
+    "betfair_ex_eu",
+    "matchbook",
+    "pinnacle"
+   ]
+  },
+  {
+   "home": "Leylah Fernandez",
+   "away": "Aliaksandra Sasnovich",
+   "start": "2026-10-21T06:30:00Z",
+   "key": "tennis_wta_ningbo_open",
+   "p_home": 0.6355,
+   "src": [
+    "betfair_ex_eu",
+    "matchbook",
+    "pinnacle"
+   ]
+  },
+  {
+   "home": "Sorana Cirstea",
+   "away": "Sara Bejlek",
+   "start": "2026-10-21T08:00:00Z",
+   "key": "tennis_wta_ningbo_open",
+   "p_home": 0.6503,
+   "src": [
+    "betfair_ex_eu",
+    "matchbook"
+   ]
+  },
+  {
+   "home": "Alexandra Eala",
+   "away": "Diana Shnaider",
+   "start": "2026-10-22T04:00:00Z",
+   "key": "tennis_wta_ningbo_open",
+   "p_home": 0.4097,
+   "src": [
+    "betfair_ex_eu",
+    "matchbook",
+    "pinnacle"
+   ]
+  },
+  {
+   "home": "Elena Rybakina",
+   "away": "Polina Kudermetova",
+   "start": "2026-10-22T04:00:00Z",
+   "key": "tennis_wta_ningbo_open",
+   "p_home": 0.8583,
+   "src": [
+    "betfair_ex_eu",
+    "matchbook",
+    "pinnacle"
+   ]
+  },
+  {
+   "home": "Iva Jović",
+   "away": "Jasmine Paolini",
+   "start": "2026-10-22T04:00:00Z",
+   "key": "tennis_wta_ningbo_open",
+   "p_home": 0.6317,
+   "src": [
+    "betfair_ex_eu",
+    "pinnacle"
+   ]
+  }
+ ]
+}
