@@ -1,13 +1,11 @@
-ub eu-offering-api.kambicdn.com 200 eventi=256 | Ryotaro Taguchi - Fons Van Sambeek [Heraklion] 2026-10-20T10:15:00Z STARTED [('Ryotaro Taguchi', 4100), ('Fons Van Sambeek', 1200)] | Matt Ponchet - Theo Herrmann [Sarreguemines] 2026-10-20T10:22:00Z STARTED [('Matt Ponchet', 1560), ('Theo Herrmann', 2280)] | Katarzyna Kawa - Daria Snigur [Ningbo] 2026-10-20T10:45:00Z STARTED [('Katarzyna Kawa', 4700), ('Daria Snigur', 1190)]
-ub eu-offering.kambicdn.org ERR <urlopen error timed out>
-ubit eu-offering-api.kambicdn.com 200 eventi=0
-ubit eu-offering.kambicdn.org ERR <urlopen error timed out>
-ubuk eu-offering-api.kambicdn.com 200 eventi=254 | Ryotaro Taguchi - Fons Van Sambeek [Heraklion] 2026-10-20T10:15:00Z STARTED [('Ryotaro Taguchi', 5300), ('Fons Van Sambeek', 1130)] | Matt Ponchet - Theo Herrmann [Sarreguemines] 2026-10-20T10:22:00Z STARTED [('Matt Ponchet', 1580), ('Theo Herrmann', 2250)] | Katarzyna Kawa - Daria Snigur [Ningbo] 2026-10-20T10:45:00Z STARTED [('Katarzyna Kawa', 4700), ('Daria Snigur', 1190)]
-ubuk eu-offering.kambicdn.org ERR <urlopen error timed out>
-ubnl eu-offering-api.kambicdn.com 200 eventi=238 | Ryotaro Taguchi - Fons Van Sambeek [Heraklion] 2026-10-20T10:15:00Z STARTED [('Ryotaro Taguchi', 6500), ('Fons Van Sambeek', 1080)] | Matt Ponchet - Theo Herrmann [Sarreguemines] 2026-10-20T10:22:00Z STARTED [('Matt Ponchet', 1640), ('Theo Herrmann', 2160)] | Katarzyna Kawa - Daria Snigur [Ningbo] 2026-10-20T10:45:00Z STARTED [('Katarzyna Kawa', 4700), ('Daria Snigur', 1190)]
-ubnl eu-offering.kambicdn.org ERR <urlopen error timed out>
-http://www.tennis-data.co.uk/2025/2025.xlsx 403 25
-http://www.tennis-data.co.uk/2025w/2025.xlsx 403 25
-https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2024.csv 404 25
-https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2025.csv 404 25
-https://raw.githubusercontent.com/JeffSackmann/tennis_wta/master/wta_matches_2025.csv 404 25
+http://www.tennis-data.co.uk/alldata.php 403 25 b'HTTP Error 403: Forbidden'
+http://www.tennis-data.co.uk/2026/2026.xlsx 403 25 b'HTTP Error 403: Forbidden'
+http://www.tennis-data.co.uk/2026w/2026.xlsx 403 25 b'HTTP Error 403: Forbidden'
+http://www.tennis-data.co.uk/2025/2025.xlsx 403 25 b'HTTP Error 403: Forbidden'
+https://www.tennis-data.co.uk/2026/2026.xlsx 403 25 b'HTTP Error 403: Forbidden'
+https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard 200 337784 b'{"leagues":[{"id":"851","uid":"s:850~l:851","name":"ATP","abbreviation":"ATP","midsizeName":"ATP","slug":"atp","season":{"year":2026,"startDate":"2026-01-01T08:'
+https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard 200 268297 b'{"leagues":[{"id":"900","uid":"s:850~l:900","name":"WTA","abbreviation":"WTA","midsizeName":"WTA","slug":"wta","season":{"year":2026,"startDate":"2026-01-01T08:'
+https://api.sofascore.com/api/v1/sport/tennis/scheduled-events/2026-10-19 403 25 b'HTTP Error 403: Forbidden'
+https://huggingface.co/datasets/Aneeshers/tennis-sackmann-archive/tree/main 200 108360 b'<!doctype html>\n<html class="">\n\t<head>\n\t\t<meta charset="utf-8" />\n\n\t\t<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />'
+https://stats.tennismylife.org/tennis-match-database 200 250999 b'<!DOCTYPE html><html lang="en" class="montserrat_3b59c454-module__vA4QHa__variable"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-wid'
+https://raw.githubusercontent.com/Tennismylife/TML-Database/master/ongoing_tourneys.csv 200 18183 b'tourney_id,tourney_name,surface,draw_size,tourney_level,indoor,tourney_date,match_num,winner_id,winner_seed,winner_entry,winner_name,winner_hand,winner_ht,winne'
