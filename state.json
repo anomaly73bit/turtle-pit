@@ -2,11 +2,105 @@
  "start": "2026-10-19",
  "capital": 500.0,
  "cash": 500.0,
- "positions": {},
- "trades": [],
- "skipped": [],
- "equity": [],
- "last": null,
- "lastpx": {},
- "lastfx": 1.16
+ "positions": {
+  "le": {
+   "dir": 1,
+   "lots": 0.005,
+   "entry": 227.9914,
+   "stop": 222.2853,
+   "day": "2026-10-19",
+   "swapDay": "2026-10-19",
+   "swap": 0.0,
+   "notional": 406.2,
+   "margin": 40.62,
+   "time": "2026-10-19 15:30"
+  }
+ },
+ "trades": [
+  {
+   "day": "2026-10-19",
+   "k": "le",
+   "kind": "open",
+   "dir": 1,
+   "px": 227.9914,
+   "pnl": null,
+   "lots": 0.005,
+   "notional": 406.2,
+   "margin": 40.62,
+   "act": "Compra (long)",
+   "time": "2026-10-19 15:30"
+  }
+ ],
+ "skipped": [
+  {
+   "day": "2026-10-19",
+   "k": "cl",
+   "dir": 1,
+   "px": 102.1311,
+   "why": "Lotto minimo XTB (0.005) rischierebbe 38 € (8% del capitale)"
+  },
+  {
+   "day": "2026-10-19",
+   "k": "bz",
+   "dir": 1,
+   "px": 110.27,
+   "why": "Lotto minimo XTB (0.005) rischierebbe 37 € (7% del capitale)"
+  },
+  {
+   "day": "2026-10-19",
+   "k": "zw",
+   "dir": -1,
+   "px": 654.8277,
+   "why": "Lotto minimo XTB (0.005) rischierebbe 62 € (12% del capitale)"
+  },
+  {
+   "day": "2026-10-19",
+   "k": "zc",
+   "dir": -1,
+   "px": 469.405,
+   "why": "Lotto minimo XTB (0.005) rischierebbe 49 € (10% del capitale)"
+  },
+  {
+   "day": "2026-10-19",
+   "k": "zs",
+   "dir": -1,
+   "px": 1251.7693,
+   "why": "Lotto minimo XTB (0.005) rischierebbe 52 € (10% del capitale)"
+  },
+  {
+   "day": "2026-10-19",
+   "k": "kc",
+   "dir": 1,
+   "px": 311.9592,
+   "why": "Lotto minimo XTB (0.001) rischierebbe 36 € (7% del capitale)"
+  }
+ ],
+ "equity": [
+  [
+   "2026-10-19",
+   499.12
+  ]
+ ],
+ "last": "2026-10-19",
+ "lastpx": {
+  "gc": 4160.1001,
+  "si": 56.974,
+  "pl": 1638.8,
+  "pa": 1116.1,
+  "hg": 6.538,
+  "cl": 103.66,
+  "bz": 109.55,
+  "ng": 3.058,
+  "rb": 3.1914,
+  "zw": 655.25,
+  "zc": 467.0,
+  "zs": 1253.5,
+  "kc": 315.7,
+  "sb": 20.57,
+  "cc": 5687.0,
+  "ct": 80.13,
+  "le": 227.5,
+  "he": 66.35
+ },
+ "lastfx": 1.12255
 }
