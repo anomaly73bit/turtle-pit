@@ -45,7 +45,8 @@ def main(folder):
         pa, pb = (r.LPts, r.WPts) if swap else (r.WPts, r.LPts)
         oa, ob = (r.B365L, r.B365W) if swap else (r.B365W, r.B365L)
         f = st.features(r.tour, a, b, r.Surface, r.Date, getattr(r, '_6') == 5, ra, rb, pa, pb)
-        f.update(date=r.Date, tour=r.tour, y=0 if swap else 1, completed='Completed' in comment, oa=oa, ob=ob)
+        f.update(date=r.Date, tour=r.tour, y=0 if swap else 1, completed='Completed' in comment, oa=oa, ob=ob,
+                 pa_name=a, pb_name=b, tourn=r.Tournament)
         rows.append(f)
         if 'Completed' in comment or 'Retired' in comment:
             st.update(r.tour, r.Winner, r.Loser, r.Surface, r.Date, r.WRank, r.LRank, r.WPts, r.LPts)
@@ -71,6 +72,19 @@ def main(folder):
                 pnl.append(ob - 1 if y == 0 else -1)
         bt["rows"].append({"thr": thr, "bets": len(pnl), "roi": float(np.mean(pnl)) if pnl else 0,
                            "se": float(np.std(pnl) / math.sqrt(len(pnl))) if len(pnl) > 1 else 0})
+    # elenco delle scommesse della prova, con la regola usata dal robot (valore >= 5%, quota 1,20-6,00)
+    bt["bets"] = []
+    for p, oa, ob, y, d, tour, tn, na, nb in zip(pt, te.oa, te.ob, te.y, te.date, te.tour, te.tourn, te.pa_name, te.pb_name):
+        ea, eb = p * oa - 1, (1 - p) * ob - 1
+        side = None
+        if ea >= 0.05 and ea >= eb and 1.2 <= oa <= 6:
+            side = 1
+        elif eb >= 0.05 and 1.2 <= ob <= 6:
+            side = 2
+        if side:
+            bt["bets"].append([str(d.date()), tour, tn, na if side == 1 else nb, nb if side == 1 else na,
+                               float(oa if side == 1 else ob), round(float(p if side == 1 else 1 - p), 4),
+                               int((y == 1) == (side == 1))])
     ll = lambda y, p: float(-np.mean(y * np.log(p) + (1 - y) * np.log(1 - p)))
     bt["logloss_model"], bt["logloss_bookmaker"] = ll(te.y, pt), ll(te.y, te.imp)
     print(json.dumps(bt, indent=1))

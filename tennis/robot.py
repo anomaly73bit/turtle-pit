@@ -193,48 +193,62 @@ def paper(bets, matches, results):
 
 
 # ---------- 5. pagina ----------
-def pnl_txt(b):
-    return "" if b["status"] == "aperta" else ("%+.2f" % b.get("pnl", 0)).replace(".", ",")
+BANK0 = 200.0   # conto simulato iniziale in euro
+STAKE = 0.02    # puntata: 2% del conto del momento
+
+
+def bankroll(items):
+    """items: [(data, quota, esito)] in ordine; esito 1 vinta, 0 persa, None aperta/annullata.
+    Ritorna serie del conto, puntate, conto finale."""
+    bank, curve, stakes = BANK0, [], []
+    for d, q, res in items:
+        st = round(bank * STAKE, 2)
+        stakes.append(st)
+        if res == 1:
+            bank += st * (q - 1)
+        elif res == 0:
+            bank -= st
+        if res is not None:
+            curve.append((d, round(bank, 2)))
+    return curve, stakes, bank
+
+
+def spark(curve, w=640, h=150):
+    """Grafico SVG del conto, con la linea di partenza a 200 €."""
+    if len(curve) < 2:
+        return '<div class="flat">Il grafico comparirà dopo le prime partite concluse.</div>'
+    vals = [BANK0] + [v for _, v in curve]
+    lo, hi = min(vals), max(vals)
+    pad = (hi - lo) * 0.12 or 10
+    lo, hi = lo - pad, hi + pad
+    X = lambda i: 8 + (w - 16) * i / (len(vals) - 1)
+    Y = lambda v: 8 + (h - 30) * (1 - (v - lo) / (hi - lo))
+    pts = " ".join(f"{X(i):.1f},{Y(v):.1f}" for i, v in enumerate(vals))
+    area = f"8,{h - 22} " + pts + f" {X(len(vals) - 1):.1f},{h - 22}"
+    y0 = Y(BANK0)
+    first, last = curve[0][0], curve[-1][0]
+    fd = lambda d: f"{d[8:10]}/{d[5:7]}/{d[2:4]}"
+    return (f'<svg viewBox="0 0 {w} {h}" class="chart" role="img" aria-label="Andamento del conto">'
+            f'<line x1="8" x2="{w - 8}" y1="{y0:.1f}" y2="{y0:.1f}" class="base"/>'
+            f'<text x="{w - 8}" y="{y0 - 5:.1f}" text-anchor="end" class="ax">200 €</text>'
+            f'<polygon points="{area}" class="area"/><polyline points="{pts}" class="ln"/>'
+            f'<circle cx="{X(len(vals) - 1):.1f}" cy="{Y(vals[-1]):.1f}" r="4.5" class="dot"/>'
+            f'<text x="8" y="{h - 6}" class="ax">{fd(first)}</text><text x="{w - 8}" y="{h - 6}" text-anchor="end" class="ax">{fd(last)}</text></svg>')
 
 
 def build_page(matches, bets, bt, model):
     now = datetime.datetime.now(PRAGUE)
     esc = html.escape
     def t(iso):
-        return datetime.datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(PRAGUE).strftime("%d/%m %H:%M")
-    def pct(x, sign=False):
-        return (f"{x * 100:+.1f}%" if sign else f"{x * 100:.0f}%").replace(".", ",")
-    def odds(x):
-        return f"{x:.2f}".replace(".", ",")
-    rows = []
-    for m in matches:
-        if "pm1" in m:
-            best = 1 if m["v1"] >= m["v2"] else 2
-            v = m[f"v{best}"]
-            tag = "val" if v >= SOGLIA else ("near" if v >= 0 else "neg")
-            def cell(side):
-                p = m["pm1"] if side == 1 else 1 - m["pm1"]
-                ib = m["imp1"] if side == 1 else 1 - m["imp1"]
-                vv = m[f"v{side}"]
-                fair = 1 / p
-                r = m[f"r{side}"]
-                return (f'<div class="pl{" pick" if side == best and tag == "val" else ""}"><span class="nm">{esc(m[f"p{side}"])}</span>'
-                        f'<span class="meta">#{int(r) if r else "—"} · forma {esc(m[f"f{side}"]) or "—"}</span></div>'
-                        f'<div class="num q">{odds(m[f"q{side}"])}</div><div class="num">{pct(ib)}</div>'
-                        f'<div class="num">{pct(p)}</div><div class="num">{odds(fair)}</div>'
-                        f'<div class="num {"pos" if vv > 0 else "neg"}">{pct(vv, True)}</div>')
-            badge = {"val": '<span class="chip val">Valore</span>', "near": '<span class="chip near">Quasi</span>',
-                     "neg": '<span class="chip neg">Nessun valore</span>'}[tag]
-            rows.append(f'<article class="match {tag}"><header><span class="when">{t(m["start"])}</span>'
-                        f'<span class="tn">{esc(m["tour"])} · {esc(m["tournament"])} · {esc(m["surface"])}</span>{badge}'
-                        f'<span class="h2h">Scontri diretti {m["h2h"][0]}–{m["h2h"][1]}</span></header>'
-                        f'<div class="grid"><div class="hd">Giocatore</div><div class="hd r">Quota</div><div class="hd r">Unibet</div>'
-                        f'<div class="hd r">Modello</div><div class="hd r">Giusta</div><div class="hd r">Valore</div>'
-                        f'{cell(1)}{cell(2)}</div></article>')
-        else:
-            rows.append(f'<article class="match off"><header><span class="when">{t(m["start"])}</span>'
-                        f'<span class="tn">{esc(m["tour"])} · {esc(m["tournament"])}</span><span class="chip neg">{esc(m.get("note", ""))}</span></header>'
-                        f'<p class="offline">{esc(m["p1"])} {odds(m["q1"])} — {esc(m["p2"])} {odds(m["q2"])}</p></article>')
+        dt = datetime.datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(PRAGUE)
+        day = "oggi" if dt.date() == now.date() else "domani" if dt.date() == now.date() + datetime.timedelta(days=1) else dt.strftime("%d/%m")
+        return f"{day} {dt.strftime('%H:%M')}"
+    pct = lambda x: f"{x * 100:.0f}%"
+    num = lambda x, d=2: f"{x:,.{d}f}".replace(",", " ").replace(".", ",")
+    eur = lambda x: ("−" if x < 0 else "") + num(abs(x)) + " €"
+    surname = lambda n: n.split()[-1] if n else n
+
+    # --- da giocare ---
     picks = []
     for m in matches:
         if "pm1" not in m:
@@ -242,44 +256,73 @@ def build_page(matches, bets, bt, model):
         side = 1 if m["v1"] >= m["v2"] else 2
         v, q = m[f"v{side}"], m[f"q{side}"]
         if v >= SOGLIA and ODDS_RANGE[0] <= q <= ODDS_RANGE[1]:
-            p = m["pm1"] if side == 1 else 1 - m["pm1"]
-            picks.append((v, m, side, q, p))
+            picks.append((v, m, side, q, m["pm1"] if side == 1 else 1 - m["pm1"]))
     picks.sort(key=lambda x: -x[0])
-    prows = "".join(
-        f'<li class="tip"><div class="rank">{i}</div><div class="what"><div class="bet">Punta su <b>{esc(m[f"p{side}"])}</b></div>'
-        f'<div class="meta">contro {esc(m[f"p{3 - side}"])} · {esc(m["tour"])} {esc(m["tournament"])} · {t(m["start"])}</div></div>'
-        f'<div class="nums"><div><span class="l">Quota</span><b>{odds(q)}</b></div><div><span class="l">Prob.</span>{pct(p)}</div>'
-        f'<div><span class="l">Valore</span><span class="pos">{pct(v, True)}</span></div></div></li>'
+    tips = "".join(
+        f'<li class="tip"><span class="no">{i}</span>'
+        f'<div class="who"><span class="pn">{esc(m[f"p{side}"])}</span>'
+        f'<span class="vs">vs {esc(m[f"p{3 - side}"])}</span>'
+        f'<span class="tn">{esc(m["tournament"])} · {t(m["start"])}</span></div>'
+        f'<div class="fig"><span class="big">{pct(p)}</span><span class="cap">vittoria</span></div>'
+        f'<div class="fig"><span class="big q">{num(q)}</span><span class="cap">quota</span></div></li>'
         for i, (v, m, side, q, p) in enumerate(picks, 1))
-    closed = [b for b in bets if b["status"] in ("vinta", "persa")]
-    n, pnl = len(closed), sum(b["pnl"] for b in closed)
-    won = sum(1 for b in closed if b["status"] == "vinta")
-    roi = pnl / n if n else 0
-    open_b = [b for b in bets if b["status"] == "aperta"]
-    brows = "".join(
-        f'<tr><td>{t(b["start"])}</td><td>{esc(b["tour"])} · {esc(b["tournament"])}</td><td><b>{esc(b["pick"])}</b><br><span class="meta">contro {esc(b["opp"])}</span></td>'
-        f'<td class="r">{odds(b["odds"])}</td><td class="r">{pct(b["value"], True)}</td>'
-        f'<td><span class="chip {"val" if b["status"] == "vinta" else "neg" if b["status"] == "persa" else "near"}">{esc(b["status"])}</span></td>'
-        f'<td class="r {"pos" if b.get("pnl", 0) > 0 else "neg" if b.get("pnl", 0) < 0 else ""}">{pnl_txt(b)}</td></tr>'
-        for b in sorted(bets, key=lambda b: b["start"], reverse=True)[:150])
-    btrows = "".join(f'<tr><td>valore ≥ {pct(r["thr"])}</td><td class="r">{r["bets"]}</td>'
-                     f'<td class="r {"pos" if r["roi"] > 0 else "neg"}">{pct(r["roi"], True)}</td><td class="r">±{pct(r["se"])}</td></tr>'
-                     for r in bt["rows"])
-    nval = sum(1 for m in matches if "pm1" in m and max(m["v1"], m["v2"]) >= SOGLIA)
-    nmod = sum(1 for m in matches if "pm1" in m)
-    vals = dict(
-        picks=prows or '<li class="none">Nessuna partita da puntare in questo momento: nessuna quota supera il valore minimo. Il robot ricontrolla ogni 30 minuti.</li>',
-        npicks=len(picks),
-        updated=now.strftime("%d/%m/%Y alle %H:%M"), nmatch=len(matches), nmod=nmod, nval=nval,
-        rows="".join(rows) or '<p class="empty">Nessuna partita ATP o WTA non iniziata su Unibet in questo momento.</p>',
-        n=n, won=won, open=len(open_b), pnl=f"{pnl:+.2f}".replace(".", ","), roi=pct(roi, True) if n else "—",
-        roicls="pos" if pnl > 0 else "neg" if pnl < 0 else "",
-        brows=brows or '<tr><td colspan="7" class="empty">Ancora nessuna scommessa finta: il robot ne registra una quando trova valore ≥ 5%.</td></tr>',
-        btrows=btrows, bttrain=f'{bt["train"][0]} – {bt["train"][1]}', bttest=f'{bt["test"][0]} – {bt["test"][1]}',
-        btn=bt["test"][2], soglia=pct(SOGLIA))
+    if not tips:
+        tips = '<li class="nothing">Nessuna partita da giocare adesso. Si aggiorna ogni 30 minuti.</li>'
+
+    # --- tutte le partite ---
+    allrows = "".join(
+        f'<tr><td class="mono">{t(m["start"])}</td><td>{esc(m["p1"])}<br>{esc(m["p2"])}</td>'
+        f'<td class="r mono">{num(m["q1"])}<br>{num(m["q2"])}</td>'
+        f'<td class="r mono">{pct(m["pm1"]) if "pm1" in m else "—"}<br>{pct(1 - m["pm1"]) if "pm1" in m else "—"}</td></tr>'
+        for m in sorted(matches, key=lambda m: m["start"]))
+
+    # --- simulazione dal vivo ---
+    live = sorted([b for b in bets if b["status"] != "annullata"], key=lambda b: b["start"])
+    items = [(b["start"][:10], b["odds"], 1 if b["status"] == "vinta" else 0 if b["status"] == "persa" else None) for b in live]
+    lcurve, lstakes, lbank = bankroll(items)
+    lrows = []
+    for b, st in sorted(zip(live, lstakes), key=lambda x: x[0]["start"], reverse=True)[:40]:
+        if b["status"] == "aperta":
+            res, cls = "in attesa", "wait"
+        elif b["status"] == "vinta":
+            res, cls = "+" + eur(st * (b["odds"] - 1)), "win"
+        else:
+            res, cls = "−" + eur(st), "lose"
+        lrows.append(f'<tr><td class="mono">{t(b["start"])}</td><td><b>{esc(b["pick"])}</b> <span class="dim">vs {esc(b["opp"])}</span></td>'
+                     f'<td class="r mono">{num(b["odds"])}</td><td class="r mono">{eur(st)}</td><td class="r mono {cls}">{res}</td></tr>')
+    lclosed = [b for b in live if b["status"] in ("vinta", "persa")]
+    lwon = sum(b["status"] == "vinta" for b in lclosed)
+
+    # --- simulazione sul passato ---
+    pb = bt.get("bets", [])
+    pcurve, pstakes, pbank = bankroll([(r[0], r[5], r[7]) for r in pb])
+    prows = "".join(
+        f'<tr><td class="mono">{r[0][8:10]}/{r[0][5:7]}/{r[0][2:4]}</td><td><b>{esc(r[3])}</b> <span class="dim">vs {esc(r[4])}</span></td>'
+        f'<td class="r mono">{num(r[5])}</td><td class="r mono">{eur(st)}</td>'
+        f'<td class="r mono {"win" if r[7] else "lose"}">{("+" + eur(st * (r[5] - 1))) if r[7] else ("−" + eur(st))}</td></tr>'
+        for r, st in list(zip(pb, pstakes))[::-1][:30])
+    pwon = sum(r[7] for r in pb)
+
+    def head(bank, n, won, pend=None):
+        ch = bank - BANK0
+        extra = f'<div><span class="k">In attesa</span><span class="v">{pend}</span></div>' if pend is not None else ""
+        return (f'<div class="bank"><div><span class="k">Conto</span><span class="bal">{eur(bank)}</span>'
+                f'<span class="chg {"win" if ch >= 0 else "lose"}">{"+" if ch >= 0 else "−"}{eur(abs(ch))} · {"+" if ch >= 0 else "−"}{abs(ch) / BANK0 * 100:.1f}%</span></div>'
+                f'<div class="stats"><div><span class="k">Giocate</span><span class="v">{n}</span></div>'
+                f'<div><span class="k">Vinte</span><span class="v">{won}{f" · {won / n * 100:.0f}%" if n else ""}</span></div>{extra}</div></div>')
+
+    vals = {
+        "updated": now.strftime("%d/%m %H:%M"), "ntips": str(len(picks)), "tips": tips,
+        "nall": str(len(matches)), "allrows": allrows or '<tr><td colspan="4" class="dim">Nessuna partita in programma.</td></tr>',
+        "livehead": head(lbank, len(lclosed), lwon, len(live) - len(lclosed)), "livechart": spark(lcurve),
+        "liverows": "".join(lrows) or '<tr><td colspan="5" class="dim">Le prime giocate compariranno qui.</td></tr>',
+        "livestart": (live[0]["start"][8:10] + "/" + live[0]["start"][5:7]) if live else now.strftime("%d/%m"),
+        "pasthead": head(pbank, len(pb), pwon), "pastchart": spark(pcurve), "pastrows": prows,
+        "pastrange": (f'{pb[0][0][8:10]}/{pb[0][0][5:7]}/{pb[0][0][:4]} – {pb[-1][0][8:10]}/{pb[-1][0][5:7]}/{pb[-1][0][:4]}' if pb else ""),
+    }
     page = TEMPLATE
     for k, v in vals.items():
-        page = page.replace("%%" + k + "%%", str(v))
+        page = page.replace("%%" + k + "%%", v)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(page, encoding="utf-8")
 

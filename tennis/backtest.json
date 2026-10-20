@@ -29,6 +29,6728 @@
    "se": 0.09560134616304376
   }
  ],
+ "bets": [
+  [
+   "2025-01-01",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Bergs Z.",
+   "Fils A.",
+   2.75,
+   0.4256,
+   0
+  ],
+  [
+   "2025-01-01",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Nishikori K.",
+   "Khachanov K.",
+   2.2,
+   0.5406,
+   1
+  ],
+  [
+   "2025-01-01",
+   "WTA",
+   "Brisbane International",
+   "Kudermetova P.",
+   "Samsonova L.",
+   2.3,
+   0.4767,
+   1
+  ],
+  [
+   "2025-01-02",
+   "ATP",
+   "Brisbane International",
+   "Opelka R.",
+   "Arnaldi M.",
+   2.5,
+   0.4676,
+   1
+  ],
+  [
+   "2025-01-02",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Diallo G.",
+   "Musetti L.",
+   2.3,
+   0.5026,
+   0
+  ],
+  [
+   "2025-01-03",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Munar J.",
+   "Musetti L.",
+   3.5,
+   0.3035,
+   1
+  ],
+  [
+   "2025-01-04",
+   "ATP",
+   "Brisbane International",
+   "Opelka R.",
+   "Mpetshi G.",
+   2.2,
+   0.555,
+   1
+  ],
+  [
+   "2025-01-04",
+   "WTA",
+   "Brisbane International",
+   "Sabalenka A.",
+   "Andreeva M.",
+   1.36,
+   0.7832,
+   1
+  ],
+  [
+   "2025-01-06",
+   "ATP",
+   "Adelaide International",
+   "Davidovich Fokina A.",
+   "Bautista Agut R.",
+   1.73,
+   0.6405,
+   1
+  ],
+  [
+   "2025-01-07",
+   "ATP",
+   "Adelaide International",
+   "Vukic A.",
+   "Giron M.",
+   1.8,
+   0.5871,
+   0
+  ],
+  [
+   "2025-01-07",
+   "ATP",
+   "ASB Classic",
+   "Bu Y.",
+   "Struff J.L.",
+   2.0,
+   0.5506,
+   0
+  ],
+  [
+   "2025-01-07",
+   "WTA",
+   "Adelaide International",
+   "Jabeur O.",
+   "Collins D.",
+   1.73,
+   0.607,
+   1
+  ],
+  [
+   "2025-01-08",
+   "ATP",
+   "Adelaide International",
+   "Cazaux A.",
+   "Auger-Aliassime F.",
+   2.75,
+   0.4206,
+   0
+  ],
+  [
+   "2025-01-08",
+   "ATP",
+   "Adelaide International",
+   "Davidovich Fokina A.",
+   "Korda S.",
+   1.67,
+   0.6705,
+   0
+  ],
+  [
+   "2025-01-08",
+   "ATP",
+   "ASB Classic",
+   "Diaz Acosta F.",
+   "Baez S.",
+   1.8,
+   0.6163,
+   1
+  ],
+  [
+   "2025-01-08",
+   "ATP",
+   "ASB Classic",
+   "Carballes Baena R.",
+   "Cerundolo F.",
+   2.63,
+   0.4318,
+   1
+  ],
+  [
+   "2025-01-08",
+   "ATP",
+   "ASB Classic",
+   "Mensik J.",
+   "Shelton B.",
+   2.1,
+   0.566,
+   1
+  ],
+  [
+   "2025-01-08",
+   "WTA",
+   "Adelaide International",
+   "Sakkari M.",
+   "Pegula J.",
+   2.3,
+   0.488,
+   0
+  ],
+  [
+   "2025-01-08",
+   "WTA",
+   "Adelaide International",
+   "Bencic B.",
+   "Samsonova L.",
+   1.5,
+   0.7158,
+   0
+  ],
+  [
+   "2025-01-12",
+   "ATP",
+   "Australian Open",
+   "Walton A.",
+   "Halys Q.",
+   1.8,
+   0.6089,
+   0
+  ],
+  [
+   "2025-01-12",
+   "WTA",
+   "Australian Open",
+   "Bouzas Maneiro J.",
+   "Kartal S.",
+   2.2,
+   0.4936,
+   1
+  ],
+  [
+   "2025-01-13",
+   "ATP",
+   "Australian Open",
+   "Michelsen A.",
+   "Tsitsipas S.",
+   2.5,
+   0.4236,
+   1
+  ],
+  [
+   "2025-01-13",
+   "WTA",
+   "Australian Open",
+   "Baptiste H.",
+   "Siegemund L.",
+   1.73,
+   0.616,
+   0
+  ],
+  [
+   "2025-01-13",
+   "WTA",
+   "Australian Open",
+   "Bejlek S.",
+   "Dolehide C.",
+   1.44,
+   0.7443,
+   0
+  ],
+  [
+   "2025-01-13",
+   "WTA",
+   "Australian Open",
+   "Mertens E.",
+   "Golubic V.",
+   1.44,
+   0.7346,
+   1
+  ],
+  [
+   "2025-01-14",
+   "ATP",
+   "Australian Open",
+   "Nakashima B.",
+   "Shelton B.",
+   2.75,
+   0.4075,
+   0
+  ],
+  [
+   "2025-01-14",
+   "WTA",
+   "Australian Open",
+   "Mcnally C.",
+   "Gracheva V.",
+   2.0,
+   0.5462,
+   0
+  ],
+  [
+   "2025-01-14",
+   "WTA",
+   "Australian Open",
+   "Zarazua R.",
+   "Townsend T.",
+   2.2,
+   0.5027,
+   1
+  ],
+  [
+   "2025-01-14",
+   "WTA",
+   "Australian Open",
+   "Marino R.",
+   "Boulter K.",
+   5.5,
+   0.208,
+   0
+  ],
+  [
+   "2025-01-15",
+   "ATP",
+   "Australian Open",
+   "Opelka R.",
+   "Machac T.",
+   3.4,
+   0.3364,
+   0
+  ],
+  [
+   "2025-01-16",
+   "ATP",
+   "Australian Open",
+   "Diallo G.",
+   "Khachanov K.",
+   3.4,
+   0.3483,
+   0
+  ],
+  [
+   "2025-01-16",
+   "ATP",
+   "Australian Open",
+   "Carreno Busta P.",
+   "Shelton B.",
+   3.5,
+   0.324,
+   0
+  ],
+  [
+   "2025-01-16",
+   "ATP",
+   "Australian Open",
+   "Berrettini M.",
+   "Rune H.",
+   1.67,
+   0.647,
+   0
+  ],
+  [
+   "2025-01-19",
+   "ATP",
+   "Australian Open",
+   "Davidovich Fokina A.",
+   "Paul T.",
+   4.0,
+   0.2712,
+   0
+  ],
+  [
+   "2025-01-28",
+   "WTA",
+   "Ladies Linz Open",
+   "Sun L.",
+   "Sorribes Tormo S.",
+   2.1,
+   0.5345,
+   0
+  ],
+  [
+   "2025-01-28",
+   "WTA",
+   "Singapore Open",
+   "Dart H.",
+   "Teichmann J.",
+   2.2,
+   0.4796,
+   0
+  ],
+  [
+   "2025-01-29",
+   "ATP",
+   "Open Sud de France",
+   "Cazaux A.",
+   "Auger-Aliassime F.",
+   2.75,
+   0.4052,
+   0
+  ],
+  [
+   "2025-01-31",
+   "ATP",
+   "Open Sud de France",
+   "De Jong J.",
+   "Griekspoor T.",
+   2.75,
+   0.397,
+   1
+  ],
+  [
+   "2025-02-03",
+   "ATP",
+   "ABN AMRO World Tennis Tournament",
+   "Cobolli F.",
+   "Hurkacz H.",
+   3.75,
+   0.2843,
+   0
+  ],
+  [
+   "2025-02-03",
+   "ATP",
+   "ABN AMRO World Tennis Tournament",
+   "Mayot H.",
+   "Tsitsipas S.",
+   3.5,
+   0.3218,
+   0
+  ],
+  [
+   "2025-02-05",
+   "ATP",
+   "Dallas Open",
+   "Mmoh M.",
+   "Carballes Baena R.",
+   2.3,
+   0.4733,
+   1
+  ],
+  [
+   "2025-02-05",
+   "ATP",
+   "ABN AMRO World Tennis Tournament",
+   "Lestienne C.",
+   "Fils A.",
+   4.5,
+   0.2606,
+   0
+  ],
+  [
+   "2025-02-06",
+   "ATP",
+   "Dallas Open",
+   "Opelka R.",
+   "Norrie C.",
+   1.73,
+   0.6071,
+   1
+  ],
+  [
+   "2025-02-06",
+   "ATP",
+   "ABN AMRO World Tennis Tournament",
+   "Altmaier D.",
+   "Fils A.",
+   4.0,
+   0.2632,
+   1
+  ],
+  [
+   "2025-02-07",
+   "ATP",
+   "ABN AMRO World Tennis Tournament",
+   "Rublev A.",
+   "Hurkacz H.",
+   1.73,
+   0.6077,
+   0
+  ],
+  [
+   "2025-02-10",
+   "ATP",
+   "Delray Beach Open",
+   "Gojo B.",
+   "Kecmanovic M.",
+   3.2,
+   0.3549,
+   0
+  ],
+  [
+   "2025-02-10",
+   "ATP",
+   "Delray Beach Open",
+   "Mmoh M.",
+   "Shevchenko A.",
+   1.91,
+   0.5719,
+   1
+  ],
+  [
+   "2025-02-10",
+   "ATP",
+   "Open 13",
+   "Virtanen O.",
+   "Korda S.",
+   3.2,
+   0.3323,
+   1
+  ],
+  [
+   "2025-02-11",
+   "ATP",
+   "Open 13",
+   "Wawrinka S.",
+   "Borges N.",
+   2.38,
+   0.4671,
+   0
+  ],
+  [
+   "2025-02-11",
+   "WTA",
+   "Qatar Open",
+   "Jabeur O.",
+   "Zheng Q.",
+   2.38,
+   0.4494,
+   1
+  ],
+  [
+   "2025-02-12",
+   "ATP",
+   "Argentina Open",
+   "Schwartzman D.",
+   "Jarry N.",
+   4.33,
+   0.3037,
+   1
+  ],
+  [
+   "2025-02-12",
+   "ATP",
+   "Delray Beach Open",
+   "Quinn E.",
+   "Giron M.",
+   3.2,
+   0.3713,
+   0
+  ],
+  [
+   "2025-02-12",
+   "ATP",
+   "Open 13",
+   "Bublik A.",
+   "Humbert U.",
+   3.75,
+   0.3048,
+   0
+  ],
+  [
+   "2025-02-13",
+   "ATP",
+   "Argentina Open",
+   "Schwartzman D.",
+   "Martinez P.",
+   3.2,
+   0.383,
+   0
+  ],
+  [
+   "2025-02-13",
+   "WTA",
+   "Qatar Open",
+   "Swiatek I.",
+   "Rybakina E.",
+   1.53,
+   0.6961,
+   1
+  ],
+  [
+   "2025-02-16",
+   "ATP",
+   "Argentina Open",
+   "Fonseca J.",
+   "Cerundolo F.",
+   2.3,
+   0.4583,
+   1
+  ],
+  [
+   "2025-02-20",
+   "ATP",
+   "Qatar Exxon Mobil Open",
+   "Berrettini M.",
+   "Draper J.",
+   2.2,
+   0.4871,
+   0
+  ],
+  [
+   "2025-02-22",
+   "ATP",
+   "Rio Open",
+   "Comesana F.",
+   "Muller A.",
+   2.5,
+   0.4291,
+   0
+  ],
+  [
+   "2025-02-24",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Zhang Zh.",
+   "Mpetshi G.",
+   2.1,
+   0.5093,
+   0
+  ],
+  [
+   "2025-02-25",
+   "ATP",
+   "Abierto Mexicano",
+   "Walton A.",
+   "Giron M.",
+   2.75,
+   0.3968,
+   0
+  ],
+  [
+   "2025-02-25",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Borges N.",
+   "Fils A.",
+   2.3,
+   0.4707,
+   1
+  ],
+  [
+   "2025-02-25",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Berrettini M.",
+   "Monfils G.",
+   1.5,
+   0.7258,
+   1
+  ],
+  [
+   "2025-02-25",
+   "WTA",
+   "ATX Open",
+   "Burrage J.",
+   "Kvitova P.",
+   1.8,
+   0.6016,
+   1
+  ],
+  [
+   "2025-02-26",
+   "ATP",
+   "Abierto Mexicano",
+   "Bu Y.",
+   "Michelsen A.",
+   3.0,
+   0.3676,
+   0
+  ],
+  [
+   "2025-02-26",
+   "WTA",
+   "ATX Open",
+   "Cirstea S.",
+   "Siegemund L.",
+   1.5,
+   0.7129,
+   1
+  ],
+  [
+   "2025-02-26",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Cilic M.",
+   "Popyrin A.",
+   2.2,
+   0.4841,
+   1
+  ],
+  [
+   "2025-02-27",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Cilic M.",
+   "Auger-Aliassime F.",
+   3.0,
+   0.3641,
+   0
+  ],
+  [
+   "2025-02-28",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Halys Q.",
+   "Auger-Aliassime F.",
+   3.75,
+   0.2821,
+   0
+  ],
+  [
+   "2025-03-01",
+   "ATP",
+   "Chile Open",
+   "Ugo Carabelli C.",
+   "Baez S.",
+   3.0,
+   0.3691,
+   0
+  ],
+  [
+   "2025-03-02",
+   "ATP",
+   "Chile Open",
+   "Djere L.",
+   "Baez S.",
+   2.2,
+   0.4832,
+   1
+  ],
+  [
+   "2025-03-05",
+   "WTA",
+   "BNP Paribas Open",
+   "Kvitova P.",
+   "Gracheva V.",
+   1.87,
+   0.9002,
+   0
+  ],
+  [
+   "2025-03-05",
+   "WTA",
+   "BNP Paribas Open",
+   "Lamens S.",
+   "Bouzkova M.",
+   2.38,
+   0.4811,
+   1
+  ],
+  [
+   "2025-03-06",
+   "ATP",
+   "BNP Paribas Open",
+   "Moutet C.",
+   "Thompson J.",
+   1.91,
+   0.5669,
+   1
+  ],
+  [
+   "2025-03-06",
+   "ATP",
+   "BNP Paribas Open",
+   "Struff J.L.",
+   "Monfils G.",
+   2.3,
+   0.4811,
+   0
+  ],
+  [
+   "2025-03-07",
+   "ATP",
+   "BNP Paribas Open",
+   "Safiullin R.",
+   "Musetti L.",
+   1.91,
+   0.5759,
+   0
+  ],
+  [
+   "2025-03-07",
+   "WTA",
+   "BNP Paribas Open",
+   "Begu I.",
+   "Boulter K.",
+   2.38,
+   0.4504,
+   0
+  ],
+  [
+   "2025-03-08",
+   "ATP",
+   "BNP Paribas Open",
+   "Dzumhur D.",
+   "Tiafoe F.",
+   3.75,
+   0.2946,
+   0
+  ],
+  [
+   "2025-03-08",
+   "ATP",
+   "BNP Paribas Open",
+   "Brooksby J.",
+   "Auger-Aliassime F.",
+   3.75,
+   0.5259,
+   1
+  ],
+  [
+   "2025-03-08",
+   "ATP",
+   "BNP Paribas Open",
+   "Walton A.",
+   "Shapovalov D.",
+   4.0,
+   0.2693,
+   0
+  ],
+  [
+   "2025-03-08",
+   "ATP",
+   "BNP Paribas Open",
+   "Gaston H.",
+   "Hurkacz H.",
+   4.33,
+   0.2446,
+   0
+  ],
+  [
+   "2025-03-09",
+   "ATP",
+   "BNP Paribas Open",
+   "Navone M.",
+   "Shelton B.",
+   3.5,
+   0.3144,
+   0
+  ],
+  [
+   "2025-03-10",
+   "ATP",
+   "BNP Paribas Open",
+   "Watanuki Y.",
+   "Tiafoe F.",
+   3.2,
+   0.3915,
+   1
+  ],
+  [
+   "2025-03-10",
+   "ATP",
+   "BNP Paribas Open",
+   "Brooksby J.",
+   "Draper J.",
+   4.5,
+   0.4543,
+   0
+  ],
+  [
+   "2025-03-11",
+   "ATP",
+   "BNP Paribas Open",
+   "Watanuki Y.",
+   "Griekspoor T.",
+   3.0,
+   0.4046,
+   0
+  ],
+  [
+   "2025-03-12",
+   "ATP",
+   "BNP Paribas Open",
+   "Medvedev D.",
+   "Paul T.",
+   1.73,
+   0.6162,
+   1
+  ],
+  [
+   "2025-03-12",
+   "ATP",
+   "BNP Paribas Open",
+   "Nakashima B.",
+   "Shelton B.",
+   2.5,
+   0.4364,
+   0
+  ],
+  [
+   "2025-03-14",
+   "WTA",
+   "BNP Paribas Open",
+   "Swiatek I.",
+   "Andreeva M.",
+   1.5,
+   0.7133,
+   0
+  ],
+  [
+   "2025-03-15",
+   "WTA",
+   "BNP Paribas Open",
+   "Sabalenka A.",
+   "Keys M.",
+   1.53,
+   0.6988,
+   1
+  ],
+  [
+   "2025-03-16",
+   "WTA",
+   "BNP Paribas Open",
+   "Sabalenka A.",
+   "Andreeva M.",
+   1.53,
+   0.7067,
+   0
+  ],
+  [
+   "2025-03-18",
+   "WTA",
+   "Miami Open",
+   "Liu C.",
+   "Fruhvirtova L.",
+   1.73,
+   0.6225,
+   0
+  ],
+  [
+   "2025-03-18",
+   "WTA",
+   "Miami Open",
+   "Kvitova P.",
+   "Kenin S.",
+   3.2,
+   0.5968,
+   0
+  ],
+  [
+   "2025-03-20",
+   "ATP",
+   "Miami Open",
+   "Brooksby J.",
+   "Safiullin R.",
+   1.91,
+   0.6568,
+   0
+  ],
+  [
+   "2025-03-20",
+   "ATP",
+   "Miami Open",
+   "Wu Y.",
+   "Arnaldi M.",
+   4.0,
+   0.2727,
+   0
+  ],
+  [
+   "2025-03-21",
+   "WTA",
+   "Miami Open",
+   "Kessler M.",
+   "Noskova L.",
+   2.1,
+   0.5004,
+   1
+  ],
+  [
+   "2025-03-24",
+   "ATP",
+   "Miami Open",
+   "Opelka R.",
+   "Machac T.",
+   2.63,
+   0.4052,
+   0
+  ],
+  [
+   "2025-03-31",
+   "ATP",
+   "U.S.Men's Clay Court Championships",
+   "Brooksby J.",
+   "Daniel T.",
+   1.33,
+   0.8445,
+   1
+  ],
+  [
+   "2025-04-02",
+   "ATP",
+   "Tiriac Open",
+   "Misolic F.",
+   "Ugo Carabelli C.",
+   2.5,
+   0.4445,
+   1
+  ],
+  [
+   "2025-04-02",
+   "ATP",
+   "U.S.Men's Clay Court Championships",
+   "Brooksby J.",
+   "Tabilo A.",
+   2.1,
+   0.5969,
+   1
+  ],
+  [
+   "2025-04-02",
+   "ATP",
+   "Grand Prix Hassan II",
+   "Dellien H.",
+   "Muller A.",
+   2.63,
+   0.4074,
+   0
+  ],
+  [
+   "2025-04-02",
+   "WTA",
+   "Charleston Open",
+   "Kudermetova P.",
+   "Shnaider D.",
+   3.0,
+   0.3538,
+   0
+  ],
+  [
+   "2025-04-03",
+   "ATP",
+   "Tiriac Open",
+   "Diallo G.",
+   "Baez S.",
+   3.4,
+   0.3192,
+   0
+  ],
+  [
+   "2025-04-03",
+   "ATP",
+   "Tiriac Open",
+   "Wawrinka S.",
+   "Martinez P.",
+   2.1,
+   0.5053,
+   0
+  ],
+  [
+   "2025-04-03",
+   "ATP",
+   "Grand Prix Hassan II",
+   "Carreno Busta P.",
+   "Griekspoor T.",
+   2.1,
+   0.5099,
+   0
+  ],
+  [
+   "2025-04-04",
+   "ATP",
+   "Tiriac Open",
+   "Comesana F.",
+   "Baez S.",
+   2.75,
+   0.3863,
+   0
+  ],
+  [
+   "2025-04-04",
+   "ATP",
+   "Tiriac Open",
+   "Misolic F.",
+   "Cobolli F.",
+   2.1,
+   0.5335,
+   0
+  ],
+  [
+   "2025-04-04",
+   "ATP",
+   "U.S.Men's Clay Court Championships",
+   "Brooksby J.",
+   "Kovacevic A.",
+   1.73,
+   0.7068,
+   1
+  ],
+  [
+   "2025-04-05",
+   "ATP",
+   "Tiriac Open",
+   "Fucsovics M.",
+   "Baez S.",
+   2.1,
+   0.5081,
+   0
+  ],
+  [
+   "2025-04-05",
+   "ATP",
+   "U.S.Men's Clay Court Championships",
+   "Brooksby J.",
+   "Paul T.",
+   4.0,
+   0.3875,
+   1
+  ],
+  [
+   "2025-04-05",
+   "WTA",
+   "Charleston Open",
+   "Pegula J.",
+   "Alexandrova E.",
+   1.53,
+   0.6895,
+   1
+  ],
+  [
+   "2025-04-06",
+   "ATP",
+   "U.S.Men's Clay Court Championships",
+   "Brooksby J.",
+   "Tiafoe F.",
+   2.75,
+   0.5046,
+   1
+  ],
+  [
+   "2025-04-07",
+   "ATP",
+   "Monte Carlo Masters",
+   "Navone M.",
+   "Berrettini M.",
+   2.63,
+   0.4008,
+   0
+  ],
+  [
+   "2025-04-08",
+   "ATP",
+   "Monte Carlo Masters",
+   "Zverev A.",
+   "Berrettini M.",
+   1.57,
+   0.6716,
+   0
+  ],
+  [
+   "2025-04-09",
+   "ATP",
+   "Monte Carlo Masters",
+   "Gasquet R.",
+   "Altmaier D.",
+   3.0,
+   0.353,
+   0
+  ],
+  [
+   "2025-04-14",
+   "ATP",
+   "BMW Open",
+   "Gojo B.",
+   "Shelton B.",
+   2.75,
+   0.4567,
+   0
+  ],
+  [
+   "2025-04-15",
+   "ATP",
+   "BMW Open",
+   "Jarry N.",
+   "Humbert U.",
+   2.0,
+   0.5269,
+   0
+  ],
+  [
+   "2025-04-15",
+   "WTA",
+   "Open de Rouen",
+   "Krunic A.",
+   "Danilovic O.",
+   5.5,
+   0.2,
+   0
+  ],
+  [
+   "2025-04-16",
+   "ATP",
+   "BMW Open",
+   "Hanfmann Y.",
+   "Griekspoor T.",
+   3.2,
+   0.337,
+   0
+  ],
+  [
+   "2025-04-16",
+   "WTA",
+   "Open de Rouen",
+   "Ferro F.",
+   "Ponchet J.",
+   1.62,
+   0.6756,
+   0
+  ],
+  [
+   "2025-04-17",
+   "ATP",
+   "Barcelona Open",
+   "Davidovich Fokina A.",
+   "Rublev A.",
+   2.0,
+   0.5292,
+   1
+  ],
+  [
+   "2025-04-23",
+   "ATP",
+   "Mutua Madrid Open",
+   "Carreno Busta P.",
+   "Borges N.",
+   2.3,
+   0.4767,
+   0
+  ],
+  [
+   "2025-04-23",
+   "ATP",
+   "Mutua Madrid Open",
+   "Gojo B.",
+   "Monfils G.",
+   2.38,
+   0.5283,
+   0
+  ],
+  [
+   "2025-04-23",
+   "WTA",
+   "Mutua Madrid Open",
+   "Kvitova P.",
+   "Volynets K.",
+   3.0,
+   0.5373,
+   0
+  ],
+  [
+   "2025-04-25",
+   "ATP",
+   "Mutua Madrid Open",
+   "Bonzi B.",
+   "Hurkacz H.",
+   2.75,
+   0.413,
+   1
+  ],
+  [
+   "2025-04-25",
+   "ATP",
+   "Mutua Madrid Open",
+   "Cerundolo J.M.",
+   "Auger-Aliassime F.",
+   3.75,
+   0.3034,
+   1
+  ],
+  [
+   "2025-04-25",
+   "ATP",
+   "Mutua Madrid Open",
+   "Quinn E.",
+   "Mensik J.",
+   3.2,
+   0.3431,
+   0
+  ],
+  [
+   "2025-04-25",
+   "WTA",
+   "Mutua Madrid Open",
+   "Sakkari M.",
+   "Linette M.",
+   1.67,
+   0.6347,
+   1
+  ],
+  [
+   "2025-04-25",
+   "WTA",
+   "Mutua Madrid Open",
+   "Uchijima M.",
+   "Jabeur O.",
+   2.3,
+   0.4686,
+   1
+  ],
+  [
+   "2025-04-25",
+   "WTA",
+   "Mutua Madrid Open",
+   "Andreescu B.",
+   "Rybakina E.",
+   3.75,
+   0.2949,
+   0
+  ],
+  [
+   "2025-04-26",
+   "ATP",
+   "Mutua Madrid Open",
+   "Fearnley J.",
+   "Machac T.",
+   2.75,
+   0.3821,
+   1
+  ],
+  [
+   "2025-04-26",
+   "ATP",
+   "Mutua Madrid Open",
+   "Jarry N.",
+   "Dimitrov G.",
+   2.38,
+   0.4617,
+   0
+  ],
+  [
+   "2025-04-27",
+   "ATP",
+   "Mutua Madrid Open",
+   "Cerundolo J.M.",
+   "Medvedev D.",
+   3.4,
+   0.3145,
+   0
+  ],
+  [
+   "2025-04-29",
+   "ATP",
+   "Mutua Madrid Open",
+   "Zverev A.",
+   "Cerundolo F.",
+   1.44,
+   0.7424,
+   0
+  ],
+  [
+   "2025-04-30",
+   "ATP",
+   "Mutua Madrid Open",
+   "De Minaur A.",
+   "Musetti L.",
+   1.67,
+   0.6437,
+   0
+  ],
+  [
+   "2025-05-06",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Kvitova P.",
+   "Begu I.",
+   2.63,
+   0.5765,
+   1
+  ],
+  [
+   "2025-05-07",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Mpetshi G.",
+   "Thompson J.",
+   2.3,
+   0.4977,
+   0
+  ],
+  [
+   "2025-05-08",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Krueger A.",
+   "Pegula J.",
+   3.2,
+   0.3329,
+   0
+  ],
+  [
+   "2025-05-09",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Kopriva V.",
+   "Baez S.",
+   2.75,
+   0.3955,
+   1
+  ],
+  [
+   "2025-05-09",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Kostyuk M.",
+   "Kasatkina D.",
+   1.53,
+   0.6883,
+   1
+  ],
+  [
+   "2025-05-10",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Ofner S.",
+   "Tiafoe F.",
+   2.3,
+   0.497,
+   1
+  ],
+  [
+   "2025-05-10",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Tien L.",
+   "Machac T.",
+   3.75,
+   0.295,
+   0
+  ],
+  [
+   "2025-05-10",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Martinez P.",
+   "Hurkacz H.",
+   2.38,
+   0.4523,
+   0
+  ],
+  [
+   "2025-05-12",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Ofner S.",
+   "Cerundolo F.",
+   5.5,
+   0.2068,
+   0
+  ],
+  [
+   "2025-05-12",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Paolini J.",
+   "Ostapenko J.",
+   1.67,
+   0.6337,
+   1
+  ],
+  [
+   "2025-05-13",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Sinner J.",
+   "Cerundolo F.",
+   1.29,
+   0.8177,
+   1
+  ],
+  [
+   "2025-05-14",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Draper J.",
+   "Alcaraz C.",
+   3.4,
+   0.3095,
+   0
+  ],
+  [
+   "2025-05-16",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Musetti L.",
+   "Alcaraz C.",
+   3.2,
+   0.3425,
+   0
+  ],
+  [
+   "2025-05-18",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Sinner J.",
+   "Alcaraz C.",
+   1.62,
+   0.6933,
+   0
+  ],
+  [
+   "2025-05-19",
+   "ATP",
+   "Hamburg Open",
+   "Ymer E.",
+   "Muller A.",
+   3.0,
+   0.3522,
+   0
+  ],
+  [
+   "2025-05-19",
+   "ATP",
+   "Hamburg Open",
+   "Gojo B.",
+   "Lehecka J.",
+   2.75,
+   0.4122,
+   0
+  ],
+  [
+   "2025-05-19",
+   "WTA",
+   "Internationaux de Strasbourg",
+   "Cornet A.",
+   "Bouzkova M.",
+   6.0,
+   0.2532,
+   0
+  ],
+  [
+   "2025-05-20",
+   "ATP",
+   "Hamburg Open",
+   "Ugo Carabelli C.",
+   "Baez S.",
+   2.38,
+   0.4764,
+   1
+  ],
+  [
+   "2025-05-21",
+   "WTA",
+   "Morocco Open",
+   "Sevastova A.",
+   "Sonmez Z.",
+   2.5,
+   0.5111,
+   1
+  ],
+  [
+   "2025-05-22",
+   "ATP",
+   "Geneva Open",
+   "Ofner S.",
+   "Khachanov K.",
+   2.63,
+   0.3996,
+   1
+  ],
+  [
+   "2025-05-22",
+   "WTA",
+   "Morocco Open",
+   "Sevastova A.",
+   "Cristian J.",
+   2.3,
+   0.5715,
+   0
+  ],
+  [
+   "2025-05-23",
+   "ATP",
+   "Geneva Open",
+   "Ofner S.",
+   "Hurkacz H.",
+   2.75,
+   0.383,
+   0
+  ],
+  [
+   "2025-05-25",
+   "WTA",
+   "French Open",
+   "Kvitova P.",
+   "Golubic V.",
+   1.67,
+   0.7258,
+   0
+  ],
+  [
+   "2025-05-26",
+   "ATP",
+   "French Open",
+   "Cazaux A.",
+   "Tabilo A.",
+   2.38,
+   0.4653,
+   0
+  ],
+  [
+   "2025-05-26",
+   "ATP",
+   "French Open",
+   "Jarry N.",
+   "Fils A.",
+   5.5,
+   0.192,
+   0
+  ],
+  [
+   "2025-05-26",
+   "WTA",
+   "French Open",
+   "Cocciaretto E.",
+   "Townsend T.",
+   2.0,
+   0.5285,
+   1
+  ],
+  [
+   "2025-05-27",
+   "WTA",
+   "French Open",
+   "Frech M.",
+   "Jabeur O.",
+   3.2,
+   0.3345,
+   1
+  ],
+  [
+   "2025-05-28",
+   "ATP",
+   "French Open",
+   "Nava E.",
+   "Rune H.",
+   6.0,
+   0.1796,
+   0
+  ],
+  [
+   "2025-05-29",
+   "ATP",
+   "French Open",
+   "Misolic F.",
+   "Shapovalov D.",
+   2.38,
+   0.4441,
+   1
+  ],
+  [
+   "2025-05-30",
+   "ATP",
+   "French Open",
+   "Gigante M.",
+   "Shelton B.",
+   2.5,
+   0.4693,
+   0
+  ],
+  [
+   "2025-06-02",
+   "WTA",
+   "French Open",
+   "Gauff C.",
+   "Alexandrova E.",
+   1.3,
+   0.8088,
+   1
+  ],
+  [
+   "2025-06-04",
+   "WTA",
+   "French Open",
+   "Gauff C.",
+   "Keys M.",
+   1.44,
+   0.7507,
+   1
+  ],
+  [
+   "2025-06-05",
+   "WTA",
+   "French Open",
+   "Sabalenka A.",
+   "Swiatek I.",
+   1.73,
+   0.6596,
+   1
+  ],
+  [
+   "2025-06-07",
+   "WTA",
+   "French Open",
+   "Gauff C.",
+   "Sabalenka A.",
+   1.44,
+   0.9951,
+   1
+  ],
+  [
+   "2025-06-08",
+   "ATP",
+   "French Open",
+   "Sinner J.",
+   "Alcaraz C.",
+   1.83,
+   0.6221,
+   0
+  ],
+  [
+   "2025-06-09",
+   "WTA",
+   "Rosmalen Grass Court Championships",
+   "Sevastova A.",
+   "Yuan Y.",
+   1.67,
+   0.658,
+   0
+  ],
+  [
+   "2025-06-09",
+   "WTA",
+   "Queen's Club Championships",
+   "Kvitova P.",
+   "Haddad Maia B.",
+   2.1,
+   0.5797,
+   0
+  ],
+  [
+   "2025-06-10",
+   "WTA",
+   "Rosmalen Grass Court Championships",
+   "Wickmayer Y.",
+   "Lamens S.",
+   2.1,
+   0.7104,
+   0
+  ],
+  [
+   "2025-06-11",
+   "ATP",
+   "Rosmalen Grass Court Championships",
+   "Bautista Agut R.",
+   "Hurkacz H.",
+   3.4,
+   0.3111,
+   0
+  ],
+  [
+   "2025-06-12",
+   "ATP",
+   "Rosmalen Grass Court Championships",
+   "Evans D.",
+   "Humbert U.",
+   3.2,
+   0.3403,
+   0
+  ],
+  [
+   "2025-06-12",
+   "ATP",
+   "Rosmalen Grass Court Championships",
+   "Mannarino A.",
+   "Medvedev D.",
+   3.75,
+   0.2896,
+   0
+  ],
+  [
+   "2025-06-15",
+   "ATP",
+   "Stuttgart Open",
+   "Zverev A.",
+   "Fritz T.",
+   1.67,
+   0.6437,
+   0
+  ],
+  [
+   "2025-06-16",
+   "ATP",
+   "Queen's Club Championships",
+   "Evans D.",
+   "Tiafoe F.",
+   4.0,
+   0.2854,
+   1
+  ],
+  [
+   "2025-06-17",
+   "ATP",
+   "Halle Open",
+   "De Jong J.",
+   "Machac T.",
+   3.0,
+   0.3507,
+   0
+  ],
+  [
+   "2025-06-17",
+   "WTA",
+   "Nottingham Open",
+   "Jones F.",
+   "Dart H.",
+   2.0,
+   0.5435,
+   1
+  ],
+  [
+   "2025-06-18",
+   "ATP",
+   "Queen's Club Championships",
+   "Evans D.",
+   "Nakashima B.",
+   3.0,
+   0.3728,
+   0
+  ],
+  [
+   "2025-06-20",
+   "WTA",
+   "German Open",
+   "Sabalenka A.",
+   "Rybakina E.",
+   1.62,
+   0.6616,
+   1
+  ],
+  [
+   "2025-06-21",
+   "ATP",
+   "Halle Open",
+   "Zverev A.",
+   "Medvedev D.",
+   1.7,
+   0.6586,
+   0
+  ],
+  [
+   "2025-06-22",
+   "WTA",
+   "Bad Homburg Open",
+   "Fernandez L.A.",
+   "Maria T.",
+   1.87,
+   0.5806,
+   1
+  ],
+  [
+   "2025-06-23",
+   "ATP",
+   "Eastbourne International",
+   "Evans D.",
+   "Kecmanovic M.",
+   2.2,
+   0.4869,
+   1
+  ],
+  [
+   "2025-06-24",
+   "ATP",
+   "Eastbourne International",
+   "Brooksby J.",
+   "Comesana F.",
+   1.5,
+   0.718,
+   1
+  ],
+  [
+   "2025-06-24",
+   "WTA",
+   "Eastbourne Open",
+   "Kartal S.",
+   "Ostapenko J.",
+   2.3,
+   0.458,
+   0
+  ],
+  [
+   "2025-06-24",
+   "ATP",
+   "Mallorca Championships",
+   "Quinn E.",
+   "Griekspoor T.",
+   2.5,
+   0.4363,
+   0
+  ],
+  [
+   "2025-06-25",
+   "ATP",
+   "Eastbourne International",
+   "Evans D.",
+   "Paul T.",
+   3.4,
+   0.3557,
+   1
+  ],
+  [
+   "2025-06-25",
+   "WTA",
+   "Bad Homburg Open",
+   "Tauson C.",
+   "Andreeva M.",
+   2.8,
+   0.3816,
+   0
+  ],
+  [
+   "2025-06-27",
+   "WTA",
+   "Bad Homburg Open",
+   "Paolini J.",
+   "Swiatek I.",
+   3.2,
+   0.3404,
+   0
+  ],
+  [
+   "2025-06-28",
+   "WTA",
+   "Bad Homburg Open",
+   "Pegula J.",
+   "Swiatek I.",
+   2.8,
+   0.3841,
+   1
+  ],
+  [
+   "2025-06-30",
+   "ATP",
+   "Wimbledon",
+   "Holt B.",
+   "Davidovich Fokina A.",
+   4.33,
+   0.2493,
+   0
+  ],
+  [
+   "2025-06-30",
+   "ATP",
+   "Wimbledon",
+   "Brooksby J.",
+   "Griekspoor T.",
+   2.75,
+   0.3838,
+   1
+  ],
+  [
+   "2025-06-30",
+   "WTA",
+   "Wimbledon",
+   "Danilovic O.",
+   "Zhang S.",
+   1.75,
+   0.6067,
+   1
+  ],
+  [
+   "2025-06-30",
+   "WTA",
+   "Wimbledon",
+   "Wickmayer Y.",
+   "Zarazua R.",
+   2.2,
+   0.6266,
+   0
+  ],
+  [
+   "2025-06-30",
+   "WTA",
+   "Wimbledon",
+   "Dart H.",
+   "Galfi D.",
+   1.73,
+   0.6079,
+   0
+  ],
+  [
+   "2025-07-01",
+   "ATP",
+   "Wimbledon",
+   "De Jong J.",
+   "Eubanks C.",
+   1.75,
+   0.608,
+   1
+  ],
+  [
+   "2025-07-01",
+   "ATP",
+   "Wimbledon",
+   "Zeppieri G.",
+   "Mochizuki S.",
+   2.6,
+   0.4177,
+   0
+  ],
+  [
+   "2025-07-01",
+   "ATP",
+   "Wimbledon",
+   "Hijikata R.",
+   "Goffin D.",
+   1.6,
+   0.6856,
+   1
+  ],
+  [
+   "2025-07-01",
+   "WTA",
+   "Wimbledon",
+   "Eala A.",
+   "Krejcikova B.",
+   1.75,
+   0.6018,
+   0
+  ],
+  [
+   "2025-07-01",
+   "WTA",
+   "Wimbledon",
+   "Kvitova P.",
+   "Navarro E.",
+   4.0,
+   0.2949,
+   0
+  ],
+  [
+   "2025-07-02",
+   "ATP",
+   "Wimbledon",
+   "Harris L.",
+   "Rublev A.",
+   3.75,
+   0.349,
+   0
+  ],
+  [
+   "2025-07-02",
+   "ATP",
+   "Wimbledon",
+   "Harris B.",
+   "Borges N.",
+   2.5,
+   0.428,
+   0
+  ],
+  [
+   "2025-07-03",
+   "ATP",
+   "Wimbledon",
+   "Ofner S.",
+   "Paul T.",
+   5.5,
+   0.1952,
+   1
+  ],
+  [
+   "2025-07-04",
+   "ATP",
+   "Wimbledon",
+   "Mannarino A.",
+   "Rublev A.",
+   3.75,
+   0.2837,
+   0
+  ],
+  [
+   "2025-07-05",
+   "ATP",
+   "Wimbledon",
+   "Ofner S.",
+   "Dimitrov G.",
+   3.75,
+   0.2846,
+   0
+  ],
+  [
+   "2025-07-07",
+   "ATP",
+   "Wimbledon",
+   "Cilic M.",
+   "Cobolli F.",
+   2.0,
+   0.5294,
+   0
+  ],
+  [
+   "2025-07-13",
+   "ATP",
+   "Wimbledon",
+   "Sinner J.",
+   "Alcaraz C.",
+   1.83,
+   0.6371,
+   1
+  ],
+  [
+   "2025-07-15",
+   "WTA",
+   "Hamburg Open",
+   "Krunic A.",
+   "Galfi D.",
+   3.4,
+   0.322,
+   0
+  ],
+  [
+   "2025-07-15",
+   "WTA",
+   "Iasi Open",
+   "Sevastova A.",
+   "Waltert S.",
+   2.0,
+   0.576,
+   0
+  ],
+  [
+   "2025-07-16",
+   "ATP",
+   "Nordea Open",
+   "Ymer M.",
+   "Van De Zandschulp B.",
+   2.8,
+   0.4374,
+   0
+  ],
+  [
+   "2025-07-16",
+   "ATP",
+   "Nordea Open",
+   "Ymer E.",
+   "Darderi L.",
+   4.0,
+   0.2744,
+   0
+  ],
+  [
+   "2025-07-16",
+   "ATP",
+   "Suisse Open Gstaad",
+   "Stricker D.",
+   "Ruud C.",
+   3.75,
+   0.343,
+   0
+  ],
+  [
+   "2025-07-17",
+   "ATP",
+   "Suisse Open Gstaad",
+   "Shevchenko A.",
+   "Bublik A.",
+   2.6,
+   0.4065,
+   0
+  ],
+  [
+   "2025-07-17",
+   "ATP",
+   "Los Cabos Open",
+   "Duckworth J.",
+   "Davidovich Fokina A.",
+   4.33,
+   0.2577,
+   1
+  ],
+  [
+   "2025-07-18",
+   "ATP",
+   "Nordea Open",
+   "Darderi L.",
+   "Baez S.",
+   1.7,
+   0.6231,
+   1
+  ],
+  [
+   "2025-07-18",
+   "ATP",
+   "Suisse Open Gstaad",
+   "Cerundolo J.M.",
+   "Ruud C.",
+   4.33,
+   0.2448,
+   1
+  ],
+  [
+   "2025-07-19",
+   "ATP",
+   "Suisse Open Gstaad",
+   "Cazaux A.",
+   "Bublik A.",
+   3.0,
+   0.3638,
+   0
+  ],
+  [
+   "2025-07-21",
+   "ATP",
+   "Generali Open",
+   "Bagnis F.",
+   "Rinderknech A.",
+   2.6,
+   0.5211,
+   0
+  ],
+  [
+   "2025-07-21",
+   "ATP",
+   "Croatia Open",
+   "Barrios M.",
+   "Navone M.",
+   3.75,
+   0.2831,
+   0
+  ],
+  [
+   "2025-07-22",
+   "ATP",
+   "Generali Open",
+   "Faria J.",
+   "Tirante T.A.",
+   2.4,
+   0.4507,
+   0
+  ],
+  [
+   "2025-07-22",
+   "ATP",
+   "Citi Open",
+   "Wu Y.",
+   "Monfils G.",
+   2.75,
+   0.4149,
+   1
+  ],
+  [
+   "2025-07-22",
+   "ATP",
+   "Citi Open",
+   "Quinn E.",
+   "Nakashima B.",
+   3.0,
+   0.3556,
+   0
+  ],
+  [
+   "2025-07-22",
+   "ATP",
+   "Citi Open",
+   "Evans D.",
+   "Michelsen A.",
+   3.1,
+   0.347,
+   1
+  ],
+  [
+   "2025-07-23",
+   "ATP",
+   "Generali Open",
+   "Tirante T.A.",
+   "Bublik A.",
+   2.63,
+   0.4147,
+   0
+  ],
+  [
+   "2025-07-23",
+   "ATP",
+   "Citi Open",
+   "Svajda Z.",
+   "Lehecka J.",
+   2.63,
+   0.4409,
+   0
+  ],
+  [
+   "2025-07-23",
+   "ATP",
+   "Citi Open",
+   "Wu Y.",
+   "Popyrin A.",
+   2.25,
+   0.5145,
+   1
+  ],
+  [
+   "2025-07-23",
+   "ATP",
+   "Citi Open",
+   "Bu Y.",
+   "De Minaur A.",
+   5.0,
+   0.2103,
+   0
+  ],
+  [
+   "2025-07-24",
+   "ATP",
+   "Citi Open",
+   "Kovacevic A.",
+   "Tiafoe F.",
+   3.0,
+   0.3659,
+   0
+  ],
+  [
+   "2025-07-24",
+   "WTA",
+   "Citi Open",
+   "Fernandez L.A.",
+   "Pegula J.",
+   3.0,
+   0.3549,
+   1
+  ],
+  [
+   "2025-07-24",
+   "ATP",
+   "Citi Open",
+   "Wu Y.",
+   "Medvedev D.",
+   4.0,
+   0.2922,
+   0
+  ],
+  [
+   "2025-07-24",
+   "ATP",
+   "Generali Open",
+   "Shevchenko A.",
+   "Bublik A.",
+   3.75,
+   0.302,
+   0
+  ],
+  [
+   "2025-07-25",
+   "WTA",
+   "Citi Open",
+   "Williams V.",
+   "Frech M.",
+   3.75,
+   0.3144,
+   0
+  ],
+  [
+   "2025-07-26",
+   "ATP",
+   "Generali Open",
+   "Cazaux A.",
+   "Bublik A.",
+   3.4,
+   0.3232,
+   0
+  ],
+  [
+   "2025-07-27",
+   "WTA",
+   "Canadian Open",
+   "Zhu L.",
+   "Gracheva V.",
+   2.8,
+   0.3956,
+   1
+  ],
+  [
+   "2025-07-28",
+   "ATP",
+   "Canadian Open",
+   "Duckworth J.",
+   "Shang J.",
+   1.6,
+   0.6745,
+   1
+  ],
+  [
+   "2025-07-28",
+   "WTA",
+   "Canadian Open",
+   "Sevastova A.",
+   "Tomljanovic A.",
+   2.7,
+   0.4458,
+   1
+  ],
+  [
+   "2025-07-29",
+   "ATP",
+   "Canadian Open",
+   "Barrios M.",
+   "Michelsen A.",
+   4.33,
+   0.2536,
+   0
+  ],
+  [
+   "2025-07-29",
+   "ATP",
+   "Canadian Open",
+   "Bagnis F.",
+   "Borges N.",
+   5.5,
+   0.2868,
+   0
+  ],
+  [
+   "2025-07-29",
+   "WTA",
+   "Canadian Open",
+   "Zhu L.",
+   "Alexandrova E.",
+   6.0,
+   0.2058,
+   1
+  ],
+  [
+   "2025-07-30",
+   "ATP",
+   "Canadian Open",
+   "Opelka R.",
+   "Machac T.",
+   2.3,
+   0.4707,
+   1
+  ],
+  [
+   "2025-07-30",
+   "ATP",
+   "Canadian Open",
+   "Quinn E.",
+   "Nakashima B.",
+   3.0,
+   0.356,
+   0
+  ],
+  [
+   "2025-07-30",
+   "WTA",
+   "Canadian Open",
+   "Sevastova A.",
+   "Linette M.",
+   2.8,
+   0.4159,
+   1
+  ],
+  [
+   "2025-07-30",
+   "WTA",
+   "Canadian Open",
+   "Zarazua R.",
+   "Ostapenko J.",
+   3.0,
+   0.352,
+   0
+  ],
+  [
+   "2025-07-31",
+   "ATP",
+   "Canadian Open",
+   "Marozsan F.",
+   "Auger-Aliassime F.",
+   2.5,
+   0.4284,
+   1
+  ],
+  [
+   "2025-07-31",
+   "ATP",
+   "Canadian Open",
+   "O Connell C.",
+   "Tsitsipas S.",
+   3.0,
+   0.3666,
+   1
+  ],
+  [
+   "2025-07-31",
+   "ATP",
+   "Canadian Open",
+   "Carreno Busta P.",
+   "Fils A.",
+   3.0,
+   0.4133,
+   0
+  ],
+  [
+   "2025-07-31",
+   "ATP",
+   "Canadian Open",
+   "Nava E.",
+   "Khachanov K.",
+   4.0,
+   0.2754,
+   0
+  ],
+  [
+   "2025-07-31",
+   "WTA",
+   "Canadian Open",
+   "Zhu L.",
+   "Lamens S.",
+   2.1,
+   0.5316,
+   1
+  ],
+  [
+   "2025-08-01",
+   "WTA",
+   "Canadian Open",
+   "Sevastova A.",
+   "Pegula J.",
+   6.0,
+   0.1948,
+   1
+  ],
+  [
+   "2025-08-02",
+   "WTA",
+   "Canadian Open",
+   "Kalinskaya A.",
+   "Svitolina E.",
+   3.4,
+   0.3149,
+   0
+  ],
+  [
+   "2025-08-03",
+   "WTA",
+   "Canadian Open",
+   "Zhu L.",
+   "Bouzas Maneiro J.",
+   2.2,
+   0.523,
+   0
+  ],
+  [
+   "2025-08-03",
+   "WTA",
+   "Canadian Open",
+   "Sevastova A.",
+   "Osaka N.",
+   4.0,
+   0.2922,
+   0
+  ],
+  [
+   "2025-08-07",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Williams V.",
+   "Bouzas Maneiro J.",
+   5.5,
+   0.2742,
+   0
+  ],
+  [
+   "2025-08-08",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Ugo Carabelli C.",
+   "Nishikori K.",
+   2.5,
+   0.4252,
+   1
+  ],
+  [
+   "2025-08-08",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Kovacevic A.",
+   "Medjedovic H.",
+   1.9,
+   0.5786,
+   0
+  ],
+  [
+   "2025-08-08",
+   "ATP",
+   "Canadian Open",
+   "Shelton B.",
+   "Khachanov K.",
+   1.5,
+   0.7019,
+   1
+  ],
+  [
+   "2025-08-09",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Wong C.",
+   "Humbert U.",
+   2.5,
+   0.5035,
+   0
+  ],
+  [
+   "2025-08-09",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Atmane T.",
+   "Cobolli F.",
+   3.4,
+   0.328,
+   1
+  ],
+  [
+   "2025-08-10",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Boyer T.",
+   "Lehecka J.",
+   5.0,
+   0.2245,
+   0
+  ],
+  [
+   "2025-08-10",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Sevastova A.",
+   "Krueger A.",
+   2.1,
+   0.5028,
+   0
+  ],
+  [
+   "2025-08-12",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Walton A.",
+   "Lehecka J.",
+   4.0,
+   0.268,
+   0
+  ],
+  [
+   "2025-08-15",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Atmane T.",
+   "Rune H.",
+   3.75,
+   0.2832,
+   1
+  ],
+  [
+   "2025-08-18",
+   "ATP",
+   "Winston-Salem Open at Wake Forest University",
+   "Kopriva V.",
+   "Korda S.",
+   3.0,
+   0.4041,
+   0
+  ],
+  [
+   "2025-08-19",
+   "ATP",
+   "Winston-Salem Open at Wake Forest University",
+   "McDonald M.",
+   "Darderi L.",
+   1.73,
+   0.6077,
+   0
+  ],
+  [
+   "2025-08-24",
+   "WTA",
+   "US Open",
+   "Sun L.",
+   "Osorio M.",
+   1.67,
+   0.6463,
+   1
+  ],
+  [
+   "2025-08-24",
+   "WTA",
+   "US Open",
+   "Zhu L.",
+   "Potapova A.",
+   2.63,
+   0.409,
+   0
+  ],
+  [
+   "2025-08-25",
+   "ATP",
+   "US Open",
+   "Wong C.",
+   "Kovacevic A.",
+   2.1,
+   0.5194,
+   1
+  ],
+  [
+   "2025-08-25",
+   "WTA",
+   "US Open",
+   "Kvitova P.",
+   "Parry D.",
+   2.75,
+   0.4701,
+   0
+  ],
+  [
+   "2025-08-26",
+   "ATP",
+   "US Open",
+   "Ofner S.",
+   "Ruud C.",
+   4.33,
+   0.2438,
+   0
+  ],
+  [
+   "2025-08-26",
+   "ATP",
+   "US Open",
+   "Mpetshi G.",
+   "Musetti L.",
+   3.0,
+   0.3635,
+   0
+  ],
+  [
+   "2025-08-26",
+   "ATP",
+   "US Open",
+   "Muller A.",
+   "Tsitsipas S.",
+   2.75,
+   0.391,
+   0
+  ],
+  [
+   "2025-08-26",
+   "WTA",
+   "US Open",
+   "Baptiste H.",
+   "Siniakova K.",
+   2.2,
+   0.4868,
+   1
+  ],
+  [
+   "2025-08-27",
+   "WTA",
+   "US Open",
+   "Zakharova A.",
+   "Avanesyan E.",
+   1.53,
+   0.6866,
+   1
+  ],
+  [
+   "2025-08-28",
+   "ATP",
+   "US Open",
+   "Wong C.",
+   "Walton A.",
+   2.38,
+   0.4706,
+   1
+  ],
+  [
+   "2025-08-28",
+   "ATP",
+   "US Open",
+   "Schoolkate T.",
+   "Bublik A.",
+   4.5,
+   0.2373,
+   0
+  ],
+  [
+   "2025-09-03",
+   "ATP",
+   "US Open",
+   "Fritz T.",
+   "Djokovic N.",
+   2.75,
+   0.4047,
+   0
+  ],
+  [
+   "2025-09-06",
+   "WTA",
+   "US Open",
+   "Sabalenka A.",
+   "Anisimova A.",
+   1.53,
+   0.6998,
+   1
+  ],
+  [
+   "2025-09-07",
+   "ATP",
+   "US Open",
+   "Sinner J.",
+   "Alcaraz C.",
+   1.75,
+   0.6617,
+   0
+  ],
+  [
+   "2025-09-10",
+   "WTA",
+   "Guadalajara Open",
+   "Hunter S.",
+   "Siniakova K.",
+   6.0,
+   0.4214,
+   1
+  ],
+  [
+   "2025-09-10",
+   "WTA",
+   "Guadalajara Open",
+   "Rakhimova K.",
+   "Osorio M.",
+   1.73,
+   0.6124,
+   0
+  ],
+  [
+   "2025-09-10",
+   "WTA",
+   "Guadalajara Open",
+   "Stephens S.",
+   "Stefanini L.",
+   3.2,
+   0.5539,
+   0
+  ],
+  [
+   "2025-09-11",
+   "WTA",
+   "Guadalajara Open",
+   "Hunter S.",
+   "Arango E.",
+   2.75,
+   0.698,
+   0
+  ],
+  [
+   "2025-09-20",
+   "ATP",
+   "Chengdu Open",
+   "Daniel T.",
+   "Griekspoor T.",
+   2.75,
+   0.4391,
+   1
+  ],
+  [
+   "2025-09-20",
+   "ATP",
+   "Hangzhou Open",
+   "Basavareddy N.",
+   "Medvedev D.",
+   3.2,
+   0.3311,
+   0
+  ],
+  [
+   "2025-09-20",
+   "ATP",
+   "Hangzhou Open",
+   "Zeppieri G.",
+   "Tien L.",
+   2.5,
+   0.4366,
+   0
+  ],
+  [
+   "2025-09-20",
+   "ATP",
+   "Hangzhou Open",
+   "Wu Y.",
+   "Korda S.",
+   2.63,
+   0.4265,
+   1
+  ],
+  [
+   "2025-09-21",
+   "ATP",
+   "Chengdu Open",
+   "Daniel T.",
+   "Shevchenko A.",
+   2.0,
+   0.5345,
+   0
+  ],
+  [
+   "2025-09-21",
+   "ATP",
+   "Hangzhou Open",
+   "Wu Y.",
+   "Medvedev D.",
+   3.5,
+   0.3277,
+   1
+  ],
+  [
+   "2025-09-22",
+   "ATP",
+   "Hangzhou Open",
+   "Wu Y.",
+   "Bublik A.",
+   3.5,
+   0.3156,
+   0
+  ],
+  [
+   "2025-09-23",
+   "ATP",
+   "Chengdu Open",
+   "Musetti L.",
+   "Tabilo A.",
+   1.22,
+   0.968,
+   0
+  ],
+  [
+   "2025-09-25",
+   "ATP",
+   "China Open",
+   "Zhang Zh.",
+   "Atmane T.",
+   2.38,
+   0.4883,
+   0
+  ],
+  [
+   "2025-09-26",
+   "ATP",
+   "China Open",
+   "Shang J.",
+   "Cazaux A.",
+   1.8,
+   0.5957,
+   0
+  ],
+  [
+   "2025-09-26",
+   "ATP",
+   "China Open",
+   "Tien L.",
+   "Cerundolo F.",
+   2.2,
+   0.4887,
+   1
+  ],
+  [
+   "2025-09-26",
+   "WTA",
+   "China Open",
+   "Sevastova A.",
+   "Paolini J.",
+   5.0,
+   0.2247,
+   0
+  ],
+  [
+   "2025-09-27",
+   "WTA",
+   "China Open",
+   "Wang Xiy.",
+   "Noskova L.",
+   3.0,
+   0.35,
+   0
+  ],
+  [
+   "2025-09-27",
+   "WTA",
+   "China Open",
+   "Arango E.",
+   "Zheng Q.",
+   4.0,
+   0.2958,
+   0
+  ],
+  [
+   "2025-09-29",
+   "ATP",
+   "China Open",
+   "Zverev A.",
+   "Medvedev D.",
+   2.0,
+   0.576,
+   0
+  ],
+  [
+   "2025-10-01",
+   "ATP",
+   "Shanghai Masters",
+   "Nishioka Y.",
+   "Shevchenko A.",
+   1.67,
+   0.6429,
+   1
+  ],
+  [
+   "2025-10-01",
+   "ATP",
+   "Shanghai Masters",
+   "Zhang Zh.",
+   "Baez S.",
+   1.8,
+   0.6284,
+   0
+  ],
+  [
+   "2025-10-02",
+   "ATP",
+   "Shanghai Masters",
+   "Shang J.",
+   "Kovacevic A.",
+   1.44,
+   0.7336,
+   1
+  ],
+  [
+   "2025-10-02",
+   "WTA",
+   "China Open",
+   "Anisimova A.",
+   "Paolini J.",
+   1.57,
+   0.6692,
+   1
+  ],
+  [
+   "2025-10-03",
+   "ATP",
+   "Shanghai Masters",
+   "Goffin D.",
+   "Shelton B.",
+   3.75,
+   0.282,
+   1
+  ],
+  [
+   "2025-10-03",
+   "ATP",
+   "Shanghai Masters",
+   "Hanfmann Y.",
+   "Tiafoe F.",
+   2.5,
+   0.4455,
+   1
+  ],
+  [
+   "2025-10-04",
+   "ATP",
+   "Shanghai Masters",
+   "Halys Q.",
+   "Lehecka J.",
+   4.5,
+   0.2487,
+   0
+  ],
+  [
+   "2025-10-04",
+   "ATP",
+   "Shanghai Masters",
+   "Tabilo A.",
+   "Auger-Aliassime F.",
+   2.5,
+   0.4215,
+   0
+  ],
+  [
+   "2025-10-04",
+   "ATP",
+   "Shanghai Masters",
+   "Nishioka Y.",
+   "Rublev A.",
+   3.75,
+   0.3184,
+   1
+  ],
+  [
+   "2025-10-04",
+   "ATP",
+   "Shanghai Masters",
+   "Shang J.",
+   "Khachanov K.",
+   2.38,
+   0.4885,
+   1
+  ],
+  [
+   "2025-10-05",
+   "ATP",
+   "Shanghai Masters",
+   "Nishioka Y.",
+   "Munar J.",
+   2.63,
+   0.4171,
+   0
+  ],
+  [
+   "2025-10-06",
+   "ATP",
+   "Shanghai Masters",
+   "Shang J.",
+   "Borges N.",
+   1.67,
+   0.6445,
+   0
+  ],
+  [
+   "2025-10-07",
+   "ATP",
+   "Shanghai Masters",
+   "Vacherot V.",
+   "Griekspoor T.",
+   2.3,
+   0.4758,
+   1
+  ],
+  [
+   "2025-10-09",
+   "WTA",
+   "Wuhan Open",
+   "Noskova L.",
+   "Rybakina E.",
+   3.0,
+   0.3556,
+   0
+  ],
+  [
+   "2025-10-09",
+   "ATP",
+   "Shanghai Masters",
+   "Vacherot V.",
+   "Rune H.",
+   4.0,
+   0.2773,
+   1
+  ],
+  [
+   "2025-10-10",
+   "WTA",
+   "Wuhan Open",
+   "Sabalenka A.",
+   "Rybakina E.",
+   1.73,
+   0.6231,
+   1
+  ],
+  [
+   "2025-10-11",
+   "WTA",
+   "Wuhan Open",
+   "Gauff C.",
+   "Paolini J.",
+   1.73,
+   0.6093,
+   1
+  ],
+  [
+   "2025-10-12",
+   "ATP",
+   "Shanghai Masters",
+   "Vacherot V.",
+   "Rinderknech A.",
+   2.3,
+   0.4851,
+   1
+  ],
+  [
+   "2025-10-14",
+   "ATP",
+   "European Open",
+   "Ruusuvuori E.",
+   "Mpetshi G.",
+   2.75,
+   0.4567,
+   0
+  ],
+  [
+   "2025-10-14",
+   "ATP",
+   "Nordic Open",
+   "Ymer M.",
+   "Ymer E.",
+   1.67,
+   0.6691,
+   0
+  ],
+  [
+   "2025-10-14",
+   "WTA",
+   "Japan Open",
+   "Cristian J.",
+   "Cocciaretto E.",
+   1.8,
+   0.5994,
+   1
+  ],
+  [
+   "2025-10-15",
+   "ATP",
+   "Almaty Open",
+   "McDonald M.",
+   "Struff J.L.",
+   2.3,
+   0.4792,
+   0
+  ],
+  [
+   "2025-10-15",
+   "ATP",
+   "European Open",
+   "Giron M.",
+   "Davidovich Fokina A.",
+   2.5,
+   0.4221,
+   0
+  ],
+  [
+   "2025-10-16",
+   "ATP",
+   "Nordic Open",
+   "Ymer E.",
+   "Fearnley J.",
+   4.5,
+   0.2349,
+   1
+  ],
+  [
+   "2025-10-17",
+   "ATP",
+   "Nordic Open",
+   "Ymer E.",
+   "Shapovalov D.",
+   3.5,
+   0.3172,
+   0
+  ],
+  [
+   "2025-10-20",
+   "WTA",
+   "Guangzhou Open",
+   "Wang Xiy.",
+   "Jones F.",
+   1.53,
+   0.6948,
+   1
+  ],
+  [
+   "2025-10-20",
+   "WTA",
+   "Guangzhou Open",
+   "Wang Y.",
+   "Rakhimova K.",
+   1.73,
+   0.6176,
+   1
+  ],
+  [
+   "2025-10-21",
+   "WTA",
+   "Guangzhou Open",
+   "Bouzas Maneiro J.",
+   "Sun L.",
+   1.8,
+   0.6013,
+   0
+  ],
+  [
+   "2025-10-22",
+   "ATP",
+   "Vienna Open",
+   "Berrettini M.",
+   "Popyrin A.",
+   1.67,
+   0.6329,
+   1
+  ],
+  [
+   "2025-10-23",
+   "WTA",
+   "Guangzhou Open",
+   "Wang Y.",
+   "Sun L.",
+   2.63,
+   0.4153,
+   0
+  ],
+  [
+   "2025-10-23",
+   "WTA",
+   "Guangzhou Open",
+   "Liu C.",
+   "Bondar A.",
+   2.1,
+   0.5262,
+   1
+  ],
+  [
+   "2025-10-24",
+   "WTA",
+   "Guangzhou Open",
+   "Liu C.",
+   "Seidel E.",
+   3.0,
+   0.368,
+   1
+  ],
+  [
+   "2025-10-25",
+   "WTA",
+   "Guangzhou Open",
+   "Liu C.",
+   "Sun L.",
+   3.2,
+   0.3398,
+   0
+  ],
+  [
+   "2025-10-27",
+   "ATP",
+   "BNP Paribas Masters",
+   "Dzumhur D.",
+   "Cerundolo F.",
+   3.2,
+   0.3285,
+   0
+  ],
+  [
+   "2025-10-27",
+   "ATP",
+   "BNP Paribas Masters",
+   "Fearnley J.",
+   "Rublev A.",
+   2.38,
+   0.4451,
+   0
+  ],
+  [
+   "2025-10-29",
+   "WTA",
+   "Chennai Open",
+   "Hunter S.",
+   "Hontama M.",
+   2.0,
+   0.5773,
+   1
+  ],
+  [
+   "2025-10-30",
+   "WTA",
+   "Chennai Open",
+   "Hunter S.",
+   "Rodionova Ar.",
+   1.62,
+   0.6722,
+   0
+  ],
+  [
+   "2025-10-31",
+   "ATP",
+   "BNP Paribas Masters",
+   "Shelton B.",
+   "Sinner J.",
+   5.0,
+   0.2162,
+   0
+  ],
+  [
+   "2025-10-31",
+   "ATP",
+   "BNP Paribas Masters",
+   "Zverev A.",
+   "Medvedev D.",
+   2.1,
+   0.567,
+   1
+  ],
+  [
+   "2025-11-02",
+   "ATP",
+   "Open de Moselle",
+   "Cazaux A.",
+   "Mannarino A.",
+   1.5,
+   0.7001,
+   1
+  ],
+  [
+   "2025-11-02",
+   "ATP",
+   "Open de Moselle",
+   "Atmane T.",
+   "Gaston H.",
+   2.38,
+   0.4422,
+   0
+  ],
+  [
+   "2026-01-05",
+   "WTA",
+   "ASB Classic",
+   "Stephens S.",
+   "Zarazua R.",
+   4.0,
+   0.5058,
+   0
+  ],
+  [
+   "2026-01-05",
+   "WTA",
+   "Brisbane International",
+   "Gadecki O.",
+   "Li A.",
+   2.38,
+   0.4632,
+   1
+  ],
+  [
+   "2026-01-06",
+   "ATP",
+   "Brisbane International",
+   "Nakashima B.",
+   "Davidovich Fokina A.",
+   2.5,
+   0.4221,
+   1
+  ],
+  [
+   "2026-01-06",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Mmoh M.",
+   "Tabilo A.",
+   2.3,
+   0.4798,
+   1
+  ],
+  [
+   "2026-01-06",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Shang J.",
+   "Comesana F.",
+   1.5,
+   0.7296,
+   1
+  ],
+  [
+   "2026-01-06",
+   "WTA",
+   "ASB Classic",
+   "Williams V.",
+   "Linette M.",
+   4.33,
+   0.32,
+   0
+  ],
+  [
+   "2026-01-06",
+   "WTA",
+   "Brisbane International",
+   "Bouzkova M.",
+   "Badosa P.",
+   2.0,
+   0.5265,
+   0
+  ],
+  [
+   "2026-01-07",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Etcheverry T.",
+   "Musetti L.",
+   3.5,
+   0.3047,
+   0
+  ],
+  [
+   "2026-01-07",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Wu Y.",
+   "Rublev A.",
+   2.75,
+   0.4452,
+   0
+  ],
+  [
+   "2026-01-07",
+   "WTA",
+   "Brisbane International",
+   "Yastremska D.",
+   "Fernandez L.A.",
+   2.63,
+   0.4084,
+   1
+  ],
+  [
+   "2026-01-07",
+   "WTA",
+   "Brisbane International",
+   "Kalinskaya A.",
+   "Pegula J.",
+   2.5,
+   0.4516,
+   0
+  ],
+  [
+   "2026-01-07",
+   "WTA",
+   "Brisbane International",
+   "Gadecki O.",
+   "Andreeva M.",
+   5.0,
+   0.2476,
+   0
+  ],
+  [
+   "2026-01-08",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Shang J.",
+   "Sonego L.",
+   1.62,
+   0.7058,
+   1
+  ],
+  [
+   "2026-01-08",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Mmoh M.",
+   "Khachanov K.",
+   3.4,
+   0.3499,
+   1
+  ],
+  [
+   "2026-01-08",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Van De Zandschulp B.",
+   "Bublik A.",
+   2.75,
+   0.3935,
+   0
+  ],
+  [
+   "2026-01-08",
+   "WTA",
+   "Brisbane International",
+   "Badosa P.",
+   "Rybakina E.",
+   5.0,
+   0.2253,
+   0
+  ],
+  [
+   "2026-01-08",
+   "WTA",
+   "Brisbane International",
+   "Yastremska D.",
+   "Pegula J.",
+   3.2,
+   0.3335,
+   0
+  ],
+  [
+   "2026-01-09",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Wong C.",
+   "Musetti L.",
+   4.0,
+   0.2642,
+   0
+  ],
+  [
+   "2026-01-09",
+   "ATP",
+   "Hong Kong Tennis Open",
+   "Shang J.",
+   "Bublik A.",
+   2.5,
+   0.4788,
+   0
+  ],
+  [
+   "2026-01-09",
+   "WTA",
+   "Brisbane International",
+   "Muchova K.",
+   "Rybakina E.",
+   4.33,
+   0.249,
+   1
+  ],
+  [
+   "2026-01-10",
+   "WTA",
+   "Brisbane International",
+   "Kostyuk M.",
+   "Pegula J.",
+   2.2,
+   0.4821,
+   1
+  ],
+  [
+   "2026-01-12",
+   "ATP",
+   "Adelaide International",
+   "Kokkinakis T.",
+   "Korda S.",
+   3.5,
+   0.3548,
+   1
+  ],
+  [
+   "2026-01-13",
+   "ATP",
+   "Adelaide International",
+   "Dzumhur D.",
+   "Shevchenko A.",
+   2.1,
+   0.527,
+   0
+  ],
+  [
+   "2026-01-13",
+   "ATP",
+   "Adelaide International",
+   "Vukic A.",
+   "Tsitsipas S.",
+   3.75,
+   0.2881,
+   1
+  ],
+  [
+   "2026-01-13",
+   "ATP",
+   "ASB Classic",
+   "Kovacevic A.",
+   "Medjedovic H.",
+   2.75,
+   0.4243,
+   0
+  ],
+  [
+   "2026-01-13",
+   "WTA",
+   "Adelaide International",
+   "Kenin S.",
+   "Joint M.",
+   2.0,
+   0.5612,
+   0
+  ],
+  [
+   "2026-01-13",
+   "WTA",
+   "Adelaide International",
+   "Yastremska D.",
+   "Siniakova K.",
+   1.67,
+   0.6588,
+   0
+  ],
+  [
+   "2026-01-13",
+   "WTA",
+   "Hobart International",
+   "Stearns P.",
+   "Krejcikova B.",
+   3.2,
+   0.3378,
+   1
+  ],
+  [
+   "2026-01-13",
+   "WTA",
+   "Hobart International",
+   "Williams V.",
+   "Maria T.",
+   2.5,
+   0.5286,
+   0
+  ],
+  [
+   "2026-01-13",
+   "ATP",
+   "ASB Classic",
+   "Comesana F.",
+   "Shelton B.",
+   4.0,
+   0.2626,
+   0
+  ],
+  [
+   "2026-01-14",
+   "ATP",
+   "Adelaide International",
+   "Munar J.",
+   "Cerundolo F.",
+   1.67,
+   0.6349,
+   1
+  ],
+  [
+   "2026-01-14",
+   "ATP",
+   "Adelaide International",
+   "Vavassori A.",
+   "Vukic A.",
+   2.3,
+   0.4922,
+   0
+  ],
+  [
+   "2026-01-14",
+   "ATP",
+   "ASB Classic",
+   "Marozsan F.",
+   "Ruud C.",
+   3.0,
+   0.35,
+   1
+  ],
+  [
+   "2026-01-14",
+   "ATP",
+   "ASB Classic",
+   "Medjedovic H.",
+   "Mensik J.",
+   2.2,
+   0.4916,
+   0
+  ],
+  [
+   "2026-01-18",
+   "ATP",
+   "Australian Open",
+   "Schoolkate T.",
+   "Moutet C.",
+   3.4,
+   0.3341,
+   0
+  ],
+  [
+   "2026-01-18",
+   "ATP",
+   "Australian Open",
+   "Zhang Zh.",
+   "Cerundolo F.",
+   3.0,
+   0.3746,
+   0
+  ],
+  [
+   "2026-01-18",
+   "ATP",
+   "Australian Open",
+   "Kubler J.",
+   "Tiafoe F.",
+   3.75,
+   0.2908,
+   0
+  ],
+  [
+   "2026-01-18",
+   "WTA",
+   "Australian Open",
+   "Gibson T.",
+   "Blinkova A.",
+   1.8,
+   0.6013,
+   1
+  ],
+  [
+   "2026-01-18",
+   "WTA",
+   "Australian Open",
+   "Baptiste H.",
+   "Townsend T.",
+   2.38,
+   0.4607,
+   1
+  ],
+  [
+   "2026-01-18",
+   "WTA",
+   "Australian Open",
+   "Bai Z.",
+   "Pavlyuchenkova A.",
+   2.3,
+   0.5504,
+   1
+  ],
+  [
+   "2026-01-18",
+   "WTA",
+   "Australian Open",
+   "Williams V.",
+   "Danilovic O.",
+   5.5,
+   0.2527,
+   0
+  ],
+  [
+   "2026-01-19",
+   "ATP",
+   "Australian Open",
+   "Marozsan F.",
+   "Rinderknech A.",
+   1.8,
+   0.6168,
+   1
+  ],
+  [
+   "2026-01-20",
+   "ATP",
+   "Australian Open",
+   "Darderi L.",
+   "Garin C.",
+   1.5,
+   0.704,
+   1
+  ],
+  [
+   "2026-01-20",
+   "ATP",
+   "Australian Open",
+   "Basavareddy N.",
+   "O Connell C.",
+   1.62,
+   0.6684,
+   1
+  ],
+  [
+   "2026-01-20",
+   "ATP",
+   "Australian Open",
+   "Spizzirri E.",
+   "Fonseca J.",
+   2.63,
+   0.4164,
+   1
+  ],
+  [
+   "2026-01-20",
+   "WTA",
+   "Australian Open",
+   "Preston T.",
+   "Zhang S.",
+   2.5,
+   0.4565,
+   1
+  ],
+  [
+   "2026-01-20",
+   "WTA",
+   "Australian Open",
+   "Ruzic A.",
+   "Osaka N.",
+   4.33,
+   0.2549,
+   0
+  ],
+  [
+   "2026-01-21",
+   "WTA",
+   "Australian Open",
+   "Hunter S.",
+   "Baptiste H.",
+   2.3,
+   0.4816,
+   0
+  ],
+  [
+   "2026-01-22",
+   "ATP",
+   "Australian Open",
+   "Basavareddy N.",
+   "Khachanov K.",
+   3.75,
+   0.3059,
+   0
+  ],
+  [
+   "2026-01-22",
+   "ATP",
+   "Australian Open",
+   "Shang J.",
+   "Van De Zandschulp B.",
+   1.62,
+   0.6531,
+   0
+  ],
+  [
+   "2026-01-22",
+   "WTA",
+   "Australian Open",
+   "Pliskova Ka.",
+   "Tjen J.",
+   3.5,
+   0.5061,
+   1
+  ],
+  [
+   "2026-01-23",
+   "WTA",
+   "Australian Open",
+   "Jovic I.",
+   "Paolini J.",
+   2.2,
+   0.4829,
+   1
+  ],
+  [
+   "2026-01-23",
+   "WTA",
+   "Australian Open",
+   "Pliskova Ka.",
+   "Keys M.",
+   5.5,
+   0.3526,
+   0
+  ],
+  [
+   "2026-01-24",
+   "ATP",
+   "Australian Open",
+   "Quinn E.",
+   "Mensik J.",
+   2.75,
+   0.3942,
+   0
+  ],
+  [
+   "2026-01-25",
+   "ATP",
+   "Australian Open",
+   "Zverev A.",
+   "Cerundolo F.",
+   1.36,
+   0.7812,
+   1
+  ],
+  [
+   "2026-01-28",
+   "WTA",
+   "Australian Open",
+   "Swiatek I.",
+   "Rybakina E.",
+   2.2,
+   0.4801,
+   0
+  ],
+  [
+   "2026-01-31",
+   "WTA",
+   "Australian Open",
+   "Sabalenka A.",
+   "Rybakina E.",
+   1.62,
+   0.6807,
+   0
+  ],
+  [
+   "2026-02-01",
+   "WTA",
+   "Transylvania Open",
+   "Sorribes Tormo S.",
+   "Tomova V.",
+   2.63,
+   0.4356,
+   1
+  ],
+  [
+   "2026-02-01",
+   "WTA",
+   "Ostrava Open",
+   "Martincova T.",
+   "Galfi D.",
+   3.0,
+   0.3536,
+   1
+  ],
+  [
+   "2026-02-02",
+   "WTA",
+   "Transylvania Open",
+   "Pliskova Ka.",
+   "Zakharova A.",
+   1.5,
+   0.7109,
+   0
+  ],
+  [
+   "2026-02-02",
+   "WTA",
+   "Ostrava Open",
+   "Dodin O.",
+   "Parry D.",
+   2.0,
+   0.646,
+   0
+  ],
+  [
+   "2026-02-02",
+   "WTA",
+   "Ostrava Open",
+   "Fruhvirtova B.",
+   "Ferro F.",
+   5.0,
+   0.4085,
+   0
+  ],
+  [
+   "2026-02-03",
+   "ATP",
+   "Open Sud de France",
+   "Royer V.",
+   "Fils A.",
+   2.2,
+   0.5169,
+   0
+  ],
+  [
+   "2026-02-03",
+   "ATP",
+   "Open Sud de France",
+   "Vavassori A.",
+   "Blanchet U.",
+   1.62,
+   0.6579,
+   0
+  ],
+  [
+   "2026-02-03",
+   "WTA",
+   "Transylvania Open",
+   "Sorribes Tormo S.",
+   "Yuan Y.",
+   3.5,
+   0.3161,
+   0
+  ],
+  [
+   "2026-02-03",
+   "WTA",
+   "Ostrava Open",
+   "Martincova T.",
+   "McNally C.",
+   4.5,
+   0.241,
+   0
+  ],
+  [
+   "2026-02-04",
+   "WTA",
+   "Ostrava Open",
+   "Ferro F.",
+   "Bartunkova N.",
+   3.2,
+   0.3321,
+   0
+  ],
+  [
+   "2026-02-05",
+   "ATP",
+   "Open Sud de France",
+   "Blanchet U.",
+   "Fils A.",
+   4.0,
+   0.2719,
+   0
+  ],
+  [
+   "2026-02-08",
+   "WTA",
+   "Qatar Open",
+   "Zvonareva V.",
+   "Stearns P.",
+   2.5,
+   0.4676,
+   1
+  ],
+  [
+   "2026-02-08",
+   "WTA",
+   "Qatar Open",
+   "Pliskova Ka.",
+   "Sierra S.",
+   1.8,
+   0.5891,
+   1
+  ],
+  [
+   "2026-02-09",
+   "WTA",
+   "Qatar Open",
+   "Tauson C.",
+   "Siniakova K.",
+   1.73,
+   0.6069,
+   0
+  ],
+  [
+   "2026-02-09",
+   "WTA",
+   "Qatar Open",
+   "Kenin S.",
+   "Zheng Q.",
+   2.75,
+   0.3928,
+   0
+  ],
+  [
+   "2026-02-12",
+   "ATP",
+   "Argentina Open",
+   "Dellien H.",
+   "Cerundolo F.",
+   6.0,
+   0.1818,
+   0
+  ],
+  [
+   "2026-02-13",
+   "ATP",
+   "Argentina Open",
+   "Ugo Carabelli C.",
+   "Baez S.",
+   2.63,
+   0.4061,
+   0
+  ],
+  [
+   "2026-02-16",
+   "ATP",
+   "Qatar Exxon Mobil Open",
+   "Choinski J.",
+   "Mensik J.",
+   5.5,
+   0.1957,
+   0
+  ],
+  [
+   "2026-02-16",
+   "ATP",
+   "Qatar Exxon Mobil Open",
+   "Shang J.",
+   "Medvedev D.",
+   4.0,
+   0.2655,
+   0
+  ],
+  [
+   "2026-02-17",
+   "ATP",
+   "Qatar Exxon Mobil Open",
+   "Zhang Zh.",
+   "Carballes Baena R.",
+   1.73,
+   0.6287,
+   1
+  ],
+  [
+   "2026-02-18",
+   "ATP",
+   "Qatar Exxon Mobil Open",
+   "Zhang Zh.",
+   "Mensik J.",
+   3.2,
+   0.3931,
+   0
+  ],
+  [
+   "2026-02-20",
+   "ATP",
+   "Qatar Exxon Mobil Open",
+   "Fils A.",
+   "Mensik J.",
+   2.3,
+   0.4581,
+   1
+  ],
+  [
+   "2026-02-21",
+   "WTA",
+   "Dubai Duty Free Tennis Championships",
+   "Svitolina E.",
+   "Pegula J.",
+   2.38,
+   0.4596,
+   0
+  ],
+  [
+   "2026-02-23",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Zhang Zh.",
+   "Auger-Aliassime F.",
+   5.0,
+   0.2266,
+   0
+  ],
+  [
+   "2026-02-23",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Halys Q.",
+   "Draper J.",
+   3.5,
+   0.3261,
+   0
+  ],
+  [
+   "2026-02-24",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Shang J.",
+   "Medvedev D.",
+   5.0,
+   0.2192,
+   0
+  ],
+  [
+   "2026-02-24",
+   "WTA",
+   "ATX Open",
+   "Williams V.",
+   "Tomljanovic A.",
+   3.4,
+   0.4061,
+   0
+  ],
+  [
+   "2026-02-25",
+   "ATP",
+   "Abierto Mexicano",
+   "Atmane T.",
+   "Dimitrov G.",
+   3.0,
+   0.3612,
+   1
+  ],
+  [
+   "2026-02-25",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Popyrin A.",
+   "Mensik J.",
+   3.4,
+   0.323,
+   0
+  ],
+  [
+   "2026-02-26",
+   "ATP",
+   "Abierto Mexicano",
+   "Kovacevic A.",
+   "Tiafoe F.",
+   3.2,
+   0.339,
+   0
+  ],
+  [
+   "2026-02-27",
+   "WTA",
+   "Merida Open",
+   "Navarro E.",
+   "Zhang S.",
+   1.5,
+   0.7079,
+   0
+  ],
+  [
+   "2026-02-27",
+   "ATP",
+   "Dubai Tennis Championships",
+   "Griekspoor T.",
+   "Rublev A.",
+   3.4,
+   0.3249,
+   1
+  ],
+  [
+   "2026-03-04",
+   "WTA",
+   "BNP Paribas Open",
+   "Sonmez Z.",
+   "Kessler M.",
+   2.2,
+   0.4799,
+   1
+  ],
+  [
+   "2026-03-05",
+   "ATP",
+   "BNP Paribas Open",
+   "Royer V.",
+   "Bonzi B.",
+   1.91,
+   0.6023,
+   0
+  ],
+  [
+   "2026-03-05",
+   "WTA",
+   "BNP Paribas Open",
+   "Stephens S.",
+   "Osorio M.",
+   3.75,
+   0.3688,
+   0
+  ],
+  [
+   "2026-03-05",
+   "WTA",
+   "BNP Paribas Open",
+   "Williams V.",
+   "Parry D.",
+   4.0,
+   0.3686,
+   0
+  ],
+  [
+   "2026-03-06",
+   "WTA",
+   "BNP Paribas Open",
+   "Brady J.",
+   "Ruzic A.",
+   2.75,
+   0.4936,
+   0
+  ],
+  [
+   "2026-03-06",
+   "ATP",
+   "BNP Paribas Open",
+   "Opelka R.",
+   "Shelton B.",
+   3.75,
+   0.2974,
+   0
+  ],
+  [
+   "2026-03-07",
+   "ATP",
+   "BNP Paribas Open",
+   "Svajda Z.",
+   "Davidovich Fokina A.",
+   2.38,
+   0.4509,
+   0
+  ],
+  [
+   "2026-03-08",
+   "ATP",
+   "BNP Paribas Open",
+   "McDonald M.",
+   "Norrie C.",
+   2.5,
+   0.4374,
+   0
+  ],
+  [
+   "2026-03-08",
+   "ATP",
+   "BNP Paribas Open",
+   "Tabilo A.",
+   "Medvedev D.",
+   4.0,
+   0.2661,
+   0
+  ],
+  [
+   "2026-03-08",
+   "WTA",
+   "BNP Paribas Open",
+   "Townsend T.",
+   "Kostyuk M.",
+   2.38,
+   0.4414,
+   0
+  ],
+  [
+   "2026-03-08",
+   "ATP",
+   "BNP Paribas Open",
+   "Mensik J.",
+   "Davidovich Fokina A.",
+   1.67,
+   0.638,
+   0
+  ],
+  [
+   "2026-03-09",
+   "WTA",
+   "BNP Paribas Open",
+   "Ostapenko J.",
+   "Pegula J.",
+   4.5,
+   0.2343,
+   0
+  ],
+  [
+   "2026-03-11",
+   "ATP",
+   "BNP Paribas Open",
+   "Michelsen A.",
+   "Medvedev D.",
+   4.0,
+   0.2639,
+   0
+  ],
+  [
+   "2026-03-14",
+   "ATP",
+   "BNP Paribas Open",
+   "Zverev A.",
+   "Sinner J.",
+   5.0,
+   0.2207,
+   0
+  ],
+  [
+   "2026-03-15",
+   "WTA",
+   "BNP Paribas Open",
+   "Sabalenka A.",
+   "Rybakina E.",
+   1.62,
+   0.6546,
+   1
+  ],
+  [
+   "2026-03-19",
+   "ATP",
+   "Miami Open",
+   "Zhang Zh.",
+   "Mannarino A.",
+   1.91,
+   0.573,
+   0
+  ],
+  [
+   "2026-03-19",
+   "ATP",
+   "Miami Open",
+   "Nava E.",
+   "Machac T.",
+   2.75,
+   0.3883,
+   0
+  ],
+  [
+   "2026-03-19",
+   "WTA",
+   "Miami Open",
+   "Williams V.",
+   "Jones F.",
+   2.63,
+   0.4861,
+   0
+  ],
+  [
+   "2026-03-20",
+   "ATP",
+   "Miami Open",
+   "Bautista Agut R.",
+   "Khachanov K.",
+   3.5,
+   0.3054,
+   0
+  ],
+  [
+   "2026-03-21",
+   "ATP",
+   "Miami Open",
+   "Landaluce M.",
+   "Darderi L.",
+   2.1,
+   0.5159,
+   1
+  ],
+  [
+   "2026-03-21",
+   "ATP",
+   "Miami Open",
+   "Tabilo A.",
+   "Rublev A.",
+   3.0,
+   0.3511,
+   1
+  ],
+  [
+   "2026-03-21",
+   "WTA",
+   "Miami Open",
+   "Stephens S.",
+   "Zheng Q.",
+   6.0,
+   0.2526,
+   0
+  ],
+  [
+   "2026-03-21",
+   "WTA",
+   "Miami Open",
+   "Eala A.",
+   "Linette M.",
+   1.67,
+   0.631,
+   1
+  ],
+  [
+   "2026-03-22",
+   "ATP",
+   "Miami Open",
+   "Jodar R.",
+   "Etcheverry T.",
+   1.73,
+   0.6129,
+   0
+  ],
+  [
+   "2026-03-22",
+   "WTA",
+   "Miami Open",
+   "Fernandez L.A.",
+   "Pegula J.",
+   5.5,
+   0.1967,
+   0
+  ],
+  [
+   "2026-03-23",
+   "ATP",
+   "Miami Open",
+   "Tsitsipas S.",
+   "Fils A.",
+   2.5,
+   0.44,
+   0
+  ],
+  [
+   "2026-03-24",
+   "ATP",
+   "Miami Open",
+   "Landaluce M.",
+   "Korda S.",
+   4.0,
+   0.2643,
+   1
+  ],
+  [
+   "2026-03-24",
+   "WTA",
+   "Miami Open",
+   "Mboko V.",
+   "Muchova K.",
+   1.91,
+   0.5584,
+   0
+  ],
+  [
+   "2026-03-24",
+   "WTA",
+   "Miami Open",
+   "Bencic B.",
+   "Gauff C.",
+   1.91,
+   0.5539,
+   0
+  ],
+  [
+   "2026-03-26",
+   "WTA",
+   "Miami Open",
+   "Muchova K.",
+   "Gauff C.",
+   2.0,
+   0.5349,
+   0
+  ],
+  [
+   "2026-03-27",
+   "ATP",
+   "Miami Open",
+   "Zverev A.",
+   "Sinner J.",
+   6.0,
+   0.2136,
+   0
+  ],
+  [
+   "2026-03-30",
+   "WTA",
+   "Charleston Open",
+   "Stephens S.",
+   "Zarazua R.",
+   2.1,
+   0.6173,
+   0
+  ],
+  [
+   "2026-03-30",
+   "WTA",
+   "Charleston Open",
+   "Brady J.",
+   "Tomova V.",
+   2.0,
+   0.6619,
+   0
+  ],
+  [
+   "2026-03-31",
+   "ATP",
+   "Tiriac Open",
+   "Altmaier D.",
+   "Martinez P.",
+   1.91,
+   0.5584,
+   1
+  ],
+  [
+   "2026-04-01",
+   "ATP",
+   "Grand Prix Hassan II",
+   "Bellucci M.",
+   "Darderi L.",
+   4.5,
+   0.2343,
+   0
+  ],
+  [
+   "2026-04-02",
+   "ATP",
+   "U.S.Men's Clay Court Championships",
+   "Zhang Zh.",
+   "Shelton B.",
+   3.5,
+   0.3306,
+   0
+  ],
+  [
+   "2026-04-02",
+   "ATP",
+   "Grand Prix Hassan II",
+   "Van Assche L.",
+   "Griekspoor T.",
+   2.38,
+   0.4521,
+   1
+  ],
+  [
+   "2026-04-04",
+   "WTA",
+   "Charleston Open",
+   "Jovic I.",
+   "Pegula J.",
+   3.0,
+   0.3553,
+   0
+  ],
+  [
+   "2026-04-05",
+   "ATP",
+   "Monte Carlo Masters",
+   "Monfils G.",
+   "Griekspoor T.",
+   2.38,
+   0.4522,
+   1
+  ],
+  [
+   "2026-04-06",
+   "ATP",
+   "Monte Carlo Masters",
+   "Borges N.",
+   "Rublev A.",
+   4.33,
+   0.2519,
+   0
+  ],
+  [
+   "2026-04-06",
+   "WTA",
+   "Ladies Linz Open",
+   "Stephens S.",
+   "Maria T.",
+   1.57,
+   0.7121,
+   1
+  ],
+  [
+   "2026-04-07",
+   "WTA",
+   "Ladies Linz Open",
+   "Cristian J.",
+   "Korpatsch T.",
+   1.44,
+   0.7303,
+   0
+  ],
+  [
+   "2026-04-07",
+   "ATP",
+   "Monte Carlo Masters",
+   "Monfils G.",
+   "Bublik A.",
+   2.75,
+   0.3881,
+   0
+  ],
+  [
+   "2026-04-08",
+   "WTA",
+   "Ladies Linz Open",
+   "Udvardy P.",
+   "Kalinina A.",
+   4.0,
+   0.2795,
+   0
+  ],
+  [
+   "2026-04-08",
+   "WTA",
+   "Ladies Linz Open",
+   "Zhang S.",
+   "Potapova A.",
+   3.0,
+   0.3521,
+   0
+  ],
+  [
+   "2026-04-08",
+   "ATP",
+   "Monte Carlo Masters",
+   "Cilic M.",
+   "Auger-Aliassime F.",
+   2.75,
+   0.3922,
+   0
+  ],
+  [
+   "2026-04-08",
+   "ATP",
+   "Monte Carlo Masters",
+   "Blockx A.",
+   "Cobolli F.",
+   2.5,
+   0.4219,
+   1
+  ],
+  [
+   "2026-04-09",
+   "ATP",
+   "Monte Carlo Masters",
+   "Lehecka J.",
+   "Bublik A.",
+   1.67,
+   0.6414,
+   0
+  ],
+  [
+   "2026-04-10",
+   "WTA",
+   "Ladies Linz Open",
+   "Pliskova Ka.",
+   "Vekic D.",
+   1.91,
+   0.5582,
+   0
+  ],
+  [
+   "2026-04-11",
+   "ATP",
+   "Monte Carlo Masters",
+   "Zverev A.",
+   "Sinner J.",
+   5.0,
+   0.2724,
+   0
+  ],
+  [
+   "2026-04-13",
+   "ATP",
+   "Barcelona Open",
+   "Jodar R.",
+   "Munar J.",
+   1.4,
+   0.7609,
+   1
+  ],
+  [
+   "2026-04-13",
+   "ATP",
+   "BMW Open",
+   "Blockx A.",
+   "Hanfmann Y.",
+   1.91,
+   0.5624,
+   1
+  ],
+  [
+   "2026-04-13",
+   "WTA",
+   "Open de Rouen",
+   "Li A.",
+   "Kasatkina D.",
+   1.73,
+   0.6236,
+   1
+  ],
+  [
+   "2026-04-14",
+   "ATP",
+   "BMW Open",
+   "Zhang Zh.",
+   "Darderi L.",
+   3.4,
+   0.3173,
+   0
+  ],
+  [
+   "2026-04-15",
+   "ATP",
+   "BMW Open",
+   "Bergs Z.",
+   "Cobolli F.",
+   2.38,
+   0.4428,
+   0
+  ],
+  [
+   "2026-04-16",
+   "ATP",
+   "Barcelona Open",
+   "Moutet C.",
+   "Musetti L.",
+   4.0,
+   0.2674,
+   0
+  ],
+  [
+   "2026-04-17",
+   "WTA",
+   "Porsche Tennis Grand Prix",
+   "Muchova K.",
+   "Gauff C.",
+   3.4,
+   0.3142,
+   1
+  ],
+  [
+   "2026-04-21",
+   "WTA",
+   "Mutua Madrid Open",
+   "Montgomery R.",
+   "Linette M.",
+   2.38,
+   0.4695,
+   0
+  ],
+  [
+   "2026-04-24",
+   "ATP",
+   "Mutua Madrid Open",
+   "Machac T.",
+   "Norrie C.",
+   1.67,
+   0.6438,
+   0
+  ],
+  [
+   "2026-04-24",
+   "ATP",
+   "Mutua Madrid Open",
+   "Tirante T.A.",
+   "Paul T.",
+   2.75,
+   0.3888,
+   1
+  ],
+  [
+   "2026-04-25",
+   "ATP",
+   "Mutua Madrid Open",
+   "Carreno Busta P.",
+   "Davidovich Fokina A.",
+   2.75,
+   0.386,
+   0
+  ],
+  [
+   "2026-04-25",
+   "ATP",
+   "Mutua Madrid Open",
+   "Damm M.",
+   "Mensik J.",
+   3.5,
+   0.3217,
+   0
+  ],
+  [
+   "2026-04-25",
+   "ATP",
+   "Mutua Madrid Open",
+   "Munar J.",
+   "Ruud C.",
+   3.5,
+   0.3191,
+   0
+  ],
+  [
+   "2026-04-25",
+   "ATP",
+   "Mutua Madrid Open",
+   "Marozsan F.",
+   "Medvedev D.",
+   2.3,
+   0.5281,
+   0
+  ],
+  [
+   "2026-04-25",
+   "WTA",
+   "Mutua Madrid Open",
+   "Shnaider D.",
+   "Bencic B.",
+   2.38,
+   0.446,
+   0
+  ],
+  [
+   "2026-04-28",
+   "ATP",
+   "Mutua Madrid Open",
+   "Cobolli F.",
+   "Medvedev D.",
+   1.91,
+   0.5731,
+   1
+  ],
+  [
+   "2026-05-03",
+   "ATP",
+   "Mutua Madrid Open",
+   "Zverev A.",
+   "Sinner J.",
+   5.5,
+   0.2255,
+   0
+  ],
+  [
+   "2026-05-05",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Jacquemot E.",
+   "Krejcikova B.",
+   2.5,
+   0.4369,
+   0
+  ],
+  [
+   "2026-05-05",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Trevisan M.",
+   "Gibson T.",
+   2.75,
+   0.3868,
+   0
+  ],
+  [
+   "2026-05-08",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Struff J.L.",
+   "Lehecka J.",
+   4.0,
+   0.2784,
+   0
+  ],
+  [
+   "2026-05-08",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Prizmic D.",
+   "Djokovic N.",
+   2.75,
+   0.391,
+   1
+  ],
+  [
+   "2026-05-08",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Potapova A.",
+   "Muchova K.",
+   2.75,
+   0.3991,
+   1
+  ],
+  [
+   "2026-05-09",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Garin C.",
+   "Davidovich Fokina A.",
+   2.3,
+   0.4579,
+   0
+  ],
+  [
+   "2026-05-09",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Buse I.",
+   "Tiafoe F.",
+   1.73,
+   0.6475,
+   0
+  ],
+  [
+   "2026-05-09",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Popyrin A.",
+   "Mensik J.",
+   3.0,
+   0.3598,
+   1
+  ],
+  [
+   "2026-05-10",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Darderi L.",
+   "Paul T.",
+   2.1,
+   0.5007,
+   1
+  ],
+  [
+   "2026-05-11",
+   "ATP",
+   "Internazionali BNL d'Italia",
+   "Davidovich Fokina A.",
+   "Rublev A.",
+   2.3,
+   0.457,
+   0
+  ],
+  [
+   "2026-05-11",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Potapova A.",
+   "Pegula J.",
+   2.75,
+   0.3998,
+   0
+  ],
+  [
+   "2026-05-12",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Andreeva M.",
+   "Gauff C.",
+   1.91,
+   0.5881,
+   0
+  ],
+  [
+   "2026-05-13",
+   "WTA",
+   "Internazionali BNL d'Italia",
+   "Swiatek I.",
+   "Pegula J.",
+   1.36,
+   0.7732,
+   1
+  ],
+  [
+   "2026-05-17",
+   "ATP",
+   "Hamburg Open",
+   "Quinn E.",
+   "Paul T.",
+   3.4,
+   0.3281,
+   0
+  ],
+  [
+   "2026-05-20",
+   "WTA",
+   "Morocco Open",
+   "Tjen J.",
+   "Osorio M.",
+   3.5,
+   0.3144,
+   0
+  ],
+  [
+   "2026-05-20",
+   "WTA",
+   "Internationaux de Strasbourg",
+   "Zhang S.",
+   "Parry D.",
+   2.38,
+   0.4517,
+   1
+  ],
+  [
+   "2026-05-24",
+   "WTA",
+   "French Open",
+   "Burel C.",
+   "Volynets K.",
+   4.5,
+   0.5765,
+   0
+  ],
+  [
+   "2026-05-25",
+   "ATP",
+   "French Open",
+   "Kokkinakis T.",
+   "Atmane T.",
+   4.0,
+   0.323,
+   1
+  ],
+  [
+   "2026-05-26",
+   "ATP",
+   "French Open",
+   "Zhang Zh.",
+   "Diaz Acosta F.",
+   3.2,
+   0.3309,
+   0
+  ],
+  [
+   "2026-05-27",
+   "ATP",
+   "French Open",
+   "Cina F.",
+   "De Jong J.",
+   2.3,
+   0.4571,
+   0
+  ],
+  [
+   "2026-05-29",
+   "ATP",
+   "French Open",
+   "Borges N.",
+   "Rublev A.",
+   3.4,
+   0.3168,
+   0
+  ],
+  [
+   "2026-06-08",
+   "WTA",
+   "Rosmalen Grass Court Championships",
+   "Montgomery R.",
+   "Kasatkina D.",
+   2.75,
+   0.4121,
+   1
+  ],
+  [
+   "2026-06-08",
+   "WTA",
+   "Queen's Club Championships",
+   "Cristian J.",
+   "Zheng Q.",
+   3.4,
+   0.3089,
+   1
+  ],
+  [
+   "2026-06-11",
+   "ATP",
+   "Rosmalen Grass Court Championships",
+   "Zhang Zh.",
+   "Griekspoor T.",
+   3.2,
+   0.3352,
+   1
+  ],
+  [
+   "2026-06-11",
+   "ATP",
+   "Stuttgart Open",
+   "Landaluce M.",
+   "Fritz T.",
+   3.2,
+   0.3305,
+   0
+  ],
+  [
+   "2026-06-11",
+   "WTA",
+   "Rosmalen Grass Court Championships",
+   "Montgomery R.",
+   "Minnen G.",
+   2.3,
+   0.4612,
+   1
+  ],
+  [
+   "2026-06-12",
+   "WTA",
+   "Rosmalen Grass Court Championships",
+   "Montgomery R.",
+   "Snigur D.",
+   2.1,
+   0.5522,
+   1
+  ],
+  [
+   "2026-06-13",
+   "WTA",
+   "Rosmalen Grass Court Championships",
+   "Montgomery R.",
+   "Tomljanovic A.",
+   1.8,
+   0.6281,
+   1
+  ],
+  [
+   "2026-06-14",
+   "ATP",
+   "Stuttgart Open",
+   "Shelton B.",
+   "Fritz T.",
+   2.0,
+   0.5278,
+   1
+  ],
+  [
+   "2026-06-16",
+   "WTA",
+   "German Open",
+   "Wang Xin.",
+   "Keys M.",
+   3.2,
+   0.3414,
+   0
+  ],
+  [
+   "2026-06-17",
+   "ATP",
+   "Halle Open",
+   "Auger-Aliassime F.",
+   "Tien L.",
+   1.73,
+   0.6316,
+   1
+  ],
+  [
+   "2026-06-17",
+   "WTA",
+   "German Open",
+   "Siniakova K.",
+   "Pegula J.",
+   2.38,
+   0.4493,
+   0
+  ],
+  [
+   "2026-06-19",
+   "ATP",
+   "Halle Open",
+   "Auger-Aliassime F.",
+   "Tiafoe F.",
+   1.62,
+   0.6511,
+   0
+  ],
+  [
+   "2026-06-19",
+   "ATP",
+   "Queen's Club Championships",
+   "Fery A.",
+   "Cerundolo F.",
+   2.3,
+   0.469,
+   0
+  ],
+  [
+   "2026-06-19",
+   "ATP",
+   "Queen's Club Championships",
+   "Davidovich Fokina A.",
+   "Paul T.",
+   3.0,
+   0.3827,
+   0
+  ],
+  [
+   "2026-06-20",
+   "ATP",
+   "Halle Open",
+   "Altmaier D.",
+   "Tiafoe F.",
+   3.4,
+   0.309,
+   0
+  ],
+  [
+   "2026-06-20",
+   "WTA",
+   "German Open",
+   "Sabalenka A.",
+   "Pegula J.",
+   1.53,
+   0.6932,
+   0
+  ],
+  [
+   "2026-06-22",
+   "ATP",
+   "Eastbourne International",
+   "Giron M.",
+   "Draper J.",
+   3.2,
+   0.3495,
+   0
+  ],
+  [
+   "2026-06-22",
+   "ATP",
+   "Mallorca Championships",
+   "Marozsan F.",
+   "Molcan A.",
+   1.73,
+   0.6155,
+   1
+  ],
+  [
+   "2026-06-22",
+   "WTA",
+   "Bad Homburg Open",
+   "Williams V.",
+   "Begu I.",
+   3.75,
+   0.3241,
+   0
+  ],
+  [
+   "2026-06-22",
+   "WTA",
+   "Eastbourne Open",
+   "Joint M.",
+   "Arango E.",
+   1.53,
+   0.6924,
+   0
+  ],
+  [
+   "2026-06-23",
+   "WTA",
+   "Eastbourne Open",
+   "Bejlek S.",
+   "Siegemund L.",
+   2.0,
+   0.5316,
+   1
+  ],
+  [
+   "2026-06-23",
+   "ATP",
+   "Mallorca Championships",
+   "Kecmanovic M.",
+   "Sonego L.",
+   1.73,
+   0.6093,
+   1
+  ],
+  [
+   "2026-06-23",
+   "ATP",
+   "Mallorca Championships",
+   "Hanfmann Y.",
+   "Darderi L.",
+   1.57,
+   0.7134,
+   0
+  ],
+  [
+   "2026-06-24",
+   "ATP",
+   "Mallorca Championships",
+   "Shelbayh A.",
+   "Dimitrov G.",
+   4.5,
+   0.2389,
+   0
+  ],
+  [
+   "2026-06-29",
+   "WTA",
+   "Wimbledon",
+   "Ruzic A.",
+   "Semenistaja D.",
+   1.44,
+   0.7294,
+   1
+  ],
+  [
+   "2026-06-30",
+   "ATP",
+   "Wimbledon",
+   "Fearnley J.",
+   "Michelsen A.",
+   2.3,
+   0.4576,
+   1
+  ],
+  [
+   "2026-06-30",
+   "ATP",
+   "Wimbledon",
+   "Kokkinakis T.",
+   "Bublik A.",
+   3.2,
+   0.3394,
+   0
+  ],
+  [
+   "2026-06-30",
+   "ATP",
+   "Wimbledon",
+   "Pinnington Jones J.",
+   "Nakashima B.",
+   4.33,
+   0.2559,
+   0
+  ],
+  [
+   "2026-06-30",
+   "ATP",
+   "Wimbledon",
+   "Collignon R.",
+   "Fils A.",
+   2.2,
+   0.5293,
+   0
+  ],
+  [
+   "2026-07-01",
+   "ATP",
+   "Wimbledon",
+   "Atmane T.",
+   "Tiafoe F.",
+   4.5,
+   0.2417,
+   0
+  ],
+  [
+   "2026-07-01",
+   "ATP",
+   "Wimbledon",
+   "Marozsan F.",
+   "Davidovich Fokina A.",
+   2.75,
+   0.3864,
+   0
+  ],
+  [
+   "2026-07-02",
+   "ATP",
+   "Wimbledon",
+   "Dimitrov G.",
+   "Mensik J.",
+   2.5,
+   0.4341,
+   1
+  ],
+  [
+   "2026-07-03",
+   "ATP",
+   "Wimbledon",
+   "Hurkacz H.",
+   "Paul T.",
+   2.5,
+   0.435,
+   1
+  ],
+  [
+   "2026-07-05",
+   "ATP",
+   "Wimbledon",
+   "Auger-Aliassime F.",
+   "Davidovich Fokina A.",
+   1.57,
+   0.6879,
+   1
+  ],
+  [
+   "2026-07-05",
+   "WTA",
+   "Wimbledon",
+   "Bencic B.",
+   "Gauff C.",
+   1.91,
+   0.55,
+   0
+  ],
+  [
+   "2026-07-07",
+   "ATP",
+   "Wimbledon",
+   "Auger-Aliassime F.",
+   "Djokovic N.",
+   2.38,
+   0.4494,
+   0
+  ],
+  [
+   "2026-07-09",
+   "WTA",
+   "Wimbledon",
+   "Muchova K.",
+   "Gauff C.",
+   1.8,
+   0.6108,
+   1
+  ],
+  [
+   "2026-07-12",
+   "ATP",
+   "Wimbledon",
+   "Zverev A.",
+   "Sinner J.",
+   4.5,
+   0.2551,
+   0
+  ],
+  [
+   "2026-07-13",
+   "WTA",
+   "Iasi Open",
+   "Podoroska N.",
+   "Marcinko P.",
+   3.75,
+   0.3021,
+   0
+  ],
+  [
+   "2026-07-13",
+   "WTA",
+   "Iasi Open",
+   "Burel C.",
+   "Lepchenko V.",
+   1.5,
+   0.7394,
+   1
+  ],
+  [
+   "2026-07-15",
+   "ATP",
+   "Suisse Open Gstaad",
+   "Hanfmann Y.",
+   "Vacherot V.",
+   1.53,
+   0.704,
+   0
+  ],
+  [
+   "2026-07-15",
+   "WTA",
+   "Athens Open",
+   "Hontama M.",
+   "Parks A.",
+   2.3,
+   0.4866,
+   0
+  ],
+  [
+   "2026-07-15",
+   "WTA",
+   "Iasi Open",
+   "Burel C.",
+   "Jacquemot E.",
+   1.57,
+   0.7222,
+   1
+  ],
+  [
+   "2026-07-17",
+   "ATP",
+   "Suisse Open Gstaad",
+   "Stricker D.",
+   "Shevchenko A.",
+   1.8,
+   0.6256,
+   0
+  ],
+  [
+   "2026-07-17",
+   "WTA",
+   "Iasi Open",
+   "Burel C.",
+   "Oliynykova O.",
+   2.2,
+   0.5309,
+   0
+  ],
+  [
+   "2026-07-21",
+   "WTA",
+   "Hamburg European Open",
+   "Niemeier J.",
+   "Carle M.",
+   2.63,
+   0.4383,
+   0
+  ],
+  [
+   "2026-07-21",
+   "WTA",
+   "Prague Open",
+   "Hontama M.",
+   "Parry D.",
+   2.63,
+   0.4261,
+   1
+  ],
+  [
+   "2026-07-22",
+   "WTA",
+   "Prague Open",
+   "Dodin O.",
+   "Salkova D.",
+   3.4,
+   0.329,
+   0
+  ],
+  [
+   "2026-07-23",
+   "ATP",
+   "Estoril Open",
+   "Martinez P.",
+   "Darderi L.",
+   3.5,
+   0.3138,
+   0
+  ],
+  [
+   "2026-07-24",
+   "WTA",
+   "Prague Open",
+   "Valentova T.",
+   "Bouzkova M.",
+   2.5,
+   0.4289,
+   1
+  ],
+  [
+   "2026-07-27",
+   "ATP",
+   "Citi Open",
+   "Nishikori K.",
+   "Shang J.",
+   2.2,
+   0.5339,
+   1
+  ],
+  [
+   "2026-07-27",
+   "WTA",
+   "Citi Open",
+   "Samsonova L.",
+   "Keys M.",
+   3.75,
+   0.2841,
+   1
+  ],
+  [
+   "2026-07-28",
+   "ATP",
+   "Citi Open",
+   "Atmane T.",
+   "Tiafoe F.",
+   3.75,
+   0.3093,
+   1
+  ],
+  [
+   "2026-07-29",
+   "WTA",
+   "Citi Open",
+   "Williams V.",
+   "Potapova A.",
+   6.0,
+   0.2519,
+   0
+  ],
+  [
+   "2026-07-30",
+   "ATP",
+   "Citi Open",
+   "Nishikori K.",
+   "Jodar R.",
+   5.5,
+   0.2649,
+   0
+  ],
+  [
+   "2026-07-30",
+   "WTA",
+   "Memphis Classic",
+   "Prozorova T.",
+   "Stearns P.",
+   2.38,
+   0.4439,
+   0
+  ],
+  [
+   "2026-07-31",
+   "WTA",
+   "Citi Open",
+   "Kudermetova P.",
+   "Svitolina E.",
+   5.0,
+   0.2159,
+   0
+  ],
+  [
+   "2026-07-31",
+   "ATP",
+   "Los Cabos Open",
+   "Gea A.",
+   "Cerundolo F.",
+   2.63,
+   0.4254,
+   1
+  ],
+  [
+   "2026-08-02",
+   "WTA",
+   "Canadian Open",
+   "Williams V.",
+   "Rakhimova K.",
+   4.33,
+   0.3761,
+   0
+  ],
+  [
+   "2026-08-03",
+   "ATP",
+   "Canadian Open",
+   "Navone M.",
+   "Berrettini M.",
+   2.75,
+   0.3902,
+   1
+  ],
+  [
+   "2026-08-03",
+   "WTA",
+   "Canadian Open",
+   "Tjen J.",
+   "Samsonova L.",
+   2.5,
+   0.4268,
+   0
+  ],
+  [
+   "2026-08-04",
+   "ATP",
+   "Canadian Open",
+   "Zheng M.",
+   "Kecmanovic M.",
+   1.67,
+   0.6352,
+   0
+  ],
+  [
+   "2026-08-04",
+   "ATP",
+   "Canadian Open",
+   "Giron M.",
+   "Hurkacz H.",
+   2.5,
+   0.4409,
+   0
+  ],
+  [
+   "2026-08-04",
+   "ATP",
+   "Canadian Open",
+   "Atmane T.",
+   "Draper J.",
+   2.75,
+   0.3819,
+   1
+  ],
+  [
+   "2026-08-04",
+   "WTA",
+   "Canadian Open",
+   "Stephens S.",
+   "Sierra S.",
+   2.0,
+   0.5297,
+   1
+  ],
+  [
+   "2026-08-04",
+   "ATP",
+   "Canadian Open",
+   "Shang J.",
+   "Rublev A.",
+   4.0,
+   0.2933,
+   1
+  ],
+  [
+   "2026-08-04",
+   "WTA",
+   "Canadian Open",
+   "Bouzas Maneiro J.",
+   "Svitolina E.",
+   5.0,
+   0.2154,
+   0
+  ],
+  [
+   "2026-08-05",
+   "ATP",
+   "Canadian Open",
+   "Baez S.",
+   "Bergs Z.",
+   2.2,
+   0.4877,
+   0
+  ],
+  [
+   "2026-08-05",
+   "ATP",
+   "Canadian Open",
+   "Navone M.",
+   "Vacherot V.",
+   2.38,
+   0.4434,
+   1
+  ],
+  [
+   "2026-08-05",
+   "ATP",
+   "Canadian Open",
+   "Griekspoor T.",
+   "Zverev A.",
+   6.0,
+   0.1979,
+   1
+  ],
+  [
+   "2026-08-05",
+   "WTA",
+   "Canadian Open",
+   "Linette M.",
+   "Jovic I.",
+   4.33,
+   0.2478,
+   0
+  ],
+  [
+   "2026-08-06",
+   "ATP",
+   "Canadian Open",
+   "Monfils G.",
+   "Tien L.",
+   3.4,
+   0.356,
+   0
+  ],
+  [
+   "2026-08-06",
+   "WTA",
+   "Canadian Open",
+   "Joint M.",
+   "Cirstea S.",
+   3.4,
+   0.3213,
+   1
+  ],
+  [
+   "2026-08-06",
+   "ATP",
+   "Canadian Open",
+   "Shang J.",
+   "Darderi L.",
+   1.8,
+   0.5988,
+   0
+  ],
+  [
+   "2026-08-06",
+   "ATP",
+   "Canadian Open",
+   "Navone M.",
+   "Fils A.",
+   3.75,
+   0.2864,
+   0
+  ],
+  [
+   "2026-08-06",
+   "WTA",
+   "Canadian Open",
+   "Bartunkova N.",
+   "Anisimova A.",
+   2.75,
+   0.3942,
+   0
+  ],
+  [
+   "2026-08-12",
+   "WTA",
+   "Canadian Open",
+   "Rybakina E.",
+   "Osaka N.",
+   1.91,
+   0.55,
+   1
+  ],
+  [
+   "2026-08-13",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Boisson L.",
+   "Krueger A.",
+   3.4,
+   0.3145,
+   1
+  ],
+  [
+   "2026-08-14",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Monfils G.",
+   "Hijikata R.",
+   1.67,
+   0.6444,
+   0
+  ],
+  [
+   "2026-08-14",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Carreno Busta P.",
+   "Machac T.",
+   1.8,
+   0.6006,
+   1
+  ],
+  [
+   "2026-08-14",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Kokkinakis T.",
+   "Borges N.",
+   3.0,
+   0.3583,
+   0
+  ],
+  [
+   "2026-08-14",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Shang J.",
+   "Sonego L.",
+   1.62,
+   0.6659,
+   0
+  ],
+  [
+   "2026-08-14",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Zheng M.",
+   "Marozsan F.",
+   1.67,
+   0.6455,
+   1
+  ],
+  [
+   "2026-08-14",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Williams V.",
+   "Arango E.",
+   3.4,
+   0.4402,
+   0
+  ],
+  [
+   "2026-08-15",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Frech M.",
+   "Ostapenko J.",
+   2.0,
+   0.5444,
+   1
+  ],
+  [
+   "2026-08-15",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Bartunkova N.",
+   "Cirstea S.",
+   2.38,
+   0.4717,
+   0
+  ],
+  [
+   "2026-08-16",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Norrie C.",
+   "Zverev A.",
+   4.0,
+   0.2964,
+   0
+  ],
+  [
+   "2026-08-16",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Zheng M.",
+   "Humbert U.",
+   2.0,
+   0.5283,
+   1
+  ],
+  [
+   "2026-08-16",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Borges N.",
+   "Cerundolo F.",
+   1.73,
+   0.6073,
+   1
+  ],
+  [
+   "2026-08-16",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Merida Aguilar D.",
+   "Bergs Z.",
+   1.8,
+   0.5879,
+   1
+  ],
+  [
+   "2026-08-16",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Bejlek S.",
+   "Krejcikova B.",
+   2.38,
+   0.4488,
+   1
+  ],
+  [
+   "2026-08-16",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Zhang S.",
+   "Li A.",
+   2.3,
+   0.4573,
+   0
+  ],
+  [
+   "2026-08-17",
+   "WTA",
+   "Western & Southern Financial Group Women's Open",
+   "Boisson L.",
+   "Parry D.",
+   1.91,
+   0.5688,
+   0
+  ],
+  [
+   "2026-08-18",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Atmane T.",
+   "Zverev A.",
+   5.5,
+   0.197,
+   0
+  ],
+  [
+   "2026-08-18",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Borges N.",
+   "Rublev A.",
+   2.5,
+   0.4488,
+   1
+  ],
+  [
+   "2026-08-19",
+   "ATP",
+   "Western & Southern Financial Group Masters",
+   "Tien L.",
+   "Tiafoe F.",
+   1.8,
+   0.5976,
+   0
+  ],
+  [
+   "2026-08-23",
+   "ATP",
+   "Winston-Salem Open at Wake Forest University",
+   "Shimabukuro S.",
+   "Kecmanovic M.",
+   3.0,
+   0.3527,
+   0
+  ],
+  [
+   "2026-08-24",
+   "ATP",
+   "Winston-Salem Open at Wake Forest University",
+   "Herbert P.",
+   "Sonego L.",
+   3.75,
+   0.288,
+   0
+  ],
+  [
+   "2026-08-26",
+   "ATP",
+   "Winston-Salem Open at Wake Forest University",
+   "Grenier H.",
+   "Baez S.",
+   4.0,
+   0.2902,
+   0
+  ],
+  [
+   "2026-08-30",
+   "ATP",
+   "US Open",
+   "Van Assche L.",
+   "Norrie C.",
+   2.75,
+   0.3904,
+   1
+  ],
+  [
+   "2026-08-31",
+   "ATP",
+   "US Open",
+   "Wolf J.J.",
+   "Bublik A.",
+   3.0,
+   0.4105,
+   0
+  ],
+  [
+   "2026-08-31",
+   "ATP",
+   "US Open",
+   "Tsitsipas S.",
+   "Fils A.",
+   5.0,
+   0.217,
+   1
+  ],
+  [
+   "2026-08-31",
+   "WTA",
+   "US Open",
+   "Ito A.",
+   "Selekhmeteva O.",
+   2.5,
+   0.4606,
+   0
+  ],
+  [
+   "2026-09-01",
+   "ATP",
+   "US Open",
+   "Cerundolo J.M.",
+   "Gea A.",
+   2.1,
+   0.5033,
+   0
+  ],
+  [
+   "2026-09-02",
+   "WTA",
+   "US Open",
+   "Kasatkina D.",
+   "Badosa P.",
+   2.0,
+   0.53,
+   0
+  ],
+  [
+   "2026-09-02",
+   "ATP",
+   "US Open",
+   "Merida Aguilar D.",
+   "Rublev A.",
+   2.2,
+   0.509,
+   1
+  ],
+  [
+   "2026-09-04",
+   "ATP",
+   "US Open",
+   "Monfils G.",
+   "Tien L.",
+   5.0,
+   0.2127,
+   0
+  ],
+  [
+   "2026-09-04",
+   "WTA",
+   "US Open",
+   "Cirstea S.",
+   "Paolini J.",
+   1.53,
+   0.6884,
+   1
+  ],
+  [
+   "2026-09-05",
+   "WTA",
+   "US Open",
+   "Kalinskaya A.",
+   "Svitolina E.",
+   3.4,
+   0.3296,
+   1
+  ],
+  [
+   "2026-09-08",
+   "WTA",
+   "US Open",
+   "Sabalenka A.",
+   "Noskova L.",
+   1.33,
+   0.7908,
+   1
+  ],
+  [
+   "2026-09-09",
+   "WTA",
+   "US Open",
+   "Andreeva M.",
+   "Gauff C.",
+   2.75,
+   0.4028,
+   0
+  ],
+  [
+   "2026-09-11",
+   "WTA",
+   "US Open",
+   "Sabalenka A.",
+   "Pegula J.",
+   1.5,
+   0.7037,
+   1
+  ],
+  [
+   "2026-09-17",
+   "WTA",
+   "SP Open",
+   "Podoroska N.",
+   "Lys E.",
+   2.63,
+   0.4153,
+   1
+  ],
+  [
+   "2026-09-19",
+   "WTA",
+   "SP Open",
+   "Podoroska N.",
+   "Badosa P.",
+   5.0,
+   0.2156,
+   1
+  ],
+  [
+   "2026-09-21",
+   "WTA",
+   "SP Open",
+   "Podoroska N.",
+   "Quevedo K.",
+   2.1,
+   0.5041,
+   0
+  ],
+  [
+   "2026-09-24",
+   "ATP",
+   "Chengdu Open",
+   "Shang J.",
+   "Mannarino A.",
+   1.44,
+   0.7329,
+   0
+  ],
+  [
+   "2026-09-24",
+   "WTA",
+   "Singapore Open",
+   "Prozorova T.",
+   "Eala A.",
+   4.5,
+   0.2385,
+   1
+  ],
+  [
+   "2026-09-25",
+   "ATP",
+   "Chengdu Open",
+   "Basilashvili N.",
+   "Van De Zandschulp B.",
+   2.75,
+   0.3908,
+   1
+  ],
+  [
+   "2026-09-25",
+   "ATP",
+   "Hangzhou Open",
+   "Jacquet K.",
+   "Etcheverry T.",
+   2.38,
+   0.4515,
+   1
+  ],
+  [
+   "2026-09-25",
+   "ATP",
+   "Hangzhou Open",
+   "Daniel T.",
+   "Marozsan F.",
+   3.0,
+   0.3557,
+   0
+  ],
+  [
+   "2026-09-25",
+   "ATP",
+   "Hangzhou Open",
+   "Hijikata R.",
+   "Rublev A.",
+   3.4,
+   0.3165,
+   0
+  ],
+  [
+   "2026-09-26",
+   "ATP",
+   "Chengdu Open",
+   "Cerundolo J.M.",
+   "Davidovich Fokina A.",
+   2.5,
+   0.4822,
+   0
+  ],
+  [
+   "2026-09-27",
+   "ATP",
+   "Chengdu Open",
+   "Muller A.",
+   "Davidovich Fokina A.",
+   3.5,
+   0.3208,
+   0
+  ],
+  [
+   "2026-09-27",
+   "ATP",
+   "Chengdu Open",
+   "Harris L.",
+   "Hurkacz H.",
+   2.5,
+   0.4211,
+   0
+  ],
+  [
+   "2026-09-28",
+   "ATP",
+   "Chengdu Open",
+   "Basilashvili N.",
+   "Davidovich Fokina A.",
+   2.75,
+   0.405,
+   0
+  ],
+  [
+   "2026-09-30",
+   "ATP",
+   "Japan Open Tennis Championships",
+   "Tabilo A.",
+   "Paul T.",
+   3.4,
+   0.3142,
+   1
+  ],
+  [
+   "2026-10-01",
+   "ATP",
+   "China Open",
+   "Van De Zandschulp B.",
+   "Cerundolo F.",
+   2.2,
+   0.5022,
+   0
+  ],
+  [
+   "2026-10-01",
+   "ATP",
+   "China Open",
+   "Shang J.",
+   "Baez S.",
+   1.62,
+   0.6742,
+   1
+  ],
+  [
+   "2026-10-01",
+   "ATP",
+   "Japan Open Tennis Championships",
+   "Jacquet K.",
+   "Rune H.",
+   2.5,
+   0.4473,
+   1
+  ],
+  [
+   "2026-10-01",
+   "ATP",
+   "Japan Open Tennis Championships",
+   "Nishikori K.",
+   "Tiafoe F.",
+   5.0,
+   0.2103,
+   0
+  ],
+  [
+   "2026-10-02",
+   "ATP",
+   "Japan Open Tennis Championships",
+   "Jacquet K.",
+   "Darderi L.",
+   2.2,
+   0.4872,
+   1
+  ],
+  [
+   "2026-10-02",
+   "WTA",
+   "China Open",
+   "Sasnovich A.",
+   "Alexandrova E.",
+   2.3,
+   0.4826,
+   0
+  ],
+  [
+   "2026-10-02",
+   "WTA",
+   "China Open",
+   "Boulter K.",
+   "Muchova K.",
+   5.5,
+   0.2073,
+   0
+  ],
+  [
+   "2026-10-03",
+   "WTA",
+   "China Open",
+   "Siniakova K.",
+   "Svitolina E.",
+   4.0,
+   0.274,
+   0
+  ],
+  [
+   "2026-10-04",
+   "ATP",
+   "China Open",
+   "Medvedev D.",
+   "Cerundolo F.",
+   1.4,
+   0.7549,
+   1
+  ],
+  [
+   "2026-10-04",
+   "ATP",
+   "Japan Open Tennis Championships",
+   "Jacquet K.",
+   "Munar J.",
+   2.2,
+   0.4841,
+   0
+  ],
+  [
+   "2026-10-04",
+   "ATP",
+   "Japan Open Tennis Championships",
+   "Vallejo D.",
+   "Lehecka J.",
+   3.4,
+   0.3158,
+   0
+  ],
+  [
+   "2026-10-07",
+   "ATP",
+   "Shanghai Masters",
+   "Shimabukuro S.",
+   "Kecmanovic M.",
+   3.0,
+   0.3868,
+   0
+  ],
+  [
+   "2026-10-07",
+   "ATP",
+   "Shanghai Masters",
+   "Majchrzak K.",
+   "Hanfmann Y.",
+   1.57,
+   0.6712,
+   0
+  ],
+  [
+   "2026-10-07",
+   "ATP",
+   "Shanghai Masters",
+   "Zhou Y.",
+   "Bellucci M.",
+   3.75,
+   0.3006,
+   1
+  ],
+  [
+   "2026-10-08",
+   "ATP",
+   "Shanghai Masters",
+   "Svrcina D.",
+   "Norrie C.",
+   2.75,
+   0.3834,
+   1
+  ],
+  [
+   "2026-10-09",
+   "ATP",
+   "Shanghai Masters",
+   "Sakamoto R.",
+   "Rublev A.",
+   3.4,
+   0.3383,
+   1
+  ],
+  [
+   "2026-10-09",
+   "ATP",
+   "Shanghai Masters",
+   "Brooksby J.",
+   "Davidovich Fokina A.",
+   3.0,
+   0.3679,
+   0
+  ],
+  [
+   "2026-10-09",
+   "ATP",
+   "Shanghai Masters",
+   "Hurkacz H.",
+   "Djokovic N.",
+   2.38,
+   0.4439,
+   1
+  ],
+  [
+   "2026-10-09",
+   "ATP",
+   "Shanghai Masters",
+   "Zhou Y.",
+   "Musetti L.",
+   4.5,
+   0.308,
+   1
+  ],
+  [
+   "2026-10-09",
+   "ATP",
+   "Shanghai Masters",
+   "Machac T.",
+   "Bublik A.",
+   2.63,
+   0.4229,
+   0
+  ],
+  [
+   "2026-10-10",
+   "ATP",
+   "Shanghai Masters",
+   "Svrcina D.",
+   "Etcheverry T.",
+   2.3,
+   0.4633,
+   1
+  ],
+  [
+   "2026-10-10",
+   "ATP",
+   "Shanghai Masters",
+   "Bu Y.",
+   "Ruud C.",
+   1.8,
+   0.5999,
+   0
+  ],
+  [
+   "2026-10-10",
+   "ATP",
+   "Shanghai Masters",
+   "Vallejo D.",
+   "Paul T.",
+   2.75,
+   0.4074,
+   0
+  ],
+  [
+   "2026-10-11",
+   "ATP",
+   "Shanghai Masters",
+   "Mannarino A.",
+   "Khachanov K.",
+   3.5,
+   0.3039,
+   0
+  ],
+  [
+   "2026-10-11",
+   "ATP",
+   "Shanghai Masters",
+   "Sakamoto R.",
+   "De Minaur A.",
+   3.0,
+   0.3588,
+   0
+  ],
+  [
+   "2026-10-11",
+   "ATP",
+   "Shanghai Masters",
+   "Zhou Y.",
+   "Hurkacz H.",
+   6.0,
+   0.1933,
+   0
+  ],
+  [
+   "2026-10-11",
+   "ATP",
+   "Shanghai Masters",
+   "Mensik J.",
+   "Cerundolo F.",
+   1.62,
+   0.6553,
+   1
+  ],
+  [
+   "2026-10-12",
+   "WTA",
+   "Wuhan Open",
+   "Wang Xin.",
+   "Wang Xiy.",
+   1.91,
+   0.5737,
+   0
+  ],
+  [
+   "2026-10-12",
+   "ATP",
+   "Shanghai Masters",
+   "Vacherot V.",
+   "Paul T.",
+   2.3,
+   0.4672,
+   0
+  ],
+  [
+   "2026-10-13",
+   "WTA",
+   "Wuhan Open",
+   "Sonmez Z.",
+   "Putintseva Y.",
+   2.1,
+   0.5117,
+   0
+  ],
+  [
+   "2026-10-14",
+   "WTA",
+   "Wuhan Open",
+   "Ostapenko J.",
+   "Pegula J.",
+   3.2,
+   0.3421,
+   1
+  ]
+ ],
  "logloss_model": 0.5948117894814298,
  "logloss_bookmaker": 0.593494142948469
 }
