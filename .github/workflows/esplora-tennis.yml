@@ -1,0 +1,39 @@
+name: Esplora dati tennis
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p esplora
+          python3 - <<'PY'
+          import json, urllib.request
+          H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124.0", "Accept": "application/json"}
+          def get(u):
+              try:
+                  return json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=H), timeout=30).read())
+              except Exception as e:
+                  return {"_error": str(e)}
+          k = get("https://eu-offering-api.kambicdn.com/offering/v2018/ub/listView/tennis/all/all/all/matches.json?lang=en_GB&market=GB&useCombined=true")
+          evs = k.get("events", [])
+          paths = {}
+          for e in evs:
+              p = " / ".join(x.get("englishName") or x.get("name") for x in e["event"].get("path", []))
+              paths[p] = paths.get(p, 0) + 1
+          json.dump({"n": len(evs), "paths": paths, "sample": evs[:4]}, open("esplora/kambi.json", "w"), indent=1)
+          for tour in ["atp", "wta"]:
+              d = get(f"https://site.api.espn.com/apis/site/v2/sports/tennis/{tour}/scoreboard?dates=20261019")
+              json.dump(d, open(f"esplora/espn_{tour}_20261019.json", "w"), indent=1)
+          d = get("https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard")
+          json.dump(d, open("esplora/espn_atp_oggi.json", "w"), indent=1)
+          PY
+          git config user.name "turtle-robot"; git config user.email "turtle-robot@users.noreply.github.com"
+          git add esplora && git commit -m "Esplorazione dati tennis" && git push
