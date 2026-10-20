@@ -131,7 +131,7 @@ canvas{display:block;width:100%;height:100%}
       <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><div class="lbl">Posizioni aperte adesso</div><div class="pos" id="lvPos"></div></div>
       <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><div class="lbl">Operazioni del robot</div><div class="feed" id="lvFeed"></div></div>
     </div>
-    <div class="lbl">Dettaglio di ogni trade</div>
+    <div class="lbl">Dettaglio di ogni trade · orari in ora di Praga · il netto dei trade in corso cambia ogni giorno, diventa definitivo alla chiusura</div>
     <div class="log"><table><thead><tr><th>Materia prima</th><th>Tipo</th><th>Inizio</th><th>Fine</th><th class="r">Investito €</th><th class="r">Durata</th><th class="r">Netto €</th></tr></thead><tbody id="lvLog"></tbody></table></div>
     <p class="sub" style="font-size:13px">Il robot parte con 500 € il primo giorno e ogni sera, dopo la chiusura dei mercati USA, legge i prezzi veri e decide da solo. Nessun soldo reale viene investito.</p>
   </section>
@@ -478,7 +478,7 @@ function renderKPIs() {
   // posizioni
   const P = f.pos, keys = Object.keys(P);
   $("pos").innerHTML = keys.length ? keys.map(k=>{ const p=P[k], px=f.px[k], u=p.dir*p.units*(px-p.entry);
-    return `<div class="row"><span><b>${META[k].name}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · investito ${eur(p.notional ?? Math.abs(p.units*p.entry))} · entrata ${fmt(p.entry)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
+    return `<div class="row"><span><b>${META[k].name}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${when(p.day, p.time)} · investito ${eur(p.notional ?? Math.abs(p.units*p.entry))} · entrata ${fmt(p.entry)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
     : `<div class="empty">Nessuna posizione aperta: il robot aspetta una rottura del canale a 20 giorni.</div>`;
   // feed in evidenza
   const last5 = sim.trades.filter(t=>t.day<=f.day).slice(-5).reverse();
@@ -493,20 +493,30 @@ function renderKPIs() {
   }
 }
 function daysBetween(a, b){ return Math.round((new Date(b) - new Date(a)) / 864e5); }
+function when(day, time) {
+  if (time) { const [d, h] = time.split(" "); return `${it(d)} <b>${h}</b>`; }
+  return it(day);
+}
+function durText(a, at, b, bt) {
+  if (at && bt) { const m = Math.round((new Date(bt.replace(" ","T")) - new Date(at.replace(" ","T"))) / 6e4);
+    const g = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60);
+    return g ? `${g} gg ${h} h` : `${h} h ${m % 60} min`; }
+  return daysBetween(a, b) + " gg";
+}
 function tradeRows(trades, openPos, px, today, limit) {
   const rows = [];
   for (const k in openPos) { const p = openPos[k], u = p.dir*p.units*((px[k] ?? p.entry) - p.entry) - p.cost;
-    rows.push({k, dir:p.dir, entryDay:p.day, entryPx:p.entry, exitDay:null, exitPx:px[k], notional:p.notional ?? Math.abs(p.units*p.entry), pnl:u, open:true, sort:"9"+p.day}); }
-  for (const t of trades) if (t.kind === "close") rows.push({k:t.k, dir:t.dir, entryDay:t.entryDay, entryPx:t.entryPx, exitDay:t.day, exitPx:t.px, why:t.why, notional:t.notional, pnl:t.pnl, sort:t.day});
+    rows.push({k, dir:p.dir, entryDay:p.day, entryTime:p.time, entryPx:p.entry, exitDay:null, exitPx:px[k], notional:p.notional ?? Math.abs(p.units*p.entry), pnl:u, open:true, sort:"9"+p.day}); }
+  for (const t of trades) if (t.kind === "close") rows.push({k:t.k, dir:t.dir, entryDay:t.entryDay, entryTime:t.entryTime, entryPx:t.entryPx, exitDay:t.day, exitTime:t.time, exitPx:t.px, why:t.why, notional:t.notional, pnl:t.pnl, sort:t.day});
   rows.sort((a,b) => a.sort < b.sort ? 1 : -1);
   const out = rows.slice(0, limit);
   if (!out.length) return `<tr><td colspan="7" class="empty">Ancora nessun trade.</td></tr>`;
   return out.map(r => {
-    const dur = daysBetween(r.entryDay, r.exitDay || today), cl = r.pnl >= 0 ? "c-long" : "c-short", ret = r.notional ? r.pnl / r.notional : 0;
+    const dur = r.open ? daysBetween(r.entryDay, today) + " gg" : durText(r.entryDay, r.entryTime, r.exitDay, r.exitTime), cl = r.pnl >= 0 ? "c-long" : "c-short", ret = r.notional ? r.pnl / r.notional : 0;
     return `<tr><td>${META[r.k]?.name || r.k}</td><td class="${r.dir>0?"c-long":"c-short"}">${r.dir>0?"Long":"Short"}</td>
-      <td>${it(r.entryDay)}<br><span class="lbl">a ${fmt(r.entryPx)}</span></td>
-      <td>${r.open ? `<span class="pill c-acc">IN CORSO</span>` : `${it(r.exitDay)}<br><span class="lbl">a ${fmt(r.exitPx)} · ${r.why}</span>`}</td>
-      <td class="r">${eur(r.notional)}</td><td class="r">${dur} gg</td>
+      <td>${when(r.entryDay, r.entryTime)}<br><span class="lbl">a ${fmt(r.entryPx)}</span></td>
+      <td>${r.open ? `<span class="pill c-acc">IN CORSO</span>` : `${when(r.exitDay, r.exitTime)}<br><span class="lbl">a ${fmt(r.exitPx)} · ${r.why}</span>`}</td>
+      <td class="r">${eur(r.notional)}</td><td class="r">${dur}</td>
       <td class="r ${cl}">${eur(r.pnl)}<br><span class="lbl ${cl}">${pct(ret)}</span></td></tr>`; }).join("");
 }
 function draw(){ drawEquity(sim,cur); drawPrice(sim,cur,tab); }
@@ -579,7 +589,7 @@ function renderLive(){
   $("lvDays").textContent = eqs.length;
   const P = LIVE.positions, ks = Object.keys(P);
   $("lvPos").innerHTML = ks.length ? ks.map(k=>{ const p=P[k], px=LIVE.lastpx[k], u=p.dir*p.units*(px-p.entry);
-    return `<div class="row"><span><b>${META[k]?.name||k}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${it(p.day)} · investito ${eur(p.notional ?? Math.abs(p.units*p.entry))} · entrata ${fmt(p.entry)} · ora ${fmt(px)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
+    return `<div class="row"><span><b>${META[k]?.name||k}</b> <span class="pill ${p.dir>0?"c-long":"c-short"}">${p.dir>0?"LONG":"SHORT"}</span><br><span class="lbl mono">dal ${when(p.day, p.time)} · investito ${eur(p.notional ?? Math.abs(p.units*p.entry))} · entrata ${fmt(p.entry)} · ora ${fmt(px)} · stop ${fmt(p.stop)}</span></span><span class="num ${u>=0?"c-long":"c-short"}">${eur(u)}</span></div>`; }).join("")
     : `<div class="empty">Nessuna posizione aperta: il robot aspetta una rottura del canale a 20 giorni.</div>`;
   const tr = LIVE.trades.slice(-12).reverse();
   $("lvFeed").innerHTML = tr.length ? tr.map(t=>{ const open=t.pnl===null, cl=open?(t.act.startsWith("Compra")?"c-long":"c-short"):(t.pnl>=0?"c-long":"c-short");

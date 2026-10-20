@@ -175,6 +175,64 @@ def step_day(st, day, raw, ind):
     st["last"] = day
 
 
+# ---------- orari esatti (ora di Praga) ----------
+# I prezzi giornalieri dicono solo il giorno. Per l'orario il robot scarica i prezzi a 5 minuti
+# (Yahoo li tiene per circa 60 giorni) e cerca la prima barra in cui il prezzo ha toccato il
+# livello di esecuzione. Una seduta dei futures USA va dalle 18:00 (New York) del giorno prima
+# alle 17:00 del giorno stesso.
+INTRADAY_DAYS = 55
+_intraday = {}
+
+
+def _bars(k):
+    if k not in _intraday:
+        try:
+            import yfinance as yf
+            df = yf.Ticker(k.upper() + "=F").history(period="60d", interval="5m", auto_adjust=False)
+            df = df[["Open", "High", "Low"]].dropna()
+            if df.index.tz is None:
+                df.index = df.index.tz_localize("UTC")
+            _intraday[k] = df.tz_convert("America/New_York")
+        except Exception as e:
+            print(f"  orari {k}: non disponibili ({e})")
+            _intraday[k] = None
+    return _intraday[k]
+
+
+def find_time(k, day, px, touch_up):
+    """Ora di Praga (YYYY-MM-DD HH:MM) della prima barra della seduta `day` che tocca `px`."""
+    df = _bars(k)
+    if df is None or df.empty:
+        return None
+    sess = (df.index + datetime.timedelta(hours=6)).strftime("%Y-%m-%d")
+    d = df[sess == day]
+    if d.empty:
+        return None
+    tol = abs(px) * 1e-4
+    hit = d[d["High"] >= px - tol] if touch_up else d[d["Low"] <= px + tol]
+    if hit.empty:
+        return None
+    ts = hit.index[0].tz_convert("Europe/Prague")
+    return ts.strftime("%Y-%m-%d %H:%M")
+
+
+def annotate_times(st):
+    limit = (datetime.date.today() - datetime.timedelta(days=INTRADAY_DAYS)).isoformat()
+    for t in st["trades"]:
+        if t["day"] < limit:
+            continue
+        if t["kind"] == "open" and not t.get("time"):
+            t["time"] = find_time(t["k"], t["day"], t["px"], t["dir"] > 0)
+        if t["kind"] == "close":
+            if not t.get("time"):
+                t["time"] = find_time(t["k"], t["day"], t["px"], t["dir"] < 0)
+            if not t.get("entryTime") and t["entryDay"] >= limit:
+                t["entryTime"] = find_time(t["k"], t["entryDay"], t["entryPx"], t["dir"] > 0)
+    for k, P in st["positions"].items():
+        if not P.get("time") and P["day"] >= limit:
+            P["time"] = find_time(k, P["day"], P["entry"], P["dir"] > 0)
+
+
 def run_robot(raw):
     ind = {k: indicators(v) for k, v in raw.items()}
     # Usa solo sedute chiuse: prima delle 21:00 UTC la candela di oggi e' ancora parziale.
@@ -193,6 +251,17 @@ def run_robot(raw):
         step_day(st, day, raw, ind)
     if not todo:
         print("Nessuna seduta nuova da elaborare.")
+    # porta l'orario di entrata dentro il trade chiuso, poi completa gli orari mancanti
+    open_time = {}
+    for t in st["trades"]:
+        if t["kind"] == "open":
+            open_time[(t["k"], t["day"])] = t.get("time")
+        elif t["kind"] == "close" and not t.get("entryTime"):
+            t["entryTime"] = open_time.get((t["k"], t["entryDay"]))
+    annotate_times(st)
+    for t in st["trades"]:
+        if t["kind"] == "close" and not t.get("entryTime"):
+            t["entryTime"] = open_time.get((t["k"], t["entryDay"]))
     STATE.write_text(json.dumps(st, ensure_ascii=False, indent=1))
     return st
 
