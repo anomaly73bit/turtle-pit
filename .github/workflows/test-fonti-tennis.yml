@@ -1,0 +1,48 @@
+name: Test fonti tennis
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Quote Unibet (Kambi) e fonti storiche
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request
+          UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36", "Accept": "application/json"}
+          def get(u):
+              try:
+                  r = urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30)
+                  b = r.read(); return r.status, b
+              except Exception as e:
+                  return getattr(e, "code", "ERR"), str(e).encode()
+          for op in ["ub", "ubit", "ubuk", "ubnl"]:
+              for host in ["eu-offering-api.kambicdn.com", "eu-offering.kambicdn.org"]:
+                  u = f"https://{host}/offering/v2018/{op}/listView/tennis/all/all/all/matches.json?lang=en_GB&market=GB&useCombined=true"
+                  s, b = get(u)
+                  info = ""
+                  if s == 200:
+                      try:
+                          d = json.loads(b); ev = d.get("events", [])
+                          info = f"eventi={len(ev)}"
+                          for e in ev[:3]:
+                              E = e["event"]; bo = e.get("betOffers", [])
+                              odds = [(o.get("participant") or o.get("label"), o.get("odds")) for o in (bo[0]["outcomes"] if bo else [])]
+                              info += f" | {E.get('name')} [{E.get('group')}] {E.get('start')} {E.get('state')} {odds}"
+                      except Exception as x:
+                          info = f"json? {x} {b[:120]!r}"
+                  else:
+                      info = b[:150].decode(errors='replace')
+                  print(op, host, s, info[:900])
+          for u in ["http://www.tennis-data.co.uk/2025/2025.xlsx", "http://www.tennis-data.co.uk/2025w/2025.xlsx",
+                    "https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2024.csv",
+                    "https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2025.csv",
+                    "https://raw.githubusercontent.com/JeffSackmann/tennis_wta/master/wta_matches_2025.csv"]:
+              s, b = get(u); print(u, s, len(b))
+          PY
