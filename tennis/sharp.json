@@ -1,14 +1,256 @@
 {
- "time": "2026-10-20T13:44+00:00",
+ "time": "2026-10-20T13:45+00:00",
  "month": "2026-10",
- "remaining": 499,
+ "remaining": 498,
+ "tournaments": [
+  [
+   "tennis_atp_aus_open_singles",
+   "ATP Australian Open",
+   false
+  ],
+  [
+   "tennis_atp_barcelona_open",
+   "ATP Barcelona Open",
+   false
+  ],
+  [
+   "tennis_atp_canadian_open",
+   "ATP Canadian Open",
+   false
+  ],
+  [
+   "tennis_atp_china_open",
+   "ATP China Open",
+   false
+  ],
+  [
+   "tennis_atp_cincinnati_open",
+   "ATP Cincinnati Open",
+   false
+  ],
+  [
+   "tennis_atp_dubai",
+   "ATP Dubai",
+   false
+  ],
+  [
+   "tennis_atp_french_open",
+   "ATP French Open",
+   false
+  ],
+  [
+   "tennis_atp_halle_open",
+   "ATP Halle Open",
+   false
+  ],
+  [
+   "tennis_atp_hamburg_open",
+   "ATP Hamburg Open",
+   false
+  ],
+  [
+   "tennis_atp_indian_wells",
+   "ATP Indian Wells",
+   false
+  ],
+  [
+   "tennis_atp_italian_open",
+   "ATP Italian Open",
+   false
+  ],
+  [
+   "tennis_atp_japan_open",
+   "ATP Japan Open",
+   false
+  ],
+  [
+   "tennis_atp_madrid_open",
+   "ATP Madrid Open",
+   false
+  ],
+  [
+   "tennis_atp_miami_open",
+   "ATP Miami Open",
+   false
+  ],
+  [
+   "tennis_atp_monte_carlo_masters",
+   "ATP Monte-Carlo Masters",
+   false
+  ],
+  [
+   "tennis_atp_munich",
+   "ATP Munich",
+   false
+  ],
+  [
+   "tennis_atp_paris_masters",
+   "ATP Paris Masters",
+   false
+  ],
+  [
+   "tennis_atp_qatar_open",
+   "ATP Qatar Open",
+   false
+  ],
+  [
+   "tennis_atp_queens_club_champ",
+   "ATP Queen's Club Championships",
+   false
+  ],
+  [
+   "tennis_atp_shanghai_masters",
+   "ATP Shanghai Masters",
+   false
+  ],
+  [
+   "tennis_atp_us_open",
+   "ATP US Open",
+   false
+  ],
+  [
+   "tennis_atp_washington_open",
+   "ATP Washington Open",
+   false
+  ],
+  [
+   "tennis_atp_wimbledon",
+   "ATP Wimbledon",
+   false
+  ],
+  [
+   "tennis_wta_aus_open_singles",
+   "WTA Australian Open",
+   false
+  ],
+  [
+   "tennis_wta_bad_homburg_open",
+   "WTA Bad Homburg Open",
+   false
+  ],
+  [
+   "tennis_wta_canadian_open",
+   "WTA Canadian Open",
+   false
+  ],
+  [
+   "tennis_wta_charleston_open",
+   "WTA Charleston Open",
+   false
+  ],
+  [
+   "tennis_wta_china_open",
+   "WTA China Open",
+   false
+  ],
+  [
+   "tennis_wta_cincinnati_open",
+   "WTA Cincinnati Open",
+   false
+  ],
+  [
+   "tennis_wta_dubai",
+   "WTA Dubai Championships",
+   false
+  ],
+  [
+   "tennis_wta_french_open",
+   "WTA French Open",
+   false
+  ],
+  [
+   "tennis_wta_german_open",
+   "WTA German Open",
+   false
+  ],
+  [
+   "tennis_wta_guadalajara_open",
+   "WTA Guadalajara Open",
+   false
+  ],
+  [
+   "tennis_wta_indian_wells",
+   "WTA Indian Wells",
+   false
+  ],
+  [
+   "tennis_wta_italian_open",
+   "WTA Italian Open",
+   false
+  ],
+  [
+   "tennis_wta_madrid_open",
+   "WTA Madrid Open",
+   false
+  ],
+  [
+   "tennis_wta_miami_open",
+   "WTA Miami Open",
+   false
+  ],
+  [
+   "tennis_wta_monterrey_open",
+   "WTA Monterrey Open",
+   false
+  ],
+  [
+   "tennis_wta_ningbo_open",
+   "WTA Ningbo Open",
+   true
+  ],
+  [
+   "tennis_wta_qatar_open",
+   "WTA Qatar Open",
+   false
+  ],
+  [
+   "tennis_wta_queens_club_champ",
+   "WTA Queen's Club Championships",
+   false
+  ],
+  [
+   "tennis_wta_singapore_open",
+   "WTA Singapore Open",
+   false
+  ],
+  [
+   "tennis_wta_strasbourg",
+   "WTA Internationaux de Strasbourg",
+   false
+  ],
+  [
+   "tennis_wta_stuttgart_open",
+   "WTA Stuttgart Open",
+   false
+  ],
+  [
+   "tennis_wta_us_open",
+   "WTA US Open",
+   false
+  ],
+  [
+   "tennis_wta_washington_open",
+   "WTA Washington Open",
+   false
+  ],
+  [
+   "tennis_wta_wimbledon",
+   "WTA Wimbledon",
+   false
+  ],
+  [
+   "tennis_wta_wuhan_open",
+   "WTA Wuhan Open",
+   false
+  ]
+ ],
  "events": [
   {
    "home": "Katarzyna Kawa",
    "away": "Daria Snigur",
    "start": "2026-10-20T10:45:00Z",
    "key": "tennis_wta_ningbo_open",
-   "p_home": 0.3534,
+   "p_home": 0.33,
    "src": [
     "betfair_ex_eu",
     "matchbook"
