@@ -17,9 +17,13 @@ def _get(path, params):
         return json.loads(r.read()), {k.lower(): v for k, v in r.headers.items()}
 
 
+ALL_TENNIS = []
+
+
 def tennis_keys():
     """Tornei di tennis ATP/WTA attivi adesso (chiamata gratuita)."""
-    data, _ = _get("/sports", {})
+    data, _ = _get("/sports", {"all": "true"})
+    ALL_TENNIS[:] = [[s["key"], s.get("title"), s.get("active")] for s in data if s.get("group") == "Tennis"]
     return [s["key"] for s in data if s.get("group") == "Tennis" and s.get("active")
             and (s["key"].startswith("tennis_atp") or s["key"].startswith("tennis_wta"))]
 

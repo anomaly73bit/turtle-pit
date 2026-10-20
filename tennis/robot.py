@@ -194,7 +194,7 @@ def sharp_update():
         out.append({"home": ev["home_team"], "away": ev["away_team"], "start": ev["commence_time"],
                     "key": ev["sport_key"], "p_home": round(p, 4), "src": used})
     snap = {"time": now.isoformat(timespec="minutes"), "month": now.strftime("%Y-%m"),
-            "remaining": int(rem) if rem is not None else remaining, "events": out}
+            "remaining": int(rem) if rem is not None else remaining, "tournaments": sharp.ALL_TENNIS, "events": out}
     SHARP_FILE.write_text(json.dumps(snap, ensure_ascii=False, indent=1))
     print(f"Quote sharp salvate: {len(out)} partite con Pinnacle/Betfair")
     return snap
