@@ -50,7 +50,7 @@ COMMODITIES = {
                                          swapL=0.00023278, swapS=0.00001722, ok="20/10/2026")),
     "ZC=F": ("Mais", "¢/bushel", dict(xtb="CORN", mult=500, f=1, minlot=0.005, step=0.001, spread=0.56, lev=10,
                                        swapL=0.00023278, swapS=0.00001722, ok="20/10/2026")),
-    "ZS=F": ("Soia", "¢/bushel", dict(xtb="SOYBEAN", mult=300, f=1, minlot=0.005, step=0.001, spread=1.0, lev=10,
+    "ZS=F": ("Soia", "¢/bushel", dict(xtb="SOYBEAN", mult=300, f=1, minlot=0.005, step=0.001, spread=1.15, lev=10,
                                        swapL=0.00023278, swapS=0.00001722, ok="20/10/2026")),
     "KC=F": ("Caffè", "¢/libbra", dict(xtb="COFFEE", mult=2000, f=1, minlot=0.001, step=0.001, spread=0.25, lev=10,
                                          swapL=0.00034389, swapS=0.00012833, ok="20/10/2026")),
